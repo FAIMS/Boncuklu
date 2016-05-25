@@ -903,13 +903,9 @@
           <label/>
           <group ref="Col_0" faims_style="even">
             <label/>
-            <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode" faims_style_class="required">
+            <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode" faims_style_class="required">
               <label>{AreaCode}</label>
-              <item>
-                <label>Options not loaded</label>
-                <value>0</value>
-              </item>
-            </select1>
+            </input>
           </group>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1678,13 +1674,9 @@
           <label/>
           <group ref="Col_0" faims_style="even">
             <label/>
-            <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode" faims_style_class="required">
+            <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode" faims_style_class="required">
               <label>{Trench}</label>
-              <item>
-                <label>Options not loaded</label>
-                <value>0</value>
-              </item>
-            </select1>
+            </input>
           </group>
           <group ref="Col_1" faims_style="even">
             <label/>
@@ -1934,13 +1926,9 @@
         <input faims_attribute_type="measure" ref="Context_ID" faims_attribute_name="Context ID">
           <label>{Context_ID}</label>
         </input>
-        <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
+        <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode">
           <label>{AreaCode}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select1>
+        </input>
       </group>
     </group>
     <group ref="Height" faims_archent_type="Height">
@@ -1968,13 +1956,9 @@
         <input faims_attribute_type="measure" ref="Context_ID" faims_attribute_name="Context ID">
           <label>{Context_ID}</label>
         </input>
-        <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
+        <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode">
           <label>{AreaCode}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select1>
+        </input>
       </group>
     </group>
     <group ref="Sample" faims_archent_type="Sample">
@@ -2098,13 +2082,9 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
+        <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode">
           <label>{AreaCode}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select1>
+        </input>
         <select1 faims_attribute_type="vocab" ref="Device_Code" faims_attribute_name="Device Code">
           <label>{Device_Code}</label>
           <item>
@@ -2230,13 +2210,9 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
+        <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode">
           <label>{AreaCode}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select1>
+        </input>
         <select1 faims_attribute_type="vocab" ref="Device_Code" faims_attribute_name="Device Code">
           <label>{Device_Code}</label>
           <item>
@@ -2287,13 +2263,9 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
+        <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode">
           <label>{AreaCode}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select1>
+        </input>
         <select1 faims_attribute_type="vocab" ref="Device_Code" faims_attribute_name="Device Code">
           <label>{Device_Code}</label>
           <item>
@@ -2328,13 +2300,9 @@
         <input faims_attribute_type="measure" ref="Title" faims_attribute_name="Title">
           <label>{Title}</label>
         </input>
-        <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
+        <input faims_attribute_type="measure" ref="AreaCode" faims_attribute_name="AreaCode">
           <label>{AreaCode}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select1>
+        </input>
         <input faims_attribute_type="measure" ref="Text" faims_attribute_name="Text">
           <label>{Text}</label>
         </input>

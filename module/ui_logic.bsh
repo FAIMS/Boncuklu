@@ -147,7 +147,6 @@ getDropdownItemValue() {
 addOnEvent("User/User_List/Users", "click", "dropdownItemValue = getFieldValue(\"User/User_List/Users\")");
 addOnEvent("User/User_List/AreaCode", "click", "dropdownItemValue = getFieldValue(\"User/User_List/AreaCode\")");
 addOnEvent("User/User_List/Device_Code", "click", "dropdownItemValue = getFieldValue(\"User/User_List/Device_Code\")");
-addOnEvent("Context/General/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Context/General/AreaCode\")");
 addOnEvent("Context/General/Horizon_Boundary", "click", "dropdownItemValue = getFieldValue(\"Context/General/Horizon_Boundary\")");
 addOnEvent("Context/General/Contamination", "click", "dropdownItemValue = getFieldValue(\"Context/General/Contamination\")");
 addOnEvent("Context/Cut/Cut_Your_Interpretation", "click", "dropdownItemValue = getFieldValue(\"Context/Cut/Cut_Your_Interpretation\")");
@@ -170,26 +169,19 @@ addOnEvent("Context/Deposit/Associated_Matrices", "click", "dropdownItemValue = 
 addOnEvent("Context/Add/Select_a_Photograph_Log", "click", "dropdownItemValue = getFieldValue(\"Context/Add/Select_a_Photograph_Log\")");
 addOnEvent("Context/Soil_Texture_Helper/Soil_Texture_Helper", "click", "dropdownItemValue = getFieldValue(\"Context/Soil_Texture_Helper/Soil_Texture_Helper\")");
 addOnEvent("Context/Vars/Device_Code", "click", "dropdownItemValue = getFieldValue(\"Context/Vars/Device_Code\")");
-addOnEvent("Context_Group/Gen/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Context_Group/Gen/AreaCode\")");
 addOnEvent("Context_Group/Gen/CG_Context_Type", "click", "dropdownItemValue = getFieldValue(\"Context_Group/Gen/CG_Context_Type\")");
 addOnEvent("Context_Group/Add/Select_a_Photograph_Log", "click", "dropdownItemValue = getFieldValue(\"Context_Group/Add/Select_a_Photograph_Log\")");
 addOnEvent("Context_Group/Vars/Device_Code", "click", "dropdownItemValue = getFieldValue(\"Context_Group/Vars/Device_Code\")");
 addOnEvent("Matrix/Matrix/Component", "click", "dropdownItemValue = getFieldValue(\"Matrix/Matrix/Component\")");
-addOnEvent("Matrix/Vars/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Matrix/Vars/AreaCode\")");
-addOnEvent("Height/Vars/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Height/Vars/AreaCode\")");
 addOnEvent("Sample/Deposit_Samples/Sample_Type", "click", "dropdownItemValue = getFieldValue(\"Sample/Deposit_Samples/Sample_Type\")");
 addOnEvent("Sample/Deposit_Samples/Sample_Location", "click", "dropdownItemValue = getFieldValue(\"Sample/Deposit_Samples/Sample_Location\")");
-addOnEvent("Sample/Vars/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Sample/Vars/AreaCode\")");
 addOnEvent("Sample/Vars/Device_Code", "click", "dropdownItemValue = getFieldValue(\"Sample/Vars/Device_Code\")");
 addOnEvent("Special_Find/Special_Find/Special_Find_Class", "click", "dropdownItemValue = getFieldValue(\"Special_Find/Special_Find/Special_Find_Class\")");
 addOnEvent("Special_Find/Special_Find/Source", "click", "dropdownItemValue = getFieldValue(\"Special_Find/Special_Find/Source\")");
 addOnEvent("Special_Find/Special_Find/Special_Find_Location", "click", "dropdownItemValue = getFieldValue(\"Special_Find/Special_Find/Special_Find_Location\")");
-addOnEvent("Special_Find/Vars/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Special_Find/Vars/AreaCode\")");
 addOnEvent("Special_Find/Vars/Device_Code", "click", "dropdownItemValue = getFieldValue(\"Special_Find/Vars/Device_Code\")");
 addOnEvent("Photograph_Log/Photograph_Log/Scene_Type", "click", "dropdownItemValue = getFieldValue(\"Photograph_Log/Photograph_Log/Scene_Type\")");
-addOnEvent("Photograph_Log/Vars/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Photograph_Log/Vars/AreaCode\")");
 addOnEvent("Photograph_Log/Vars/Device_Code", "click", "dropdownItemValue = getFieldValue(\"Photograph_Log/Vars/Device_Code\")");
-addOnEvent("Diary/Diary/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Diary/Diary/AreaCode\")");
 addOnEvent("Relationship/Relationships/Square", "click", "dropdownItemValue = getFieldValue(\"Relationship/Relationships/Square\")");
 addOnEvent("Relationship/Relationships/Relationship_Type", "click", "dropdownItemValue = getFieldValue(\"Relationship/Relationships/Relationship_Type\")");
 addOnEvent("Context_Group_Relationship/Relationships/Square", "click", "dropdownItemValue = getFieldValue(\"Context_Group_Relationship/Relationships/Square\")");
@@ -514,7 +506,6 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
       }
     });
 }
-makeVocab("DropDown", "Context/General/AreaCode", "AreaCode");
 makeVocab("CheckBoxGroup", "Context/General/Excavation_Method", "Excavation Method");
 makeVocab("DropDown", "Context/General/Horizon_Boundary", "Horizon Boundary");
 makeVocab("DropDown", "Context/General/Contamination", "Contamination");
@@ -541,26 +532,19 @@ makeVocab("DropDown", "Context/Deposit/Deposit_Bedding", "Deposit Bedding");
 makeVocab("RadioGroup", "Context/Deposit/Sterile", "Sterile");
 makeVocab("HierarchicalDropDown", "Context/Soil_Texture_Helper/Soil_Texture_Helper", "Soil Texture Helper");
 makeVocab("DropDown", "Context/Vars/Device_Code", "Device Code");
-makeVocab("DropDown", "Context_Group/Gen/AreaCode", "AreaCode");
 makeVocab("DropDown", "Context_Group/Gen/CG_Context_Type", "CG Context Type");
 makeVocab("DropDown", "Context_Group/Vars/Device_Code", "Device Code");
 makeVocab("DropDown", "Matrix/Matrix/Component", "Component");
 makeVocab("HierarchicalPictureGallery", "Matrix/Matrix/Shape", "Shape");
-makeVocab("DropDown", "Matrix/Vars/AreaCode", "AreaCode");
-makeVocab("DropDown", "Height/Vars/AreaCode", "AreaCode");
 makeVocab("DropDown", "Sample/Deposit_Samples/Sample_Type", "Sample Type");
 makeVocab("DropDown", "Sample/Deposit_Samples/Sample_Location", "Sample Location");
-makeVocab("DropDown", "Sample/Vars/AreaCode", "AreaCode");
 makeVocab("DropDown", "Sample/Vars/Device_Code", "Device Code");
 makeVocab("HierarchicalDropDown", "Special_Find/Special_Find/Special_Find_Class", "Special Find Class");
 makeVocab("DropDown", "Special_Find/Special_Find/Source", "Source");
 makeVocab("DropDown", "Special_Find/Special_Find/Special_Find_Location", "Special Find Location");
-makeVocab("DropDown", "Special_Find/Vars/AreaCode", "AreaCode");
 makeVocab("DropDown", "Special_Find/Vars/Device_Code", "Device Code");
 makeVocab("DropDown", "Photograph_Log/Photograph_Log/Scene_Type", "Scene Type");
-makeVocab("DropDown", "Photograph_Log/Vars/AreaCode", "AreaCode");
 makeVocab("DropDown", "Photograph_Log/Vars/Device_Code", "Device Code");
-makeVocab("DropDown", "Diary/Diary/AreaCode", "AreaCode");
 
 
 /******************************************************************************/
