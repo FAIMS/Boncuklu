@@ -1,0 +1,6 @@
+/***************************** WEBVIEW POPULATION *****************************/
+guideFile = getAttachedFilePath("files/data/guide/guidePureHtml.html");
+String WEB_WARN_ART_ID = "<p style=\"color:#f00\">Beware that Artefact ID is not auto-generated. Ensure you fill it in correctly.</p>";
+
+populateWebViewHtml("Special_Find/Special_Find/Guide_0", WEB_WARN_ART_ID);
+populateWebView    ("User/Help/Help", guideFile);

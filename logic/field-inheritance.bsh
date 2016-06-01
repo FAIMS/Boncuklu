@@ -151,3 +151,8 @@ inheritDiaryFields() {
     "Diary/Diary/AreaCode"
   );
 }
+
+// Don't delete me. This simplifies the code in @POSTPROC.
+inheritLegacyFields() {
+  return;
+}

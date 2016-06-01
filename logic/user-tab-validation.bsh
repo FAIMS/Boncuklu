@@ -30,8 +30,8 @@ noUsersSelected() {
 }
 
 noAreaCodeSelected() {
-  msgHead = "No {AreaCode} Selected";
-  msgBody = "A {AreaCode} must be selected in order to log in.";
+  msgHead = "No Trench Selected";
+  msgBody = "A Trench must be selected in order to log in.";
   showWarning(msgHead, msgBody);
 }
 
