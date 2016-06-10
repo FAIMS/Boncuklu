@@ -79,7 +79,7 @@
               <Create_New_Diary/>
               <Create_New_Legacy/>
               <Team_Members/>
-              <Next_Context_ID/>
+              <Next_Context_Context_ID/>
               <Next_Context_Group_ID/>
               <Next_Sample_ID/>
               <GPS_Diagnostics/>
@@ -104,7 +104,7 @@
                   <AreaCode/>
                 </Col_0>
                 <Col_1>
-                  <Context_ID/>
+                  <Context_Context_ID/>
                 </Col_1>
                 <Col_2>
                   <Context_Name/>
@@ -666,7 +666,14 @@
           </Diary>
           <Legacy>
             <Legacy>
-              <LegacyIdentifier/>
+              <Colgroup_0>
+                <Col_0>
+                  <AreaCode/>
+                </Col_0>
+                <Col_1>
+                  <Legacy_Context_ID/>
+                </Col_1>
+              </Colgroup_0>
             </Legacy>
           </Legacy>
           <Relationship>
@@ -737,10 +744,10 @@
           <logic/>
         </faims>
       </instance>
-      <bind type="decimal" nodeset="/faims/Control/Contexts/Next_Context_ID"/>
+      <bind type="decimal" nodeset="/faims/Control/Contexts/Next_Context_Context_ID"/>
       <bind type="decimal" nodeset="/faims/Control/Contexts/Next_Context_Group_ID"/>
       <bind type="decimal" nodeset="/faims/Control/Contexts/Next_Sample_ID"/>
-      <bind type="decimal" nodeset="/faims/Context/General/Colgroup_0/Col_1/Context_ID"/>
+      <bind type="decimal" nodeset="/faims/Context/General/Colgroup_0/Col_1/Context_Context_ID"/>
       <bind type="decimal" nodeset="/faims/Context/General/Colgroup_1/Col_0/Grid_X"/>
       <bind type="decimal" nodeset="/faims/Context/General/Colgroup_1/Col_1/Grid_Y"/>
       <bind type="decimal" nodeset="/faims/Context/Measure/Colgroup_0/Col_0/Highest_Level"/>
@@ -864,8 +871,8 @@
         <input ref="Team_Members">
           <label>{Team_Members}</label>
         </input>
-        <input ref="Next_Context_ID" faims_style_class="required">
-          <label>{Next_Context_ID}</label>
+        <input ref="Next_Context_Context_ID" faims_style_class="required">
+          <label>{Next_Context_Context_ID}</label>
         </input>
         <input ref="Next_Context_Group_ID" faims_style_class="required">
           <label>{Next_Context_Group_ID}</label>
@@ -928,7 +935,7 @@
           </group>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_type="measure" ref="Context_ID" faims_attribute_name="Context ID" faims_style_class="required">
+            <input faims_attribute_type="measure" ref="Context_Context_ID" faims_attribute_name="Context Context ID" faims_style_class="required">
               <label>{Context_Code}</label>
             </input>
           </group>
@@ -2153,7 +2160,7 @@
       <group ref="Special_Find">
         <label>{Artefact}</label>
         <input faims_web="true" ref="Guide_0">
-          <label>{Guide_0}</label>
+          <label/>
         </input>
         <group ref="Colgroup_0" faims_style="orientation">
           <label/>
@@ -2416,9 +2423,25 @@
       <label>{Legacy}</label>
       <group ref="Legacy">
         <label>{Legacy}</label>
-        <input faims_attribute_type="measure" ref="LegacyIdentifier" faims_attribute_name="LegacyIdentifier">
-          <label>{LegacyIdentifier}</label>
-        </input>
+        <group ref="Colgroup_0" faims_style="orientation">
+          <label/>
+          <group ref="Col_0" faims_style="even">
+            <label/>
+            <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode" faims_style_class="required">
+              <label>{Trench}</label>
+              <item>
+                <label>Options not loaded</label>
+                <value>0</value>
+              </item>
+            </select1>
+          </group>
+          <group ref="Col_1" faims_style="even">
+            <label/>
+            <input faims_attribute_type="measure" ref="Legacy_Context_ID" faims_attribute_name="Legacy Context ID" faims_style_class="required">
+              <label>{Context_Code}</label>
+            </input>
+          </group>
+        </group>
       </group>
     </group>
     <group ref="Relationship">

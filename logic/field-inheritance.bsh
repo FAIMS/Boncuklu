@@ -53,7 +53,7 @@ inheritMatrixFields() {
   );
 
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Matrix/Vars/Context_ID"
   );
 }
@@ -65,7 +65,7 @@ inheritHeightFields() {
   );
 
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Height/Vars/Context_ID"
   );
 }
@@ -77,7 +77,7 @@ inheritSampleFields() {
   );
 
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Sample/Deposit_Samples/Context_ID"
   );
 
@@ -94,7 +94,7 @@ inheritSampleFields() {
 
 inheritSpecialFindFields() {
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Special_Find/Special_Find/Context_ID"
   );
 
@@ -118,7 +118,7 @@ inheritPhotographLogFields() {
   //BEWARE! Weird formatting!
   if (parentTabgroup__.equals("Context"))
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Photograph_Log/Photograph_Log/Photo_Context_ID"
   );
 

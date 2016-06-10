@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--TODO: Ask Brian for specifics on the relationship tabs or tab groups-->
-<!--TODO: Ask brian how important it is for the labels to match bon-->
-
 <!--@PREPROC:  ./proc/pre.sh-->
 <!--@POSTPROC: ./proc/post.sh-->
 <module suppressWarnings="true">
@@ -15,12 +12,13 @@
   </RelationshipElement>
 
   <!--Context-to-Context relationship(s)-->
-  <RelationshipElement name="Butts - Butted By" type="hierarchical">
+  <!--IMPORTANT: These must not contain dashes!-->
+  <RelationshipElement name="Butted By" type="hierarchical">
     <description>Implements a Butts-ButtedBy for contexts.</description>
     <parent>Butts</parent>
     <child>Butted By</child>
   </RelationshipElement>
-  <RelationshipElement name="Rebuilt - Rebuilt By" type="hierarchical">
+  <RelationshipElement name="Rebuilt By" type="hierarchical">
     <description>Implements a Rebuilt - Rebuilt By</description>
     <parent>Rebuilt</parent>
     <child>Rebuilt By</child>
@@ -28,12 +26,12 @@
   <RelationshipElement name="Bonded To" type="bidirectional">
     <description>Implements a bonded to for contexts</description>
   </RelationshipElement>
-  <RelationshipElement name="Cuts - Cut By" type="hierarchical">
+  <RelationshipElement name="Cut By" type="hierarchical">
     <description>Implements a cuts-cutby for contexts.</description>
     <parent>Cuts</parent>
     <child>Cut by</child>
   </RelationshipElement>
-  <RelationshipElement name="Fill Of - Filled With" type="hierarchical">
+  <RelationshipElement name="Filled With" type="hierarchical">
     <description>Implements a fillof-filledwith for contexts.</description>
     <parent>Fill Of</parent>
     <child>Filled With </child>
@@ -57,8 +55,13 @@
 <User f="nodata nolabel">
   <User_List>
     <Users t="dropdown" f="user"/>
-    <AreaCode t="dropdown"/>
-    <Device_Code t="dropdown"/>
+    <AreaCode t="dropdown">
+      Trench
+      <!--Populated manually using @POSTPROC-->
+    </AreaCode>
+    <Device_Code t="dropdown">
+      <!--Populated manually using @POSTPROC-->
+    </Device_Code>
     <Login t="button" l="Control"/>
     <Module_Guide t="button" l="User/Help"/>
   </User_List>
@@ -70,7 +73,9 @@
 <Control f="nodata">
   <Contexts>
     <Create_New_Context       t="button" l="Context"/>
-    <Create_New_Context_Group t="button" l="Context_Group"/>
+    <Create_New_Context_Group t="button" l="Context_Group">
+      Create New Feature
+    </Create_New_Context_Group>
     <Create_New_Diary         t="button" l="Diary"/>
     <Create_New_Legacy        t="button" l="Legacy"/>
     <Team_Members/>
@@ -85,9 +90,11 @@
   <General>
     <cols>
       <AreaCode f="id notnull">
-        <!--@SOURCE: logic/area-code.xml-->
+        Trench
+        <!--@SOURCE: vocabs/area-code.xml-->
       </AreaCode>
-      <Context_ID f="id notnull autonum">
+      <Context_Context_ID f="id notnull autonum">
+        Context Code
         <desc>Every archaeological context (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter context code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a context belongs. For example context HAA belongs to Trench H, context MQP to Trench M etc.
         The contexts are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first context would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote contexts from a specific building.
         Burial context codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial context from trench H.
@@ -95,8 +102,9 @@
         <str>
           <fmt><![CDATA[Cxtx-$2-]]></fmt>
         </str>
-      </Context_ID>
+      </Context_Context_ID>
       <Context_Name f="id">
+        Brief Description
         <desc>Enter a brief, clear name for the Context eg 'House A - west wall'</desc>
         <str>
           <fmt><![CDATA[$2]]></fmt>
@@ -112,6 +120,7 @@
       </Grid_Y>
     </cols>
     <Location_Note f="notnull">
+      Approx Location in area
       <desc>Record the approximate location in the excavation area, for example: centre of Area A; NW corner area A. Also include, where relevant, the position in relation to other archaeological contexts or features e.g. between walls x and y.</desc>
     </Location_Note>
     <cols>
@@ -140,6 +149,7 @@
     </cols>
     <cols>
       <Horizon_Boundary>
+        Basal Edge Definition
         <desc>Describe the boundary between this and the next context.</desc>
         <opts>
           <opt>No Observation<desc>data not collected</desc></opt>
@@ -200,38 +210,46 @@
       <Add_Date_Closed t="button"/>
     </cols>
     <cols>
-      <author f="readonly">Record Created By:</author>
-      <timestamp f="readonly">Record Created Date:</timestamp>
+      <author f="readonly">Record Created By</author>
+      <timestamp f="readonly">Record Created Date</timestamp>
     </cols>
   </General>
   <Measure f="noscroll">
     <cols>
       <Highest_Level f="notnull" b="decimal">
+        Abs Ht Top (m)
         <desc>The highest elevation or 'starting level' recorded for that context relative to the site grid.</desc>
       </Highest_Level>
       <Lowest_Level f="notnull" b="decimal">
+        Abs Ht Bottom (m)
         <desc>The lowest elevation recorded for that context relative to the site grid.</desc>
       </Lowest_Level>
     </cols>
     <cols>
       <Length f="notnull" b="decimal">
+        Length (m)
         <desc>Longest dimension in metres.</desc>
       </Length>
       <Width f="notnull" b="decimal">
+        Width (m)
         <desc>Width or diameter in metres.</desc>
       </Width>
       <Depth f="notnull" b="decimal">
+        Depth (m)
         <desc>Depth or Height in metres.</desc>
       </Depth>
     </cols>
     <Volume f="notnull" b="decimal">
+      Volume (L)
       <desc>Estimate the volume of the context in litres. All soil will be collected in buckets of a known volume. A tally should be kept of buckets produced from a context and the total volume calculated using that tally.</desc>
     </Volume>
     <Add_Height t="button" lc="Height"/>
     <Height_List ec="Height" t="list"/>
   </Measure>
   <Cut>
+    Negative Element
     <Cut_Your_Interpretation f="notnull">
+      Your Interpretation
       <desc>Your interpretation of the likely function of the Context using standardised definitions.</desc>
       <opts>
         <opt>No Observation</opt>
@@ -250,6 +268,7 @@
     </Cut_Your_Interpretation>
     <cols>
       <Shape_of_Cut f="notnull">
+        Shape in Plan
         <desc>Describe the shape of the negative element/cut viewed from above.</desc>
         <opts>
           <opt>No Observation <desc>data not collected</desc></opt>
@@ -286,6 +305,7 @@
     </Break_of_Slope_-_Top>
     <cols>
       <Sides_of_Cut f="notnull">
+        Shape in Section
         <desc>Describe the shape of the cut as seen in cross section.</desc>
         <opts>
           <opt>No Observation</opt>
@@ -341,6 +361,7 @@
   </Cut>
   <Structure>
     <Structure_Your_Interpretation f="notnull">
+      Your Interpretation
       <desc>Your interpretation of the likely function of the structure.</desc>
       <opts>
         <opt>No Observation</opt>
@@ -357,42 +378,22 @@
       </opts>
     </Structure_Your_Interpretation>
     <Structural_Components>
+      Material Type
       <desc>Primary components of structure or feature eg dry-pressed brick rough-hewn stone.</desc>
       <opts>
-        <opt>Brick
-        <desc>Fired or sun-dried clay block used in masonry construction.</desc>
-        <opt>Dry-pressed
-        <desc>Dry pressed brick</desc></opt>
-        <opt>Glazed brick
-        </opt>
-        <opt>Sandstock
-        <desc>Hand-made colonial bricks</desc></opt></opt>
-        <opt>Earth
-        <desc>Compact earthen wall or floor.</desc></opt>
-        <opt>Stone
-        <desc>Worked or unworked stone used in masonry walls.</desc>
-        <opt>Ashlar
-        <desc>Finely dressed stone with flat face.</desc></opt>
-        <opt>Other
-        </opt>
-        <opt>Roughly-hewn
-        <desc>Roughly cut stone: shows some sign of shaping.</desc></opt>
-        <opt>Rubble
-        <desc>Stone fragments with few signs of shaping</desc></opt></opt>
-        <opt>Timber
-        <desc>Timber uprights or other elements for a wall or fence.</desc>
-        <opt>Beam
-        <desc>Timber beam or support.</desc></opt>
-        <opt>Plank
-        <desc>Timber plank for flooring or panelling.</desc></opt>
-        <opt>Post
-        <desc>Round or square timber post.</desc></opt></opt>
+        <opt>No Observation</opt>
+        <opt>Stone</opt>
+        <opt>Plaster</opt>
+        <opt>Mudbrick</opt>
+        <opt>Other</opt>
       </opts>
     </Structural_Components>
     <Component_Finish>
+      Prep/Dressing
       <desc>How have the material types been prepared (i.e dressed stones polished/smoothed/painted plaster surface).</desc>
     </Component_Finish>
     <Bonding>
+      Bonding/Packing
       <desc>Additional details of the bonding/packing material.</desc>
       <opts>
         <opt>No Observation
@@ -412,6 +413,7 @@
       </opts>
     </Bonding>
     <Bonding_Details>
+      Bonding/Packing Details
       <desc>What has been used to bind the major elements together? Is there mud mortar in a wall, or chinking stones? </desc>
     </Bonding_Details>
     <Distinguishing_Marks>
@@ -421,9 +423,11 @@
       <desc>Describe the structure.</desc>
     </Structure_Description>
     <Number_Courses>
+      Number of Courses
       <desc>The number of vertical layers of structural elements such as bricks.</desc>
     </Number_Courses>
     <Set_In_Cut>
+      Set in Cut
       <desc>Give the cut context code if relevant. If not set in cut then put 'NA'.</desc>
     </Set_In_Cut>
     <Structure_Shape>
@@ -450,6 +454,7 @@
       </opts>
     </Structure_Shape>
     <Mudbrick_Shape>
+      Mudbrick Shape(s)
       <desc>The shape of mudbrick(s).</desc>
       <opts>
         <opt>No Observation</opt>
@@ -469,6 +474,7 @@
   </Structure>
   <Deposit>
     <Deposit_Your_Interpretation f="notnull">
+      Your Interpretation
       <desc>Your interpretation of the likely function of the context.</desc>
       <opts>
         <opt>No Observation</opt>
@@ -507,6 +513,7 @@
       </opts>
     </Deposit_Your_Interpretation>
     <Soil_Compaction_Type f="notnull">
+      Texture
       <desc>Describe the compaction of the sediments in the Context.</desc>
       <opts>
         <opt>No Observation</opt>
@@ -525,6 +532,7 @@
       </opts>
     </Soil_Compaction_Type>
     <Soil_Compaction_Description>
+      Texture Description
       <desc>Description of the compaction of soil including changes throughout the deposit. Eg "Varies from loose to compact."</desc>
     </Soil_Compaction_Description>
     <Soil_Particle_Sorting>
@@ -544,6 +552,7 @@
     </Soil_Particle_Sorting>
     <cols>
       <Soil_Texture f="notnull">
+        Material
         <desc>The type of sediment, eg clay, silt, sand and loam. Use the Material Helper or a Soil Sediment diagram for assisance.</desc>
         <opts>
           <opt>No Observation
@@ -579,6 +588,7 @@
         </opts>
       </Soil_Texture>
       <Soil_Texture_Helper t="button" l="Context/Soil_Texture_Helper">
+        Material Helper
         <!--Here the semantics of the `l` attribute have been altered using
             @POSTPROC-->
       </Soil_Texture_Helper>
@@ -589,6 +599,7 @@
     </Soil_Colour>
     <cols>
       <Composition_Type f="notnull">
+        Deposit Structure
         <desc>Describe the structure of the Context sediment. The components making up the structure are added below as aggregates.</desc>
         <opts>
           <opt>No Observation</opt>
@@ -603,6 +614,7 @@
         </opts>
       </Composition_Type>
       <Deposit_Bedding f="notnull">
+        Bedding
         <desc>Describes the base of the deposit</desc>
         <opts>
           <opt>No Observation</opt>
@@ -656,85 +668,108 @@
       </Mid_Y>
     </cols>
     <Skeleton_Dimensions>
+      Dimensions
       <desc>Record the approximate extent of the skeletal remains (in meters or millimetres only) and the axis of measurement. Detailed dimensions can be taken from the plan.</desc>
     </Skeleton_Dimensions>
     <cols>
       <Skeleton_Head f="notnull">
+        Head
         <desc>Which way up the head faces and/or points</desc>
       </Skeleton_Head>
       <Skeleton_Body f="notnull">
+        Body
         <desc>Describe the attitude of the body, whether it is extended, crouched, flexed, supine (front up), prone (face down) and the orientation.</desc>
       </Skeleton_Body>
     </cols>
     <cols>
       <Skeleton_Left_Arm f="notnull">
+        Left Arm
         <desc>Record whether left arm is straight or flexed, is along the side of the body, over the chest or on the pelvis, and the position of the hand.</desc>
       </Skeleton_Left_Arm>
       <Skeleton_Right_Arm f="notnull">
+        Right Arm
         <desc>Record whether right arm is straight or flexed, is along the side of the body, over the chest or on the pelvis, and the position of the hand.</desc>
       </Skeleton_Right_Arm>
     </cols>
     <cols>
       <Skeleton_Left_Leg f="notnull">
+        Left Leg
         <desc>Record whether the leg is straight or bent, crossed left over right or right over left and the position of the foot</desc>
       </Skeleton_Left_Leg>
       <Skeleton_Right_Leg f="notnull">
+        Right Leg
         <desc>Record whether the leg is straight or bent, crossed left over right or right over left and the position of the foot</desc>
       </Skeleton_Right_Leg>
     </cols>
     <Skeleton_Condition f="notnull">
+      Condition
       <desc>Describe the general condition of the skeleton and any comments on articulation. Any degeneration of bone in situ is important to record as well as accidental damage during excavation and lifting. Record disturbances through later activity or animal/root activity as well as damage due to stone pressure on the bones. It is important to note whether the patellae, hyoid, phalanges, basi-occipital etc are present or not, and their location, as this may give an indication of the state of the body at the time of interment.</desc>
     </Skeleton_Condition>
     <Skeleton_Surface_Modifications>
+      Surface Modifications
       <desc>Note any cut marks, evidence of stains and/or colour during the course of the excavation, burning, chewing marks, root activity etc.</desc>
     </Skeleton_Surface_Modifications>
     <Skeleton_Environment>
+      Condition and Weather
       <desc>The physical environment at the time of excavation may affect the state of the bone therefore it is important to note the weather and conditions you are working in.</desc>
     </Skeleton_Environment>
     <Skeleton_Days_Exposed b="decimal">
+      Number of Days Exposed
       <desc>It is important to excavate skeletal remains as quickly as possible as the state of the bone will change during exposure. Any conditional change should also be noted. Excavate as quickly as possible because the bones will degrade rapidly.</desc>
     </Skeleton_Days_Exposed>
     <cols>
       <Target_A_X f="notnull" b="decimal">
+        Target A:X
         <desc>The X coordinate of Target A. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_A_X>
       <Target_A_Y f="notnull" b="decimal">
+        Target A:Y
         <desc>The Y coordinate of Target A. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_A_Y>
       <Target_A_Z f="notnull" b="decimal">
+        Target A:Z
         <desc>The Z coordinate of Target A. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_A_Z>
     </cols>
     <cols>
       <Target_B_X b="decimal">
+        Target B:X
         <desc>The X coordinate of Target B. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_B_X>
       <Target_B_Y b="decimal">
+        Target B:Y
         <desc>The Y coordinate of Target B. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_B_Y>
       <Target_B_Z b="decimal">
+        Target B:Z
         <desc>The Z coordinate of Target B. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_B_Z>
     </cols>
     <cols>
       <Target_C_X b="decimal">
+        Target C:X
         <desc>The X coordinate of Target C. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_C_X>
       <Target_C_Y b="decimal">
+        Target C:Y
         <desc>The Y coordinate of Target C. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_C_Y>
       <Target_C_Z b="decimal">
+        Target C:Z
         <desc>The Z coordinate of Target C. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_C_Z>
     </cols>
     <cols>
       <Target_D_X b="decimal">
+        Target D:X
         <desc>The X coordinate of Target D. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_D_X>
       <Target_D_Y b="decimal">
+        Target D:Y
         <desc>The Y coordinate of Target D. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_D_Y>
       <Target_D_Z b="decimal">
+        Target D:Z
         <desc>The Z coordinate of Target D. Targets are white-painted, large-headed nails used to rectify photographs.</desc>
       </Target_D_Z>
     </cols>
@@ -742,13 +777,15 @@
   </Skeleton>
   <Int>
     <Your_description f="notnull">
+      Your Description
       <desc>Enter a verbal description of the Context, including its form, contexts, relationship to other Contexts and any other relevant information. This is the main place to record all other descriptive information that may be treated briefly or not covered elsewhere, including signs of disturbance  by burrowing animals etc.</desc>
     </Your_description>
     <Your_Discussion f="notnull">
+      Your Interpretation
       <desc>Enter an interpretation of the function of the Context and its place in the stratigraphical sequence.</desc>
     </Your_Discussion>
   </Int>
-  <Relationships>
+  <Relationships f="noscroll">
     <Create_Relationships_to_This_Context t="button" l="Relationship"/>
     <cols>
       <Existing_Relationships_to_This_Context t="list" f="nodata"/>
@@ -760,7 +797,9 @@
     </cols>
   </Relationships>
   <Artefacts f="noscroll">
-    <Add_Special_Find t="button" lc="Special_Find"/>
+    <Add_Special_Find t="button" lc="Special_Find">
+      Add Artefact
+    </Add_Special_Find>
     <List_of_Related_Special_Finds ec="Special_Find" t="list"/>
   </Artefacts>
   <Samples f="noscroll">
@@ -781,11 +820,21 @@
       <desc>Use this button to record a video using the tablet of this context</desc>
     </Video>
     <View_Attached_Files t="viewfiles"/>
-    <Add_Photograph_Log t="button" lc="Photograph_Log"/>
-    <Select_a_Photograph_Log t="dropdown" ec="Photograph_Log"/>
+    <Guide_0 t="webview">
+      Here you can enter filenames or unique reference numbers for image stored
+      on another device.
+    </Guide_0>
+    <Add_Photograph_Log t="button" lc="Photograph_Log">
+      Add Photograph Register
+    </Add_Photograph_Log>
+    <Select_a_Photograph_Log t="dropdown" ec="Photograph_Log">
+      Select a Photograph Register
+    </Select_a_Photograph_Log>
   </Add>
   <Soil_Texture_Helper f="hidden">
+    Material Helper
     <Soil_Texture_Helper>
+      Material Helper
       <desc>This helper is based on the standard flow chart for determining soil texture. Start by taking 25g of soil and placing it in your palm. Select each option and follow the prompts for TASKS (like roll ribbon) until you get a result, eg 'silty loam'. Then click the 'Update' button to have that value pasted onto your Context record.</desc>
       <opts>
         <opt>Soil does NOT remain in ball when squeezed       
@@ -868,7 +917,9 @@
         <desc>A sandy loam sticks together more than a loamy sand but can be easily broken. Individual sand grains can be felt and heard if a wet sample is rubbed between the index finger and thumb and held close to the ear. (VDEPI 2009: AG0058)</desc></opt></opt></opt></opt></opt></opt></opt>
       </opts>
     </Soil_Texture_Helper>
-    <Update_Soil_Texture t="button"/>
+    <Update_Soil_Texture t="button">
+      Update_Material
+    </Update_Soil_Texture>
   </Soil_Texture_Helper>
   <Vars f="hidden">
     <Device_Code>
@@ -884,14 +935,16 @@
 </Context>
 
 <Context_Group>
+  Feature
   <desc>A group of contexts.</desc>
   <Gen>
     <cols>
       <AreaCode f="id notnull">
         Trench
-        <!--@SOURCE: logic/area-code.xml-->
+        <!--@SOURCE: vocabs/area-code.xml-->
       </AreaCode>
       <Context_Group_ID f="id notnull autonum">
+        Feature ID
         <desc>Feature number taken from the central register.</desc>
         <str>
           <fmt><![CDATA[Feat-$2-]]></fmt>
@@ -914,9 +967,11 @@
       </Space>
     </cols>
     <Location_Note_CG>
+      Approx location in area
       <desc>Record where the feature is within a space / building/area if relevant and in particular its relationship to other features or key contexts.</desc>
     </Location_Note_CG>
     <CG_Context_Type f="notnull">
+      Feature Type
       <desc>Enter the type of feature you are describing.</desc>
       <opts>
         <opt>No Observation
@@ -952,9 +1007,11 @@
       </opts>
     </CG_Context_Type>
     <CG_Your_description f="notnull">
+      Your Description
       <desc>Describe the feature, any details of dimensions, disturbance, orientation etc.</desc>
     </CG_Your_description>
     <CG_Your_Interpretation f="notnull">
+      Your Interpretation
       <desc>Describe your understanding of the feature function, phasing etc.</desc>
     </CG_Your_Interpretation>
     <Your_Discussion>
@@ -962,12 +1019,15 @@
     </Your_Discussion>
     <cols>
       <Length b="decimal">
+        Length (m)
         <desc>Longest dimension in metres.</desc>
       </Length>
       <Width b="decimal">
+        Width (m)
         <desc>Width or diameter in metres.</desc>
       </Width>
       <Depth b="decimal">
+        Depth (m)
         <desc>Depth or Height in metres.</desc>
       </Depth>
     </cols>
@@ -980,27 +1040,37 @@
       </Mid_Y>
     </cols>
     <CG_Phase_Notes>
+      Phase Notes
       <desc>The site or building phase in which this feature was constructed or deposited.</desc>
     </CG_Phase_Notes>
-    <CG_Plans>
-      <desc>Reference numbers to plans or drawings of this feature.</desc>
-    </CG_Plans>
-    <CG_Section_Numbers>
-      <desc>Reference numbers to section drawings of this feature</desc>
-    </CG_Section_Numbers>
+    <cols>
+      <CG_Plans>
+        Plans
+        <desc>Reference numbers to plans or drawings of this feature.</desc>
+      </CG_Plans>
+      <CG_Section_Numbers>
+        Section Numbers
+        <desc>Reference numbers to section drawings of this feature</desc>
+      </CG_Section_Numbers>
+    </cols>
     <cols>
       <author f="readonly">
-        Record Created By:
+        Record Created By
       </author>
       <timestamp f="readonly">
-        Date recorded:
+        Date recorded
       </timestamp>
     </cols>
   </Gen>
   <Context_Group_Contexts f="noscroll">
-    <Create_Relationships_to_This_Context_Group t="button" l="Context_Group_Relationship"/>
+    Feature Contexts
+    <Create_Relationships_to_This_Context_Group t="button" l="Context_Group_Relationship">
+      Create Relationships to This Feature
+    </Create_Relationships_to_This_Context_Group>
     <cols>
-      <Existing_Relationships_to_This_Context_Group t="list" f="nodata"/>
+      <Existing_Relationships_to_This_Context_Group t="list" f="nodata">
+        Existing Relationships to This Feature
+      </Existing_Relationships_to_This_Context_Group>
       <col>
         <Selected_Relationship t="webview"/>
         <Load_Related_Context t="button"/>
@@ -1023,10 +1093,15 @@
       <desc>Use this button to record a video using the tablet of this feature</desc>
     </Video>
     <Guide_2 t="webview">
-      Here you can enter filenames or unique reference numbers for image stored on another device.
+      Here you can enter filenames or unique reference numbers for image stored
+      on another device.
     </Guide_2>
-    <Add_Photograph_Log t="button" lc="Photograph_Log"/>
-    <Select_a_Photograph_Log t="dropdown" ec="Photograph_Log"/>
+    <Add_Photograph_Log t="button" lc="Photograph_Log">
+      Add Photograph Register
+    </Add_Photograph_Log>
+    <Select_a_Photograph_Log t="dropdown" ec="Photograph_Log">
+      Select a Photograph Register
+    </Select_a_Photograph_Log>
   </Add>
   <Vars f="hidden">
     <Device_Code>
@@ -1039,7 +1114,9 @@
 </Context_Group>
 
 <Matrix>
+  Sediment/Aggregate
   <Matrix>
+    Sediment/Aggregate
     <cols>
       <Component f="id">
         <desc>Describe the components which make up 10% or more of the deposit.</desc>
@@ -1077,6 +1154,7 @@
       </Percentage>
     </cols>
     <Shape>
+      Stone Shape
       <desc>Shape and roundness of stones and pebbles in the deposit.</desc>
       <opts>
         <opt p="gallery/Other/NA.png">No Observation
@@ -1109,7 +1187,7 @@
   <Vars f="hidden">
     <Context_ID/>
     <AreaCode>
-      <!--@SOURCE: logic/area-code.xml-->
+      <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
   </Vars>
 </Matrix>
@@ -1117,6 +1195,7 @@
 <Height>
   <Height>
     <Number f="id notnull">
+      Reference
       <desc>Add a short description of the point being recorded, for example, 1. North edge of floor, 2. South edge of floor. Mark your points on the sketch for each context.</desc>
       <str>
         <fmt><![CDATA[$2]]></fmt>
@@ -1147,7 +1226,7 @@
   <Vars f="hidden">
     <Context_ID/>
     <AreaCode>
-      <!--@SOURCE: logic/area-code.xml-->
+      <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
   </Vars>
 </Height>
@@ -1156,7 +1235,8 @@
   <desc>Deposit samples or samples of building elements recovered from this Context for the purpose of further analysis or ongoing reference.</desc>
   <Deposit_Samples>
     <cols>
-      <Context_ID f="id notnull">
+      <Context_ID f="id notnull readonly">
+        Context/Feature ID
         <desc>Unique number or code for the Context from which this Artefact Cluster was collected.</desc>
         <str>
           <fmt><![CDATA[Cxtx-$2-]]></fmt>
@@ -1202,16 +1282,20 @@
       </Sample_Type>
     </cols>
     <Sample_Volume b="decimal">
+      Sample Volume (L)
       <desc>Volume (in litres) of the sample collected.</desc>
     </Sample_Volume>
     <cols>
       <Sample_X f="notnull" b="decimal">
+        X
         <desc>The reading from the x-axis (horizontal) of an arbitrary site grid corresponding to the location of the Sample at the time of excavation.</desc>
       </Sample_X>
       <Sample_Y f="notnull" b="decimal">
+        Y
         <desc>The reading from the y-axis (vertical) of an arbitrary site grid corresponding to the location of the Sample at the time of excavation.</desc>
       </Sample_Y>
       <Sample_Z f="notnull" b="decimal">
+        Z
         <desc>The elevation or depth of the Sample at the time of excavation.</desc>
       </Sample_Z>
     </cols>
@@ -1249,7 +1333,7 @@
   </Add>
   <Vars f="hidden">
     <AreaCode f="id">
-      <!--@SOURCE: logic/area-code.xml-->
+      <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Device_Code>
       <!--@SOURCE: vocabs/device-code.xml-->
@@ -1261,7 +1345,10 @@
 </Sample>
 
 <Special_Find>
+  Artefact
   <Special_Find>
+    Artefact
+    <Guide_0 t="webview" f="nolabel"/>
     <cols>
       <Context_ID f="id readonly">
         <desc>Unique number or code for each Context.</desc>
@@ -1270,12 +1357,14 @@
         </str>
       </Context_ID>
       <Special_Find_ID f="id notnull">
+        Artefact ID
         <desc>Unique number or code for the artefact applying either a Small Find or Groundstone number from the site register.</desc>
         <str>
           <fmt><![CDATA[Artefact-$2-]]></fmt>
         </str>
       </Special_Find_ID>
       <Special_Find_Class f="id">
+        Artefact Class
         <desc>Broad Artefact Class for each Artefact (eg Chipped stone, Clay object, Building Material).</desc>
         <opts>
           <opt>No Observation
@@ -1394,6 +1483,7 @@
       </opts>
     </Source>
     <Special_Find_Location>
+      Sample Location
       <desc>The storage location of the artefact at the time of entry.</desc>
       <opts>
         <opt>No Observation<desc>data not collected</desc></opt>
@@ -1405,20 +1495,25 @@
       </opts>
     </Special_Find_Location>
     <Special_Find_Description f="notnull">
+      Artefact Description
       <desc>Description of the Artefact.</desc>
     </Special_Find_Description>
     <cols>
       <Special_Find_X f="notnull" b="decimal">
+        X
         <desc>The reading from the x-axis (horizontal) of an arbitrary site grid corresponding to the location of the Small Find at the time of excavation.</desc>
       </Special_Find_X>
       <Special_Find_Y f="notnull" b="decimal">
+        Y
         <desc>The reading from the y-axis (vertical) of an arbitrary site grid corresponding to the location of the Small Find at the time of excavation.</desc>
       </Special_Find_Y>
       <Special_Find_Z f="notnull" b="decimal">
+        Z
         <desc>The elevation or depth of the Small Find at the time of excavation.</desc>
       </Special_Find_Z>
     </cols>
     <Special_Find_Comment>
+      Artefact Comment
       <desc>Enter any additional observations concerning the artefact, its context and/or events surrounding it, for example damage or breakage suring excavation and storage.</desc>
     </Special_Find_Comment>
     <Photo t="camera">
@@ -1430,11 +1525,11 @@
     <Video t="video">
       <desc>Use this button to record a video using the tablet of this artefact etc</desc>
     </Video>
-    <View_Attached_Files t="file"/>
+    <View_Attached_Files t="viewfiles"/>
   </Special_Find>
   <Vars f="hidden">
     <AreaCode f="id">
-      <!--@SOURCE: logic/area-code.xml-->
+      <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Device_Code>
       <!--@SOURCE: vocabs/device-code.xml-->
@@ -1446,10 +1541,13 @@
 </Special_Find>
 
 <Photograph_Log>
+  Photograph Register
   <desc>A record of images created and stored on another device, eg by a professional site photographer.</desc>
   <Photograph_Log>
+    Photograph Register
     <cols>
       <Photo_Context_ID f="id readonly">
+        Context ID
         <desc>Unique number or code for each Context</desc>
         <str>
           <fmt><![CDATA[{{if $2 then "Cxtx-$2-" else ""}}]]></fmt>
@@ -1457,6 +1555,7 @@
         <app><![CDATA[-]]></app>
       </Photo_Context_ID>
       <Photo_Context_Group_ID f="id readonly">
+        Feature ID
         <desc>Unique number or code for each Context Group</desc>
         <str>
           <fmt><![CDATA[{{if $2 then "Feature-$2-" else ""}}]]></fmt>
@@ -1464,6 +1563,7 @@
         <app><![CDATA[-]]></app>
       </Photo_Context_Group_ID>
       <Photograph_Reference_ID f="id">
+        Photograph Register ID
         <desc>Unique number or code allocated by creator of the image. It could be a filename or a reference number</desc>
         <str>
           <fmt><![CDATA[Photo-$2]]></fmt>
@@ -1486,11 +1586,13 @@
         </opt>
       </opts>
     </Scene_Type>
-    <Photograph_Description/>
+    <Photograph_Description>
+      Brief Description
+    </Photograph_Description>
   </Photograph_Log>
   <Vars f="hidden">
     <AreaCode f="id">
-      <!--@SOURCE: logic/area-code.xml-->
+      <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Device_Code>
       <!--@SOURCE: vocabs/device-code.xml-->
@@ -1511,6 +1613,7 @@
         </str>
       </timestamp>
       <author f="id readonly">
+        Created by
         <desc>Your name will be added here based on your login</desc>
         <str>
           <fmt><![CDATA[$2 - Diary:]]></fmt>
@@ -1525,42 +1628,52 @@
       </str>
     </Title>
     <AreaCode f="id">
-      <!--@SOURCE: logic/area-code.xml-->
+      Trench
+      <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Text>
       <desc>Record your diary entry here in as much detail as necessary and append with photographs, video and/or audio</desc>
     </Text>
     <FileAttach t="file"/>
+    <Photo t="camera">
+      <desc>Use this button to take a photo relevant to this entry using the camera on the tablet</desc>
+    </Photo>
     <Audio t="audio">
       <desc>Use this button to record an audio file of your observations concerning this entry</desc>
     </Audio>
     <Video t="video">
       <desc>Use this button to record a video relevant to this entry using the tablet's camera</desc>
     </Video>
-    <Photo t="camera">
-      <desc>Use this button to take a photo relevant to this entry using the camera on the tablet</desc>
-    </Photo>
     <View_Attached_Files t="viewfiles"/>
   </Diary>
 </Diary>
 
 <Legacy>
   <Legacy>
-    <LegacyIdentifier f="id">
-      <str>
-        <fmt><![CDATA[Legacy-$2]]></fmt>
-      </str>
-    </LegacyIdentifier>
+    <cols>
+      <AreaCode f="id notnull">
+        Trench
+        <!--@SOURCE: vocabs/area-code.xml-->
+      </AreaCode>
+      <Legacy_Context_ID f="id notnull">
+        Context Code
+      </Legacy_Context_ID>
+    </cols>
   </Legacy>
 </Legacy>
 
+<!--Context-to-Context-->
 <Relationship f="nodata">
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <Square            t="dropdown"/>
-      <Relationship_Type t="dropdown"/>
+      <AreaCode   f="notnull" t="dropdown">
+        Trench
+        <!--Populated manually using @POSTPROC-->
+      </AreaCode>
+      <Context_ID f="notnull"/>
     </cols>
+    <Relationship_Type t="dropdown"/>
     <Search            t="button"/>
     <cols>
       <col>
@@ -1579,10 +1692,18 @@
   </Relationships>
 </Relationship>
 
+<!--Context Group to Context-->
 <Context_Group_Relationship f="nodata">
+  Feature Relationship
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
-    <Square            t="dropdown"/>
+    <cols>
+      <AreaCode   f="notnull" t="dropdown">
+        Trench
+        <!--Populated manually using @POSTPROC-->
+      </AreaCode>
+      <Context_ID f="notnull"/>
+    </cols>
     <Search            t="button"/>
     <cols>
       <col>
@@ -1615,5 +1736,6 @@
   <!--@SOURCE: logic/dynamic-ui-context.bsh-->
   <!--@SOURCE: logic/context-dates.bsh-->
   <!--@SOURCE: logic/soil-texture-helper.bsh-->
+  <!--@SOURCE: logic/webview-population.bsh-->
 ]]></logic>
 </module>

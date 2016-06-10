@@ -1,4 +1,5 @@
 import android.util.Log;
+import java.util.concurrent.ConcurrentHashMap;
 
 Object dialog;          // Used to help coordinate the display of a "busy..." dialog
 String parentTabgroup;  // Used to allow entities to be saved as children
@@ -190,6 +191,7 @@ addOnEvent("Photograph_Log/Photograph_Log/Scene_Type", "click", "dropdownItemVal
 addOnEvent("Photograph_Log/Vars/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Photograph_Log/Vars/AreaCode\")");
 addOnEvent("Photograph_Log/Vars/Device_Code", "click", "dropdownItemValue = getFieldValue(\"Photograph_Log/Vars/Device_Code\")");
 addOnEvent("Diary/Diary/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Diary/Diary/AreaCode\")");
+addOnEvent("Legacy/Legacy/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Legacy/Legacy/AreaCode\")");
 addOnEvent("Relationship/Relationships/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Relationship/Relationships/AreaCode\")");
 addOnEvent("Relationship/Relationships/Relationship_Type", "click", "dropdownItemValue = getFieldValue(\"Relationship/Relationships/Relationship_Type\")");
 addOnEvent("Context_Group_Relationship/Relationships/AreaCode", "click", "dropdownItemValue = getFieldValue(\"Context_Group_Relationship/Relationships/AreaCode\")");
@@ -565,6 +567,7 @@ makeVocab("DropDown", "Photograph_Log/Photograph_Log/Scene_Type", "Scene Type");
 makeVocab("DropDown", "Photograph_Log/Vars/AreaCode", "AreaCode");
 makeVocab("DropDown", "Photograph_Log/Vars/Device_Code", "Device Code");
 makeVocab("DropDown", "Diary/Diary/AreaCode", "AreaCode");
+makeVocab("DropDown", "Legacy/Legacy/AreaCode", "AreaCode");
 
 
 /******************************************************************************/
@@ -637,7 +640,7 @@ validateContext() {
   List f = new ArrayList(); // Fields to be validated
 
   f.add(fieldPair("Context/General/AreaCode", "{Trench}"));
-  f.add(fieldPair("Context/General/Context_ID", "{Context_Code}"));
+  f.add(fieldPair("Context/General/Context_Context_ID", "{Context_Code}"));
   f.add(fieldPair("Context/General/Location_Note", "{Approx_Location_in_area}"));
   f.add(fieldPair("Context/General/Excavation_Method", "{Excavation_Method}"));
   f.add(fieldPair("Context/General/Plans", "{Plans}"));
@@ -736,6 +739,16 @@ validateSpecialFind() {
   showWarning("Validation Results", validationMessage);
 }
 
+validateLegacy() {
+  List f = new ArrayList(); // Fields to be validated
+
+  f.add(fieldPair("Legacy/Legacy/AreaCode", "{Trench}"));
+  f.add(fieldPair("Legacy/Legacy/Legacy_Context_ID", "{Context_Code}"));
+
+  String validationMessage = validateFields(f, "PLAINTEXT");
+  showWarning("Validation Results", validationMessage);
+}
+
 validateRelationship() {
   List f = new ArrayList(); // Fields to be validated
 
@@ -761,13 +774,17 @@ validateContextGroupRelationship() {
 /******************************************************************************/
 /*                                 AUTOSAVING                                 */
 /******************************************************************************/
-Map tabgroupToUuid = new HashMap();
+ConcurrentHashMap tabgroupToUuid = new ConcurrentHashMap();
 
 getUuid(String tabgroup) {
+  if (isNull(tabgroup))
+    return null;
   tabgroupToUuid.get(tabgroup);
 }
 
 setUuid(String tabgroup, String uuid) {
+  if (uuid == null)
+    return;
   tabgroupToUuid.put(tabgroup, uuid);
 }
 
@@ -1074,6 +1091,7 @@ addNavigationButtons(String tabgroup) {
   tabgroupsToValidate.add("Height");
   tabgroupsToValidate.add("Sample");
   tabgroupsToValidate.add("Special_Find");
+  tabgroupsToValidate.add("Legacy");
   tabgroupsToValidate.add("Relationship");
   tabgroupsToValidate.add("Context_Group_Relationship");
 
@@ -1272,7 +1290,7 @@ newContext(){
   String tabgroup = "Context";
 
   String autoNumSource = "";
-  autoNumSource = getFieldValue("Control/Contexts/Next_Context_ID");
+  autoNumSource = getFieldValue("Control/Contexts/Next_Context_Context_ID");
   if (isNull(autoNumSource)) {
     showWarning("{Alert}","{A_next_ID_has_not_been_entered_please_provide_one}");
     return;
@@ -1282,7 +1300,7 @@ newContext(){
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   String autoNumDest = "";
-  autoNumDest = "Context/General/Context_ID";
+  autoNumDest = "Context/General/Context_Context_ID";
   incAutoNum(autoNumDest);
   inheritContextFields();
   setContextDateOpened();
@@ -1295,7 +1313,7 @@ duplicateContext(){
   disableAutoSave(tabgroup);
 
   String autoNumDest = "";
-  autoNumDest = "Context/General/Context_ID";
+  autoNumDest = "Context/General/Context_Context_ID";
   incAutoNum(autoNumDest);
 
   populateFileList("Context/Add/Sketch", new ArrayList());
@@ -2137,7 +2155,7 @@ addOnEvent("Control", "show", "onShowAutonum()");
  */
 onShowAutonum() {
   List l = new ArrayList();
-  l.add("Control/Contexts/Next_Context_ID");
+  l.add("Control/Contexts/Next_Context_Context_ID");
   l.add("Control/Contexts/Next_Context_Group_ID");
   l.add("Control/Contexts/Next_Sample_ID");
 
@@ -2165,7 +2183,7 @@ loadStartingId(String ref) {
 
 incAutoNum(String destPath) {
   Map destToSource = new HashMap();
-  destToSource.put("Context/General/Context_ID", "Control/Contexts/Next_Context_ID");
+  destToSource.put("Context/General/Context_Context_ID", "Control/Contexts/Next_Context_Context_ID");
   destToSource.put("Context_Group/Gen/Context_Group_ID", "Control/Contexts/Next_Context_Group_ID");
   destToSource.put("Sample/Deposit_Samples/Sample_ID", "Control/Contexts/Next_Sample_ID");
 
@@ -2597,7 +2615,7 @@ inheritMatrixFields() {
   );
 
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Matrix/Vars/Context_ID"
   );
 }
@@ -2609,7 +2627,7 @@ inheritHeightFields() {
   );
 
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Height/Vars/Context_ID"
   );
 }
@@ -2621,7 +2639,7 @@ inheritSampleFields() {
   );
 
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Sample/Deposit_Samples/Context_ID"
   );
 
@@ -2638,7 +2656,7 @@ inheritSampleFields() {
 
 inheritSpecialFindFields() {
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Special_Find/Special_Find/Context_ID"
   );
 
@@ -2662,7 +2680,7 @@ inheritPhotographLogFields() {
   //BEWARE! Weird formatting!
   if (parentTabgroup__.equals("Context"))
   copyFieldValue(
-    "Context/General/Context_ID",
+    "Context/General/Context_Context_ID",
     "Photograph_Log/Photograph_Log/Photo_Context_ID"
   );
 
@@ -2876,7 +2894,7 @@ searchRelationship() {
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
-  unrelatedQ += "                  WHERE attributename = 'Context ID'";
+  unrelatedQ += "                  WHERE attributename IN ('Context Context ID', 'Legacy Context ID')";
   unrelatedQ += "                    AND measure = '{Context_ID}')";
   unrelatedQ += "            AND uuid NOT IN (";
   unrelatedQ += "                 SELECT childuuid";
@@ -2884,6 +2902,7 @@ searchRelationship() {
   unrelatedQ += "                  WHERE parentuuid = '{parentUuid}'";
   unrelatedQ += "                    AND parentparticipatesverb = '{parentRole}')";
   unrelatedQ += "            AND uuid != '{parentUuid}')";
+  unrelatedQ += "    AND aenttypename IN ('Context', 'Legacy')";
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
   unrelatedQ  = replaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
@@ -3137,7 +3156,7 @@ CGsearchRelationship() {
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
-  unrelatedQ += "                  WHERE attributename = 'Context ID'";
+  unrelatedQ += "                  WHERE attributename IN ('Context Context ID', 'Legacy Context ID')";
   unrelatedQ += "                    AND measure = '{Context_ID}')";
   unrelatedQ += "            AND uuid NOT IN (";
   unrelatedQ += "                 SELECT childuuid";
