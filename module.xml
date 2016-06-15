@@ -1316,21 +1316,6 @@
       </Sample_Comments>
     </cols>
   </Deposit_Samples>
-  <Add>
-    <Sketch t="file">
-      <desc>Upload the file of a sketch of the sample/sample location drawn on another application using the button below</desc>
-    </Sketch>
-    <Photo t="camera">
-      <desc>Use this button to take a photo of the sample/sample location using the camera on the tablet</desc>
-    </Photo>
-    <Audio t="audio">
-      <desc>Use this button to record an audio file of your observations concerning this sample</desc>
-    </Audio>
-    <Video t="video">
-      <desc>Use this button to record a video using the tablet of this sample</desc>
-    </Video>
-    <View_Attached_Files t="viewfiles"/>
-  </Add>
   <Vars f="hidden">
     <AreaCode f="id">
       <!--@SOURCE: vocabs/area-code.xml-->
