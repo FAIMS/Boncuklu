@@ -1121,7 +1121,7 @@
       <Component f="id">
         <desc>Describe the components which make up 10% or more of the deposit.</desc>
         <str>
-          <fmt><![CDATA[$1]]></fmt>
+          <fmt>$1-</fmt>
         </str>
         <opts>
           <opt>No Observation
@@ -1149,7 +1149,7 @@
       <Percentage f="id" b="decimal">
         <desc>Enter the approximate % volume of this material in the Context.</desc>
         <str>
-          <fmt><![CDATA[$2% ]]></fmt>
+          <fmt>$2%</fmt>
         </str>
       </Percentage>
     </cols>
@@ -1245,13 +1245,13 @@
       <Sample_ID f="id notnull autonum">
         <desc>The unique code or reference for the Sample. This should be assigned with reference to the central register</desc>
         <str>
-          <fmt><![CDATA[Sample-$2-]]></fmt>
+          <fmt><![CDATA[-Sample-$2-]]></fmt>
         </str>
       </Sample_ID>
       <Sample_Type f="id notnull">
         <desc>The type of Sample collected as detailed below.</desc>
         <str>
-          <fmt><![CDATA[$1]]></fmt>
+          <fmt><![CDATA[$1-]]></fmt>
         </str>
         <opts>
           <opt>No Observation
@@ -1345,12 +1345,15 @@
         Artefact ID
         <desc>Unique number or code for the artefact applying either a Small Find or Groundstone number from the site register.</desc>
         <str>
-          <fmt><![CDATA[Artefact-$2-]]></fmt>
+          <fmt><![CDATA[-Artefact-$2-]]></fmt>
         </str>
       </Special_Find_ID>
       <Special_Find_Class f="id">
         Artefact Class
         <desc>Broad Artefact Class for each Artefact (eg Chipped stone, Clay object, Building Material).</desc>
+        <str>
+          <fmt>$1-</fmt>
+        </str>
         <opts>
           <opt>No Observation
           <desc>data not collected</desc></opt>
@@ -1551,7 +1554,7 @@
         Photograph Register ID
         <desc>Unique number or code allocated by creator of the image. It could be a filename or a reference number</desc>
         <str>
-          <fmt><![CDATA[Photo-$2]]></fmt>
+          <fmt><![CDATA[Photo-$2-]]></fmt>
         </str>
       </Photograph_Reference_ID>
     </cols>
@@ -1591,11 +1594,8 @@
 <Diary>
   <Diary>
     <cols>
-      <timestamp f="id readonly">
+      <timestamp f="readonly">
         <desc>The date this entry is created will automatically appear here</desc>
-        <str>
-          <fmt><![CDATA[ $2 by: ]]></fmt>
-        </str>
       </timestamp>
       <author f="id readonly">
         Created by
@@ -1606,12 +1606,12 @@
         <app><![CDATA[-]]></app>
       </author>
     </cols>
-    <Title f="id">
+    <Diary_Title f="id">
       <desc>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
       <str>
-        <fmt><![CDATA[$2]]></fmt>
+        <fmt><![CDATA[$2-]]></fmt>
       </str>
-    </Title>
+    </Diary_Title>
     <AreaCode f="id">
       Trench
       <!--@SOURCE: vocabs/area-code.xml-->
