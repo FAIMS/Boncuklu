@@ -1580,6 +1580,7 @@
       </author>
     </cols>
     <Diary_Title f="id">
+      Title
       <desc>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
       <str>
         <fmt><![CDATA[$2-]]></fmt>
