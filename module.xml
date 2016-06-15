@@ -1567,13 +1567,18 @@
 <Diary>
   <Diary>
     <cols>
-      <timestamp f="readonly">
+      <timestamp f="id readonly">
         <desc>The date this entry is created will automatically appear here</desc>
+        <str>
+          <pos>4</pos>
+          <fmt><![CDATA[ $2 by: ]]></fmt>
+        </str>
       </timestamp>
       <author f="id readonly">
         Created by
         <desc>Your name will be added here based on your login</desc>
         <str>
+          <pos>1</pos>
           <fmt><![CDATA[$2 - Diary:]]></fmt>
         </str>
         <app><![CDATA[-]]></app>
@@ -1583,11 +1588,15 @@
       Title
       <desc>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
       <str>
+        <pos>2</pos>
         <fmt><![CDATA[$2-]]></fmt>
       </str>
     </Diary_Title>
     <AreaCode f="id">
       Trench
+      <str>
+        <pos>3</pos>
+      </str>
       <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Text>
