@@ -807,19 +807,9 @@
     <List_of_Sample ec="Sample" t="list"/>
   </Samples>
   <Add>
-    <Sketch t="file">
-      <desc>Upload the file of a sketch of the context drawn on another application using the button below</desc>
-    </Sketch>
     <Photo t="camera">
       <desc>Use this button to take a photo of the context using the camera on the tablet. Use a scale in the photo</desc>
     </Photo>
-    <Audio t="audio">
-      <desc>Use this button to record an audio file of your observations concerning this context</desc>
-    </Audio>
-    <Video t="video">
-      <desc>Use this button to record a video using the tablet of this context</desc>
-    </Video>
-    <View_Attached_Files t="viewfiles"/>
     <Guide_0 t="webview">
       Here you can enter filenames or unique reference numbers for image stored
       on another device.
@@ -1079,19 +1069,9 @@
     </cols>
   </Context_Group_Contexts>
   <Add>
-    <View_Attached_Files t="viewfiles"/>
-    <Sketch t="file">
-      <desc>Upload the file of a sketch of the feature drawn on another application using the button below</desc>
-    </Sketch>
     <Photo t="camera">
       <desc>Use this button to take a photo of the feature using the camera on the tablet. Remember to include a scale in the photo.</desc>
     </Photo>
-    <Audio t="audio">
-      <desc>Use this button to record an audio file of your observations concerning this feature</desc>
-    </Audio>
-    <Video t="video">
-      <desc>Use this button to record a video using the tablet of this feature</desc>
-    </Video>
     <Guide_2 t="webview">
       Here you can enter filenames or unique reference numbers for image stored
       on another device.
@@ -1507,13 +1487,6 @@
     <Photo t="camera">
       <desc>Use this button to take a photo of the artefact etc using the camera on the tablet. Make sure the artefact is shown with a scale</desc>
     </Photo>
-    <Audio t="audio">
-      <desc>Use this button to record an audio file of your observations concerning this artefact</desc>
-    </Audio>
-    <Video t="video">
-      <desc>Use this button to record a video using the tablet of this artefact etc</desc>
-    </Video>
-    <View_Attached_Files t="viewfiles"/>
   </Special_Find>
   <Vars f="hidden">
     <AreaCode f="id">
@@ -1619,17 +1592,9 @@
     <Text>
       <desc>Record your diary entry here in as much detail as necessary and append with photographs, video and/or audio</desc>
     </Text>
-    <FileAttach t="file"/>
     <Photo t="camera">
       <desc>Use this button to take a photo relevant to this entry using the camera on the tablet</desc>
     </Photo>
-    <Audio t="audio">
-      <desc>Use this button to record an audio file of your observations concerning this entry</desc>
-    </Audio>
-    <Video t="video">
-      <desc>Use this button to record a video relevant to this entry using the tablet's camera</desc>
-    </Video>
-    <View_Attached_Files t="viewfiles"/>
   </Diary>
 </Diary>
 
