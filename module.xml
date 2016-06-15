@@ -1571,7 +1571,7 @@
         <desc>The date this entry is created will automatically appear here</desc>
         <str>
           <pos>4</pos>
-          <fmt><![CDATA[ $2 by: ]]></fmt>
+          <fmt><![CDATA[ $2]]></fmt>
         </str>
       </timestamp>
       <author f="id readonly">
@@ -1579,7 +1579,7 @@
         <desc>Your name will be added here based on your login</desc>
         <str>
           <pos>1</pos>
-          <fmt><![CDATA[$2 - Diary:]]></fmt>
+          <fmt><![CDATA[By: $2 - Diary:]]></fmt>
         </str>
         <app><![CDATA[-]]></app>
       </author>
