@@ -900,23 +900,8 @@
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
-    <property name="Sketch" type="file" file="true" thumbnail="true">
-      <description>Upload the file of a sketch of the context drawn on another application using the button below</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the context using the camera on the tablet. Use a scale in the photo</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Audio" type="file" file="true" thumbnail="true">
-      <description>Use this button to record an audio file of your observations concerning this context</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Video" type="file" file="true" thumbnail="true">
-      <description>Use this button to record a video using the tablet of this context</description>
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
@@ -1164,23 +1149,8 @@
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
-    <property name="Sketch" type="file" file="true" thumbnail="true">
-      <description>Upload the file of a sketch of the feature drawn on another application using the button below</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the feature using the camera on the tablet. Remember to include a scale in the photo.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Audio" type="file" file="true" thumbnail="true">
-      <description>Use this button to record an audio file of your observations concerning this feature</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Video" type="file" file="true" thumbnail="true">
-      <description>Use this button to record a video using the tablet of this feature</description>
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
@@ -1221,7 +1191,7 @@
     <description/>
     <property name="Component" isIdentifier="true" type="vocab">
       <description>Describe the components which make up 10% or more of the deposit.</description>
-      <formatString><![CDATA[$1]]></formatString>
+      <formatString><![CDATA[$1-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1248,7 +1218,7 @@
     </property>
     <property name="Percentage" isIdentifier="true" type="measure">
       <description>Enter the approximate % volume of this material in the Context.</description>
-      <formatString><![CDATA[$2% ]]></formatString>
+      <formatString><![CDATA[$2%]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
     <property name="Shape" type="vocab">
@@ -1370,12 +1340,12 @@
     </property>
     <property name="Sample ID" isIdentifier="true" type="measure">
       <description>The unique code or reference for the Sample. This should be assigned with reference to the central register</description>
-      <formatString><![CDATA[Sample-$2-]]></formatString>
+      <formatString><![CDATA[-Sample-$2-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
     <property name="Sample Type" isIdentifier="true" type="vocab">
       <description>The type of Sample collected as detailed below.</description>
-      <formatString><![CDATA[$1]]></formatString>
+      <formatString><![CDATA[$1-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1450,26 +1420,6 @@
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
-    <property name="Sketch" type="file" file="true" thumbnail="true">
-      <description>Upload the file of a sketch of the sample/sample location drawn on another application using the button below</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Photo" type="file" file="true" thumbnail="true">
-      <description>Use this button to take a photo of the sample/sample location using the camera on the tablet</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Audio" type="file" file="true" thumbnail="true">
-      <description>Use this button to record an audio file of your observations concerning this sample</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Video" type="file" file="true" thumbnail="true">
-      <description>Use this button to record a video using the tablet of this sample</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
     <property name="AreaCode" isIdentifier="true" type="vocab">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
       <formatString><![CDATA[$1-]]></formatString>
@@ -1535,12 +1485,12 @@
     </property>
     <property name="Special Find ID" isIdentifier="true" type="measure">
       <description>Unique number or code for the artefact applying either a Small Find or Groundstone number from the site register.</description>
-      <formatString><![CDATA[Artefact-$2-]]></formatString>
+      <formatString><![CDATA[-Artefact-$2-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
     <property name="Special Find Class" isIdentifier="true" type="vocab">
       <description>Broad Artefact Class for each Artefact (eg Chipped stone, Clay object, Building Material).</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <formatString><![CDATA[$1-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1675,16 +1625,6 @@
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
-    <property name="Audio" type="file" file="true" thumbnail="true">
-      <description>Use this button to record an audio file of your observations concerning this artefact</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Video" type="file" file="true" thumbnail="true">
-      <description>Use this button to record a video using the tablet of this artefact etc</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
     <property name="AreaCode" isIdentifier="true" type="vocab">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
       <formatString><![CDATA[$1-]]></formatString>
@@ -1755,7 +1695,7 @@
     </property>
     <property name="Photograph Reference ID" isIdentifier="true" type="measure">
       <description>Unique number or code allocated by creator of the image. It could be a filename or a reference number</description>
-      <formatString><![CDATA[Photo-$2]]></formatString>
+      <formatString><![CDATA[Photo-$2-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
     <property name="Scene Type" type="vocab">
@@ -1836,19 +1776,14 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Diary">
     <description/>
-    <property name="Diary timestamp" isIdentifier="true" type="measure">
-      <description>The date this entry is created will automatically appear here</description>
-      <formatString><![CDATA[ $2 by: ]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
     <property name="Diary author" isIdentifier="true" type="measure">
       <description>Your name will be added here based on your login</description>
-      <formatString><![CDATA[$2 - Diary:]]></formatString>
+      <formatString><![CDATA[By: $2 - Diary:]]></formatString>
       <appendCharacterString><![CDATA[-]]></appendCharacterString>
     </property>
-    <property name="Title" isIdentifier="true" type="measure">
+    <property name="Diary Title" isIdentifier="true" type="measure">
       <description>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</description>
-      <formatString><![CDATA[$2]]></formatString>
+      <formatString><![CDATA[$2-]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
     <property name="AreaCode" isIdentifier="true" type="vocab">
@@ -1874,28 +1809,18 @@
 <description/></term>
       </lookup>
     </property>
+    <property name="Diary timestamp" isIdentifier="true" type="measure">
+      <description>The date this entry is created will automatically appear here</description>
+      <formatString><![CDATA[ $2]]></formatString>
+      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+    </property>
     <property name="Text" type="measure">
       <description>Record your diary entry here in as much detail as necessary and append with photographs, video and/or audio</description>
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>
-    <property name="FileAttach" type="file" file="true" thumbnail="true">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo relevant to this entry using the camera on the tablet</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Audio" type="file" file="true" thumbnail="true">
-      <description>Use this button to record an audio file of your observations concerning this entry</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
-    </property>
-    <property name="Video" type="file" file="true" thumbnail="true">
-      <description>Use this button to record a video relevant to this entry using the tablet's camera</description>
       <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
     </property>

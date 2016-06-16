@@ -1046,34 +1046,10 @@ addOnEvent("Context_Group/Add/Add_Photograph_Log", "click", "onClickContextGroup
 /******************************************************************************/
 /*                   AUDIO, CAMERA, FILE AND VIDEO BINDINGS                   */
 /******************************************************************************/
-addOnEvent("Context/Add/Button_Audio", "click", "attachAudioTo(\"Context/Add/Audio\")");
-addOnEvent("Context_Group/Add/Button_Audio", "click", "attachAudioTo(\"Context_Group/Add/Audio\")");
-addOnEvent("Sample/Add/Button_Audio", "click", "attachAudioTo(\"Sample/Add/Audio\")");
-addOnEvent("Special_Find/Special_Find/Button_Audio", "click", "attachAudioTo(\"Special_Find/Special_Find/Audio\")");
-addOnEvent("Diary/Diary/Button_Audio", "click", "attachAudioTo(\"Diary/Diary/Audio\")");
 addOnEvent("Context/Add/Button_Photo", "click", "attachPictureTo(\"Context/Add/Photo\")");
 addOnEvent("Context_Group/Add/Button_Photo", "click", "attachPictureTo(\"Context_Group/Add/Photo\")");
-addOnEvent("Sample/Add/Button_Photo", "click", "attachPictureTo(\"Sample/Add/Photo\")");
 addOnEvent("Special_Find/Special_Find/Button_Photo", "click", "attachPictureTo(\"Special_Find/Special_Find/Photo\")");
 addOnEvent("Diary/Diary/Button_Photo", "click", "attachPictureTo(\"Diary/Diary/Photo\")");
-addOnEvent("Context/Add/Button_Sketch", "click", "attachFileTo(\"Context/Add/Sketch\")");
-addOnEvent("Context_Group/Add/Button_Sketch", "click", "attachFileTo(\"Context_Group/Add/Sketch\")");
-addOnEvent("Sample/Add/Button_Sketch", "click", "attachFileTo(\"Sample/Add/Sketch\")");
-addOnEvent("Diary/Diary/Button_FileAttach", "click", "attachFileTo(\"Diary/Diary/FileAttach\")");
-addOnEvent("Context/Add/Button_Video", "click", "attachVideoTo(\"Context/Add/Video\")");
-addOnEvent("Context_Group/Add/Button_Video", "click", "attachVideoTo(\"Context_Group/Add/Video\")");
-addOnEvent("Sample/Add/Button_Video", "click", "attachVideoTo(\"Sample/Add/Video\")");
-addOnEvent("Special_Find/Special_Find/Button_Video", "click", "attachVideoTo(\"Special_Find/Special_Find/Video\")");
-addOnEvent("Diary/Diary/Button_Video", "click", "attachVideoTo(\"Diary/Diary/Video\")");
-
-/******************************************************************************/
-/*                 BINDINGS FOR 'VIEW ATTACHED FILES' BUTTONS                 */
-/******************************************************************************/
-addOnEvent("Context/Add/View_Attached_Files", "click", "viewArchEntAttachedFiles(getUuid(\"Context\"))");
-addOnEvent("Context_Group/Add/View_Attached_Files", "click", "viewArchEntAttachedFiles(getUuid(\"Context_Group\"))");
-addOnEvent("Sample/Add/View_Attached_Files", "click", "viewArchEntAttachedFiles(getUuid(\"Sample\"))");
-addOnEvent("Special_Find/Special_Find/View_Attached_Files", "click", "viewArchEntAttachedFiles(getUuid(\"Special_Find\"))");
-addOnEvent("Diary/Diary/View_Attached_Files", "click", "viewArchEntAttachedFiles(getUuid(\"Diary\"))");
 
 /******************************************************************************/
 /*                             NAVIGATION DRAWER                              */
@@ -1318,10 +1294,7 @@ duplicateContext(){
   autoNumDest = "Context/General/Context_Context_ID";
   incAutoNum(autoNumDest);
 
-  populateFileList("Context/Add/Sketch", new ArrayList());
   populateCameraPictureGallery("Context/Add/Photo", new ArrayList());
-  populateFileList("Context/Add/Audio", new ArrayList());
-  populateVideoGallery("Context/Add/Video", new ArrayList());
 
 
   saveCallback = new SaveCallback() {
@@ -1352,10 +1325,7 @@ duplicateContext(){
   fetchAll(getDuplicateAttributeQuery(getUuid(tabgroup), extraDupeAttributes), new FetchCallback(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
-      excludeAttributes.add("Sketch");
       excludeAttributes.add("Photo");
-      excludeAttributes.add("Audio");
-      excludeAttributes.add("Video");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -1407,10 +1377,7 @@ duplicateContextGroup(){
   autoNumDest = "Context_Group/Gen/Context_Group_ID";
   incAutoNum(autoNumDest);
 
-  populateFileList("Context_Group/Add/Sketch", new ArrayList());
   populateCameraPictureGallery("Context_Group/Add/Photo", new ArrayList());
-  populateFileList("Context_Group/Add/Audio", new ArrayList());
-  populateVideoGallery("Context_Group/Add/Video", new ArrayList());
 
 
   saveCallback = new SaveCallback() {
@@ -1441,10 +1408,7 @@ duplicateContextGroup(){
   fetchAll(getDuplicateAttributeQuery(getUuid(tabgroup), extraDupeAttributes), new FetchCallback(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
-      excludeAttributes.add("Sketch");
       excludeAttributes.add("Photo");
-      excludeAttributes.add("Audio");
-      excludeAttributes.add("Video");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -1634,10 +1598,6 @@ duplicateSample(){
   autoNumDest = "Sample/Deposit_Samples/Sample_ID";
   incAutoNum(autoNumDest);
 
-  populateFileList("Sample/Add/Sketch", new ArrayList());
-  populateCameraPictureGallery("Sample/Add/Photo", new ArrayList());
-  populateFileList("Sample/Add/Audio", new ArrayList());
-  populateVideoGallery("Sample/Add/Video", new ArrayList());
 
 
   saveCallback = new SaveCallback() {
@@ -1668,10 +1628,6 @@ duplicateSample(){
   fetchAll(getDuplicateAttributeQuery(getUuid(tabgroup), extraDupeAttributes), new FetchCallback(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
-      excludeAttributes.add("Sketch");
-      excludeAttributes.add("Photo");
-      excludeAttributes.add("Audio");
-      excludeAttributes.add("Video");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -1712,8 +1668,6 @@ duplicateSpecialFind(){
 
 
   populateCameraPictureGallery("Special_Find/Special_Find/Photo", new ArrayList());
-  populateFileList("Special_Find/Special_Find/Audio", new ArrayList());
-  populateVideoGallery("Special_Find/Special_Find/Video", new ArrayList());
 
 
   saveCallback = new SaveCallback() {
@@ -1745,8 +1699,6 @@ duplicateSpecialFind(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
       excludeAttributes.add("Photo");
-      excludeAttributes.add("Audio");
-      excludeAttributes.add("Video");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -1855,10 +1807,7 @@ duplicateDiary(){
   disableAutoSave(tabgroup);
 
 
-  populateFileList("Diary/Diary/FileAttach", new ArrayList());
   populateCameraPictureGallery("Diary/Diary/Photo", new ArrayList());
-  populateFileList("Diary/Diary/Audio", new ArrayList());
-  populateVideoGallery("Diary/Diary/Video", new ArrayList());
 
 
   saveCallback = new SaveCallback() {
@@ -1889,10 +1838,7 @@ duplicateDiary(){
   fetchAll(getDuplicateAttributeQuery(getUuid(tabgroup), extraDupeAttributes), new FetchCallback(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
-      excludeAttributes.add("FileAttach");
       excludeAttributes.add("Photo");
-      excludeAttributes.add("Audio");
-      excludeAttributes.add("Video");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }

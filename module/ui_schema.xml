@@ -376,15 +376,8 @@
               <List_of_Sample/>
             </Samples>
             <Add>
-              <Sketch/>
-              <Button_Sketch/>
               <Photo/>
               <Button_Photo/>
-              <Audio/>
-              <Button_Audio/>
-              <Video/>
-              <Button_Video/>
-              <View_Attached_Files/>
               <Guide_0/>
               <Add_Photograph_Log/>
               <Select_a_Photograph_Log/>
@@ -476,15 +469,8 @@
               </Colgroup_0>
             </Context_Group_Contexts>
             <Add>
-              <View_Attached_Files/>
-              <Sketch/>
-              <Button_Sketch/>
               <Photo/>
               <Button_Photo/>
-              <Audio/>
-              <Button_Audio/>
-              <Video/>
-              <Button_Video/>
               <Guide_2/>
               <Add_Photograph_Log/>
               <Select_a_Photograph_Log/>
@@ -558,17 +544,6 @@
                 </Col_1>
               </Colgroup_2>
             </Deposit_Samples>
-            <Add>
-              <Sketch/>
-              <Button_Sketch/>
-              <Photo/>
-              <Button_Photo/>
-              <Audio/>
-              <Button_Audio/>
-              <Video/>
-              <Button_Video/>
-              <View_Attached_Files/>
-            </Add>
             <Vars>
               <AreaCode/>
               <Device_Code/>
@@ -606,11 +581,6 @@
               <Special_Find_Comment/>
               <Photo/>
               <Button_Photo/>
-              <Audio/>
-              <Button_Audio/>
-              <Video/>
-              <Button_Video/>
-              <View_Attached_Files/>
             </Special_Find>
             <Vars>
               <AreaCode/>
@@ -650,18 +620,11 @@
                   <author/>
                 </Col_1>
               </Colgroup_0>
-              <Title/>
+              <Diary_Title/>
               <AreaCode/>
               <Text/>
-              <FileAttach/>
-              <Button_FileAttach/>
               <Photo/>
               <Button_Photo/>
-              <Audio/>
-              <Button_Audio/>
-              <Video/>
-              <Button_Video/>
-              <View_Attached_Files/>
             </Diary>
           </Diary>
           <Legacy>
@@ -1610,16 +1573,6 @@
       </group>
       <group ref="Add">
         <label>{Add}</label>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Sketch" faims_attribute_name="Sketch">
-          <label>{Sketch}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Sketch">
-          <label>{Button_Sketch}</label>
-        </trigger>
         <select type="camera" faims_attribute_type="measure" faims_sync="true" ref="Photo" faims_attribute_name="Photo">
           <label>{Photo}</label>
           <item>
@@ -1629,29 +1582,6 @@
         </select>
         <trigger ref="Button_Photo">
           <label>{Button_Photo}</label>
-        </trigger>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Audio" faims_attribute_name="Audio">
-          <label>{Audio}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Audio">
-          <label>{Button_Audio}</label>
-        </trigger>
-        <select type="video" faims_attribute_type="measure" faims_sync="true" ref="Video" faims_attribute_name="Video">
-          <label>{Video}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Video">
-          <label>{Button_Video}</label>
-        </trigger>
-        <trigger ref="View_Attached_Files">
-          <label>{View_Attached_Files}</label>
         </trigger>
         <input faims_web="true" ref="Guide_0">
           <label>{Here_you_can_enter_filenames_or_unique_reference_numbers_for_image_stored_on_another_device_}</label>
@@ -1865,19 +1795,6 @@
       </group>
       <group ref="Add">
         <label>{Add}</label>
-        <trigger ref="View_Attached_Files">
-          <label>{View_Attached_Files}</label>
-        </trigger>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Sketch" faims_attribute_name="Sketch">
-          <label>{Sketch}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Sketch">
-          <label>{Button_Sketch}</label>
-        </trigger>
         <select type="camera" faims_attribute_type="measure" faims_sync="true" ref="Photo" faims_attribute_name="Photo">
           <label>{Photo}</label>
           <item>
@@ -1887,26 +1804,6 @@
         </select>
         <trigger ref="Button_Photo">
           <label>{Button_Photo}</label>
-        </trigger>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Audio" faims_attribute_name="Audio">
-          <label>{Audio}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Audio">
-          <label>{Button_Audio}</label>
-        </trigger>
-        <select type="video" faims_attribute_type="measure" faims_sync="true" ref="Video" faims_attribute_name="Video">
-          <label>{Video}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Video">
-          <label>{Button_Video}</label>
         </trigger>
         <input faims_web="true" ref="Guide_2">
           <label>{Here_you_can_enter_filenames_or_unique_reference_numbers_for_image_stored_on_another_device_}</label>
@@ -2088,52 +1985,6 @@
           </group>
         </group>
       </group>
-      <group ref="Add">
-        <label>{Add}</label>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Sketch" faims_attribute_name="Sketch">
-          <label>{Sketch}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Sketch">
-          <label>{Button_Sketch}</label>
-        </trigger>
-        <select type="camera" faims_attribute_type="measure" faims_sync="true" ref="Photo" faims_attribute_name="Photo">
-          <label>{Photo}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Photo">
-          <label>{Button_Photo}</label>
-        </trigger>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Audio" faims_attribute_name="Audio">
-          <label>{Audio}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Audio">
-          <label>{Button_Audio}</label>
-        </trigger>
-        <select type="video" faims_attribute_type="measure" faims_sync="true" ref="Video" faims_attribute_name="Video">
-          <label>{Video}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Video">
-          <label>{Button_Video}</label>
-        </trigger>
-        <trigger ref="View_Attached_Files">
-          <label>{View_Attached_Files}</label>
-        </trigger>
-      </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
         <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
@@ -2238,29 +2089,6 @@
         <trigger ref="Button_Photo">
           <label>{Button_Photo}</label>
         </trigger>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Audio" faims_attribute_name="Audio">
-          <label>{Audio}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Audio">
-          <label>{Button_Audio}</label>
-        </trigger>
-        <select type="video" faims_attribute_type="measure" faims_sync="true" ref="Video" faims_attribute_name="Video">
-          <label>{Video}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Video">
-          <label>{Button_Video}</label>
-        </trigger>
-        <trigger ref="View_Attached_Files">
-          <label>{View_Attached_Files}</label>
-        </trigger>
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
@@ -2361,7 +2189,7 @@
             </input>
           </group>
         </group>
-        <input faims_attribute_type="measure" ref="Title" faims_attribute_name="Title">
+        <input faims_attribute_type="measure" ref="Diary_Title" faims_attribute_name="Diary Title">
           <label>{Title}</label>
         </input>
         <select1 faims_attribute_type="vocab" ref="AreaCode" faims_attribute_name="AreaCode">
@@ -2374,16 +2202,6 @@
         <input faims_attribute_type="measure" ref="Text" faims_attribute_name="Text">
           <label>{Text}</label>
         </input>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="FileAttach" faims_attribute_name="FileAttach">
-          <label>{FileAttach}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_FileAttach">
-          <label>{Button_FileAttach}</label>
-        </trigger>
         <select type="camera" faims_attribute_type="measure" faims_sync="true" ref="Photo" faims_attribute_name="Photo">
           <label>{Photo}</label>
           <item>
@@ -2393,29 +2211,6 @@
         </select>
         <trigger ref="Button_Photo">
           <label>{Button_Photo}</label>
-        </trigger>
-        <select type="file" faims_attribute_type="measure" faims_sync="true" ref="Audio" faims_attribute_name="Audio">
-          <label>{Audio}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Audio">
-          <label>{Button_Audio}</label>
-        </trigger>
-        <select type="video" faims_attribute_type="measure" faims_sync="true" ref="Video" faims_attribute_name="Video">
-          <label>{Video}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>0</value>
-          </item>
-        </select>
-        <trigger ref="Button_Video">
-          <label>{Button_Video}</label>
-        </trigger>
-        <trigger ref="View_Attached_Files">
-          <label>{View_Attached_Files}</label>
         </trigger>
       </group>
     </group>
