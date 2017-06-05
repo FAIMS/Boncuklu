@@ -777,7 +777,7 @@
       </group>
     </group>
     <group ref="User">
-      <label/>
+      <label>{User}</label>
       <group ref="User_List">
         <label>{User_List}</label>
         <select1 ref="Users">
