@@ -152,7 +152,11 @@ inheritDiaryFields() {
   );
 }
 
-// Don't delete me. This simplifies the code in @POSTPROC.
-inheritLegacyFields() {
-  return;
-}
+addOnEvent("Context", "create", "inheritContextFields()");
+addOnEvent("Context_Group", "create", "inheritContextGroupFields()");
+addOnEvent("Matrix", "create", "inheritMatrixFields()");
+addOnEvent("Height", "create", "inheritHeightFields()");
+addOnEvent("Sample", "create", "inheritSampleFields()");
+addOnEvent("Special_Find", "create", "inheritSpecialFindFields()");
+addOnEvent("Photograph_Log", "create", "inheritPhotographLogFields()");
+addOnEvent("Diary", "create", "inheritDiaryFields()");

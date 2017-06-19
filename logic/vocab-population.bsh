@@ -1,8 +1,12 @@
 /****************************** VOCAB POPULATION ******************************/
-ArrayList vocabExclusionsNull = new ArrayList();
-vocabExclusionsNull.add(null);
+populateVocabs() {
+  ArrayList vocabExclusionsNull = new ArrayList();
+  vocabExclusionsNull.add(null);
 
-makeVocab("DropDown", "Context_Group_Relationship/Relationships/AreaCode", "AreaCode", vocabExclusionsNull);
-makeVocab("DropDown", "Relationship/Relationships/AreaCode",               "AreaCode", vocabExclusionsNull);
-makeVocab("DropDown", "User/User_List/AreaCode",    "AreaCode");
-makeVocab("DropDown", "User/User_List/Device_Code", "Device Code");
+  makeVocab("DropDown", "Context_Group_Relationship/Relationships/AreaCode", "AreaCode", vocabExclusionsNull);
+  makeVocab("DropDown", "Relationship/Relationships/AreaCode",               "AreaCode", vocabExclusionsNull);
+  makeVocab("DropDown", "User/User_List/AreaCode",    "AreaCode");
+  makeVocab("DropDown", "User/User_List/Device_Code", "Device Code");
+}
+
+addOnEvent("module", "load", "populateVocabs()");

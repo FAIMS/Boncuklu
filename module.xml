@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--@POSTPROC: ./proc/post.sh-->
-<module suppressWarnings="true">
+<module suppressWarnings="true" test_mode="true">
 
 <rels>
   <!--Context group-to-Context relationship(s)-->
@@ -469,7 +469,7 @@
         </opt>
       </opts>
     </Mudbrick_Shape>
-    <Enter_Sediment_Description t="button"/>
+    <Enter_Sediment_Description t="button" l="Context/Deposit"/>
   </Structure>
   <Deposit>
     <Deposit_Your_Interpretation f="notnull">
@@ -907,7 +907,7 @@
       </opts>
     </Soil_Texture_Helper>
     <Update_Soil_Texture t="button">
-      Update_Material
+      Update Material
     </Update_Soil_Texture>
   </Soil_Texture_Helper>
   <Vars f="hidden">

@@ -1,35 +1,5 @@
-<?xml version="1.0"?>
+<?xml version='1.0' encoding='utf-8'?>
 <dataSchema>
-  <RelationshipElement name="Context - Height" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
-  </RelationshipElement>
-  <RelationshipElement name="Context - Matrix" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
-  </RelationshipElement>
-  <RelationshipElement name="Context - Special Find" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
-  </RelationshipElement>
-  <RelationshipElement name="Context - Sample" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
-  </RelationshipElement>
-  <RelationshipElement name="Context - Photograph Log" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
-  </RelationshipElement>
-  <RelationshipElement name="Context Group - Photograph Log" type="hierarchical">
-    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
-    <parent>Parent Of</parent>
-    <child>Child Of</child>
-  </RelationshipElement>
   <RelationshipElement name="Context Group - Context" type="hierarchical">
     <description>A 1-to-n relationship between the parent and its children, respectively.</description>
     <parent>includes</parent>
@@ -72,73 +42,103 @@
     <parent>Immediately Earlier Than</parent>
     <child>Immediately Later Than</child>
   </RelationshipElement>
+  <RelationshipElement name="Context - Height" type="hierarchical">
+    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
+    <parent>Parent Of</parent>
+    <child>Child Of</child>
+  </RelationshipElement>
+  <RelationshipElement name="Context - Matrix" type="hierarchical">
+    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
+    <parent>Parent Of</parent>
+    <child>Child Of</child>
+  </RelationshipElement>
+  <RelationshipElement name="Context - Special Find" type="hierarchical">
+    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
+    <parent>Parent Of</parent>
+    <child>Child Of</child>
+  </RelationshipElement>
+  <RelationshipElement name="Context - Sample" type="hierarchical">
+    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
+    <parent>Parent Of</parent>
+    <child>Child Of</child>
+  </RelationshipElement>
+  <RelationshipElement name="Context - Photograph Log" type="hierarchical">
+    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
+    <parent>Parent Of</parent>
+    <child>Child Of</child>
+  </RelationshipElement>
+  <RelationshipElement name="Context Group - Photograph Log" type="hierarchical">
+    <description>A 1-to-n relationship between the parent and its children, respectively.</description>
+    <parent>Parent Of</parent>
+    <child>Child Of</child>
+  </RelationshipElement>
   <ArchaeologicalElement name="Context">
     <description>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</description>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
-    <property name="Context Context ID" isIdentifier="true" type="measure">
+    <property name="Context Context ID" type="measure" isIdentifier="true">
       <description>Every archaeological context (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter context code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a context belongs. For example context HAA belongs to Trench H, context MQP to Trench M etc.
         The contexts are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first context would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote contexts from a specific building.
         Burial context codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial context from trench H.
         Check with the trench supervisor who will assign the context code from the central register.</description>
-      <formatString><![CDATA[Cxtx-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>Cxtx-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Context Name" isIdentifier="true" type="measure">
+    <property name="Context Name" type="measure" isIdentifier="true">
       <description>Enter a brief, clear name for the Context eg 'House A - west wall'</description>
-      <formatString><![CDATA[$2]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$2</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Grid X" type="measure">
       <description>The X coordinate on the SW corner of the context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Grid Y" type="measure">
       <description>The Y coordinate on the SW corner of the context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Location Note" type="measure">
       <description>Record the approximate location in the excavation area, for example: centre of Area A; NW corner area A. Also include, where relevant, the position in relation to other archaeological contexts or features e.g. between walls x and y.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Date Opened" type="measure">
       <description>Date on which the Context was first excavated. This will automatically be set to the date on which the context is recorded but can be edited using the keyboard.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Excavators" type="measure">
       <description>Initials of the excavators that have worked on the context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Excavation Method" type="vocab">
       <description>Enter details here about the method of archaeological excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{Hand_pick}
 <description>Excavated by hand-pick.</description></term>
@@ -152,8 +152,8 @@
     </property>
     <property name="Horizon Boundary" type="vocab">
       <description>Describe the boundary between this and the next context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -171,11 +171,11 @@
     </property>
     <property name="Contamination" type="vocab">
       <description>The extent to which the context has been contaminated.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Contaminated}
 <description>Contaminated by later material eg by unidentified cut at time of initial excavation by large scale animal or root activity which were not isolated by excavation by excavation processes some annoying person mixed the material or stuff fell into deposit from the section.</description></term>
         <term>{Possibly_Contaminated}
@@ -192,8 +192,8 @@
     <property name="Context Type" type="vocab">
       <description>Describe the context type by selecting an icon as defined below.
   When you have selected a context type you can proceed to open the "Fill in context type details" page. Note this page will not open unless you have selected a context type.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term pictureURL="files/data/gallery/Blanks/Trail.png">{No_Observation}
 <description>data not collected</description></term>
@@ -209,94 +209,94 @@
     </property>
     <property name="Plans" type="measure">
       <description>Reference numbers to plans or drawings of this Context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Section Numbers" type="measure">
       <description>Reference numbers to section drawings of this Context</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Date Closed" type="measure">
       <description>The date excavation of the Context ended and it was closed. Press the 'Add Date Closed' button to insert today's date.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Context author" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Context timestamp" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Highest Level" type="measure">
       <description>The highest elevation or 'starting level' recorded for that context relative to the site grid.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Lowest Level" type="measure">
       <description>The lowest elevation recorded for that context relative to the site grid.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Length" type="measure">
       <description>Longest dimension in metres.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Width" type="measure">
       <description>Width or diameter in metres.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Depth" type="measure">
       <description>Depth or Height in metres.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Volume" type="measure">
       <description>Estimate the volume of the context in litres. All soil will be collected in buckets of a known volume. A tally should be kept of buckets produced from a context and the total volume calculated using that tally.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Cut Your Interpretation" type="vocab">
       <description>Your interpretation of the likely function of the Context using standardised definitions.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Indeterminate}
-<description/></term>
+<description></description></term>
         <term>{Animal_Plant_hole}
-<description/></term>
+<description></description></term>
         <term>{Stakehole}
-<description/></term>
+<description></description></term>
         <term>{Posthole}
-<description/></term>
+<description></description></term>
         <term>{Pit}
-<description/></term>
+<description></description></term>
         <term>{Hearth_Fire_pit}
-<description/></term>
+<description></description></term>
         <term>{Ditch_Trench}
-<description/></term>
+<description></description></term>
         <term>{Construction_Cut}
-<description/></term>
+<description></description></term>
         <term>{Burial}
-<description/></term>
+<description></description></term>
         <term>{Erosional_Feature}
-<description/></term>
+<description></description></term>
         <term>{Other}
 <description>Function not elsewhere described. Provide details in Annotation field.</description></term>
       </lookup>
     </property>
     <property name="Shape of Cut" type="vocab">
       <description>Describe the shape of the negative element/cut viewed from above.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -320,13 +320,13 @@
     </property>
     <property name="Shape of Cut - Note" type="measure">
       <description>Additional notes about the shape of the cut.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Shape of Corners" type="vocab">
       <description>Describe the shape of any visible corners of the negative element/cut.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{Other}
 <description>Other shapes</description></term>
@@ -338,8 +338,8 @@
     </property>
     <property name="Break of Slope - Top" type="vocab">
       <description>The degree with which the top surface of the edge of the cut breaks into the sides.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{Gradual}
 <description>Some rounding to the top.</description></term>
@@ -353,57 +353,57 @@
     </property>
     <property name="Sides of Cut" type="vocab">
       <description>Describe the shape of the cut as seen in cross section.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Vertical}
 <description>Sides are vertical</description></term>
         <term>{Convex}
-<description/></term>
+<description></description></term>
         <term>{Concave}
-<description/></term>
+<description></description></term>
         <term>{Stepped}
-<description/></term>
+<description></description></term>
         <term>{Sloping}
-<description/><term>{Slightly_Sloping}
-<description/></term><term>{Steeply_Sloping}
-<description/></term></term>
+<description></description><term>{Slightly_Sloping}
+<description></description></term><term>{Steeply_Sloping}
+<description></description></term></term>
       </lookup>
     </property>
     <property name="Shape of Base" type="vocab">
       <description>The shape of the base of the cut in profile.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
         <term>{Concave}
-<description/></term>
+<description></description></term>
         <term>{Flat}
-<description/></term>
+<description></description></term>
         <term>{Pointed}
-<description/></term>
+<description></description></term>
         <term>{Sloping}
-<description/></term>
+<description></description></term>
         <term>{Tapered}
-<description/><term>{Blunt}
-<description/></term><term>{Sharp}
-<description/></term></term>
+<description></description><term>{Blunt}
+<description></description></term><term>{Sharp}
+<description></description></term></term>
         <term>{Uneven}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Cut Function" type="measure">
       <description>Comment in more specific detail on your understanding of the reasons for the shape and nature of the cut.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Orientation" type="vocab">
       <description>Orientation of linear cuts eg N-S.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -419,76 +419,76 @@
     </property>
     <property name="Inclination of axis" type="vocab">
       <description>Inclination of the axis of post- and stakeholes.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
         <term>{Vertical}
-<description/></term>
+<description></description></term>
         <term>{Between_45_and_90_degrees_from_horizontal}
-<description/></term>
+<description></description></term>
         <term>{45_degrees}
-<description/></term>
+<description></description></term>
         <term>{Less_than_45_degrees_from_horizontal}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Structure Your Interpretation" type="vocab">
       <description>Your interpretation of the likely function of the structure.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Indeterminate}
-<description/></term>
+<description></description></term>
         <term>{Floor_Surface}
-<description/></term>
+<description></description></term>
         <term>{Mud_Plaster_Face}
-<description/></term>
+<description></description></term>
         <term>{Wall}
-<description/></term>
+<description></description></term>
         <term>{Platform_Bench}
-<description/></term>
+<description></description></term>
         <term>{Paving}
-<description/></term>
+<description></description></term>
         <term>{Bin}
-<description/></term>
+<description></description></term>
         <term>{Oven}
-<description/></term>
+<description></description></term>
         <term>{Pillar}
-<description/></term>
+<description></description></term>
         <term>{Other}
 <description>Function not elsewhere described. Provide details in Annotation field.</description></term>
       </lookup>
     </property>
     <property name="Structural Components" type="vocab">
       <description>Primary components of structure or feature eg dry-pressed brick rough-hewn stone.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Stone}
-<description/></term>
+<description></description></term>
         <term>{Plaster}
-<description/></term>
+<description></description></term>
         <term>{Mudbrick}
-<description/></term>
+<description></description></term>
         <term>{Other}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Component Finish" type="measure">
       <description>How have the material types been prepared (i.e dressed stones polished/smoothed/painted plaster surface).</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Bonding" type="vocab">
       <description>Additional details of the bonding/packing material.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -506,33 +506,33 @@
     </property>
     <property name="Bonding Details" type="measure">
       <description>What has been used to bind the major elements together? Is there mud mortar in a wall, or chinking stones? </description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Distinguishing Marks" type="measure">
       <description>Describe and distinguishing marks on the bricks or stone, such as makers marks, score marks etc.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Structure Description" type="measure">
       <description>Describe the structure.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Number Courses" type="measure">
       <description>The number of vertical layers of structural elements such as bricks.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Set In Cut" type="measure">
       <description>Give the cut context code if relevant. If not set in cut then put 'NA'.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Structure Shape" type="vocab">
       <description>The shape of the structural element, in plan.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -556,11 +556,11 @@
     </property>
     <property name="Mudbrick Shape" type="vocab">
       <description>The shape of mudbrick(s).</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Rectangular}
 <description>With straight edges, upper and lower surfaces.</description></term>
         <term>{Elongated_oval}
@@ -570,16 +570,16 @@
         <term>{Boat_shaped}
 <description>Concave surface opposite convex surface</description></term>
         <term>{Ovoid}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Deposit Your Interpretation" type="vocab">
       <description>Your interpretation of the likely function of the context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Indeterminate}
 <description>You are unable to make an assessment of possible function.</description></term>
         <term>{Packing}
@@ -616,11 +616,11 @@
     </property>
     <property name="Soil Compaction Type" type="vocab">
       <description>Describe the compaction of the sediments in the Context.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Loose}
 <description>Soft and uncemented/bonded</description></term>
         <term>{Compact}
@@ -637,13 +637,13 @@
     </property>
     <property name="Soil Compaction Description" type="measure">
       <description>Description of the compaction of soil including changes throughout the deposit. Eg "Varies from loose to compact."</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Soil Particle Sorting" type="vocab">
       <description>Assessment of the frequency with which particles of the same size occur.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term pictureURL="files/data/gallery/Other/NA.png">{No_Observation}
 <description>data not collected</description></term>
@@ -659,8 +659,8 @@
     </property>
     <property name="Soil Texture" type="vocab">
       <description>The type of sediment, eg clay, silt, sand and loam. Use the Material Helper or a Soil Sediment diagram for assisance.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>No Observation. Use the Texture helper to prefil this.</description></term>
@@ -697,16 +697,16 @@
     <property name="Soil Colour" type="measure">
       <description>Broad colour  description of the soil, eg 'mid greyish brown'.
       </description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Composition Type" type="vocab">
       <description>Describe the structure of the Context sediment. The components making up the structure are added below as aggregates.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Homogenous}
 <description>Uniform throughout.</description></term>
         <term>{Heterogeneous}
@@ -719,11 +719,11 @@
     </property>
     <property name="Deposit Bedding" type="vocab">
       <description>Describes the base of the deposit</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Horizontal}
 <description>Horizontal.</description></term>
         <term>{Oblique_steep}
@@ -736,8 +736,8 @@
     </property>
     <property name="Sterile" type="vocab">
       <description>Whether or not the deposit is sterile, ie contains no artefacts</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{Yes}
 <description>Deposit is sterile</description></term>
@@ -747,173 +747,173 @@
     </property>
     <property name="Deposit Inclusions" type="measure">
       <description>Enter a brief description of inclusions (eg stone flecks artefacts).</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Space" type="measure">
       <description>Enter the space number, which may define an internal or external area in which the skeleton is located.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Building" type="measure">
       <description>A building can comprise one or more internal spaces so enter the building number in which the skeleton is located.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Mid X" type="measure">
       <description>An appropriate mid-point on the skeleton under excavation should be recorded on the X / Y co-ordinates. This will locate the skeleton on the site grid system.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Mid Y" type="measure">
       <description>An appropriate mid-point on the skeleton under excavation should be recorded on the X / Y co-ordinates. This will locate the skeleton on the site grid system.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Dimensions" type="measure">
       <description>Record the approximate extent of the skeletal remains (in meters or millimetres only) and the axis of measurement. Detailed dimensions can be taken from the plan.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Head" type="measure">
       <description>Which way up the head faces and/or points</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Body" type="measure">
       <description>Describe the attitude of the body, whether it is extended, crouched, flexed, supine (front up), prone (face down) and the orientation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Left Arm" type="measure">
       <description>Record whether left arm is straight or flexed, is along the side of the body, over the chest or on the pelvis, and the position of the hand.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Right Arm" type="measure">
       <description>Record whether right arm is straight or flexed, is along the side of the body, over the chest or on the pelvis, and the position of the hand.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Left Leg" type="measure">
       <description>Record whether the leg is straight or bent, crossed left over right or right over left and the position of the foot</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Right Leg" type="measure">
       <description>Record whether the leg is straight or bent, crossed left over right or right over left and the position of the foot</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Condition" type="measure">
       <description>Describe the general condition of the skeleton and any comments on articulation. Any degeneration of bone in situ is important to record as well as accidental damage during excavation and lifting. Record disturbances through later activity or animal/root activity as well as damage due to stone pressure on the bones. It is important to note whether the patellae, hyoid, phalanges, basi-occipital etc are present or not, and their location, as this may give an indication of the state of the body at the time of interment.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Surface Modifications" type="measure">
       <description>Note any cut marks, evidence of stains and/or colour during the course of the excavation, burning, chewing marks, root activity etc.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Environment" type="measure">
       <description>The physical environment at the time of excavation may affect the state of the bone therefore it is important to note the weather and conditions you are working in.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Days Exposed" type="measure">
       <description>It is important to excavate skeletal remains as quickly as possible as the state of the bone will change during exposure. Any conditional change should also be noted. Excavate as quickly as possible because the bones will degrade rapidly.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target A X" type="measure">
       <description>The X coordinate of Target A. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target A Y" type="measure">
       <description>The Y coordinate of Target A. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target A Z" type="measure">
       <description>The Z coordinate of Target A. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target B X" type="measure">
       <description>The X coordinate of Target B. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target B Y" type="measure">
       <description>The Y coordinate of Target B. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target B Z" type="measure">
       <description>The Z coordinate of Target B. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target C X" type="measure">
       <description>The X coordinate of Target C. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target C Y" type="measure">
       <description>The Y coordinate of Target C. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target C Z" type="measure">
       <description>The Z coordinate of Target C. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target D X" type="measure">
       <description>The X coordinate of Target D. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target D Y" type="measure">
       <description>The Y coordinate of Target D. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Target D Z" type="measure">
       <description>The Z coordinate of Target D. Targets are white-painted, large-headed nails used to rectify photographs.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Skeleton Notes" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Your description" type="measure">
       <description>Enter a verbal description of the Context, including its form, contexts, relationship to other Contexts and any other relevant information. This is the main place to record all other descriptive information that may be treated briefly or not covered elsewhere, including signs of disturbance  by burrowing animals etc.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Your Discussion" type="measure">
       <description>Enter an interpretation of the function of the Context and its place in the stratigraphical sequence.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the context using the camera on the tablet. Use a scale in the photo</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Soil Texture Helper" type="vocab">
       <description>This helper is based on the standard flow chart for determining soil texture. Start by taking 25g of soil and placing it in your palm. Select each option and follow the prompts for TASKS (like roll ribbon) until you get a result, eg 'silty loam'. Then click the 'Update' button to have that value pasted onto your Context record.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{Soil_does_NOT_remain_in_ball_when_squeezed}
 <description>Place approximately 25 g soil in palm. Add water dropwise and knead the soil to break down all aggregates. Soil is at the proper consistency when plastic and moldable like moist putty.</description><term>{Is_too_dry}
 <description>The soil sample is too dry.</description><term>{NO_RESULT__Add_more_water_and_start_again}
-<description/></term></term><term>{Is_too_wet}
+<description></description></term></term><term>{Is_too_wet}
 <description>The soil sample is too wet.</description><term>{NO_RESULT__Add_dry_soil_and_start_again}
 <description>NO RESULT: add dry soil to soak up water</description></term></term><term>{NOT_too_wet_nor_too_dry}
 <description>The soil is NOT too wet nor too dry.</description><term>{Sand}
@@ -954,97 +954,97 @@
       </lookup>
     </property>
     <property name="Device Code" type="vocab">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{0}
-<description/></term>
+<description></description></term>
         <term>{1}
-<description/></term>
+<description></description></term>
         <term>{2}
-<description/></term>
+<description></description></term>
         <term>{3}
-<description/></term>
+<description></description></term>
         <term>{4}
-<description/></term>
+<description></description></term>
         <term>{5}
-<description/></term>
+<description></description></term>
         <term>{6}
-<description/></term>
+<description></description></term>
         <term>{7}
-<description/></term>
+<description></description></term>
         <term>{8}
-<description/></term>
+<description></description></term>
         <term>{9}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="SearchHelp" type="measure">
       <description>This allows you to find any contexts that contain your search term or string in any field in a context record. Type in your term/string and press the "Search" button. Press "My Contexts" to return to the full list of contexts for this trench.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Context Group">
     <description>A group of contexts.</description>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
-    <property name="Context Group ID" isIdentifier="true" type="measure">
+    <property name="Context Group ID" type="measure" isIdentifier="true">
       <description>Feature number taken from the central register.</description>
-      <formatString><![CDATA[Feat-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>Feat-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Title" isIdentifier="true" type="measure">
+    <property name="Title" type="measure" isIdentifier="true">
       <description>Enter the Feature name e.g. Hearth in Building 2.</description>
-      <formatString><![CDATA[$2]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$2</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Building" type="measure">
       <description>Identify the building in which the feature is located.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Space" type="measure">
       <description>Identify the space in which the feature is located if relevant.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Location Note CG" type="measure">
       <description>Record where the feature is within a space / building/area if relevant and in particular its relationship to other features or key contexts.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="CG Context Type" type="vocab">
       <description>Enter the type of feature you are describing.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -1086,113 +1086,113 @@
     </property>
     <property name="CG Your description" type="measure">
       <description>Describe the feature, any details of dimensions, disturbance, orientation etc.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="CG Your Interpretation" type="measure">
       <description>Describe your understanding of the feature function, phasing etc.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Your Discussion" type="measure">
       <description>Add here any elaborations on the interpretation and description.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Length" type="measure">
       <description>Longest dimension in metres.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Width" type="measure">
       <description>Width or diameter in metres.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Depth" type="measure">
       <description>Depth or Height in metres.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Mid X" type="measure">
       <description>An appropriate mid-point on the feature should be recorded on the X/Y coordinates. This will locate the feature on the site grid system.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Mid Y" type="measure">
       <description>An appropriate mid-point on the feature should be recorded on the X/Y coordinates. This will locate the feature on the site grid system.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="CG Phase Notes" type="measure">
       <description>The site or building phase in which this feature was constructed or deposited.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="CG Plans" type="measure">
       <description>Reference numbers to plans or drawings of this feature.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="CG Section Numbers" type="measure">
       <description>Reference numbers to section drawings of this feature</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Context_Group author" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+    <property name="Context Group author" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Context_Group timestamp" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+    <property name="Context Group timestamp" type="measure">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the feature using the camera on the tablet. Remember to include a scale in the photo.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Device Code" type="vocab">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{0}
-<description/></term>
+<description></description></term>
         <term>{1}
-<description/></term>
+<description></description></term>
         <term>{2}
-<description/></term>
+<description></description></term>
         <term>{3}
-<description/></term>
+<description></description></term>
         <term>{4}
-<description/></term>
+<description></description></term>
         <term>{5}
-<description/></term>
+<description></description></term>
         <term>{6}
-<description/></term>
+<description></description></term>
         <term>{7}
-<description/></term>
+<description></description></term>
         <term>{8}
-<description/></term>
+<description></description></term>
         <term>{9}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Matrix">
-    <description/>
-    <property name="Component" isIdentifier="true" type="vocab">
+    <description></description>
+    <property name="Component" type="vocab" isIdentifier="true">
       <description>Describe the components which make up 10% or more of the deposit.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -1216,15 +1216,15 @@
 <description>Human manufactured materials including lithics, beads, ground stone etc.</description></term>
       </lookup>
     </property>
-    <property name="Percentage" isIdentifier="true" type="measure">
+    <property name="Percentage" type="measure" isIdentifier="true">
       <description>Enter the approximate % volume of this material in the Context.</description>
-      <formatString><![CDATA[$2%]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$2%</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Shape" type="vocab">
       <description>Shape and roundness of stones and pebbles in the deposit.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term pictureURL="files/data/gallery/Other/NA.png">{No_Observation}
 <description>data not collected</description></term>
@@ -1247,106 +1247,106 @@
       </lookup>
     </property>
     <property name="Context ID" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="AreaCode" type="vocab">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Height">
-    <description/>
-    <property name="Number" isIdentifier="true" type="measure">
+    <description></description>
+    <property name="Number" type="measure" isIdentifier="true">
       <description>Add a short description of the point being recorded, for example, 1. North edge of floor, 2. South edge of floor. Mark your points on the sketch for each context.</description>
-      <formatString><![CDATA[$2]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$2</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="X" isIdentifier="true" type="measure">
+    <property name="X" type="measure" isIdentifier="true">
       <description>Add X coordinate using the site grid</description>
-      <formatString><![CDATA[ $2,]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString> $2,</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Y" isIdentifier="true" type="measure">
+    <property name="Y" type="measure" isIdentifier="true">
       <description>Add Y coordinate using the site grid</description>
-      <formatString><![CDATA[ $2,]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString> $2,</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Z" isIdentifier="true" type="measure">
+    <property name="Z" type="measure" isIdentifier="true">
       <description>Add Z coordinate using the site grid</description>
-      <formatString><![CDATA[ $2]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString> $2</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Notes" type="measure">
       <description>Add a description here concerning the entity whose position you have recorded</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Context ID" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="AreaCode" type="vocab">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Sample">
     <description>Deposit samples or samples of building elements recovered from this Context for the purpose of further analysis or ongoing reference.</description>
-    <property name="Context ID" isIdentifier="true" type="measure">
+    <property name="Context ID" type="measure" isIdentifier="true">
       <description>Unique number or code for the Context from which this Artefact Cluster was collected.</description>
-      <formatString><![CDATA[Cxtx-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>Cxtx-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Sample ID" isIdentifier="true" type="measure">
+    <property name="Sample ID" type="measure" isIdentifier="true">
       <description>The unique code or reference for the Sample. This should be assigned with reference to the central register</description>
-      <formatString><![CDATA[-Sample-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>-Sample-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Sample Type" isIdentifier="true" type="vocab">
+    <property name="Sample Type" type="vocab" isIdentifier="true">
       <description>The type of Sample collected as detailed below.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -1378,330 +1378,330 @@
     </property>
     <property name="Sample Volume" type="measure">
       <description>Volume (in litres) of the sample collected.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Sample X" type="measure">
       <description>The reading from the x-axis (horizontal) of an arbitrary site grid corresponding to the location of the Sample at the time of excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Sample Y" type="measure">
       <description>The reading from the y-axis (vertical) of an arbitrary site grid corresponding to the location of the Sample at the time of excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Sample Z" type="measure">
       <description>The elevation or depth of the Sample at the time of excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Sample Location" type="vocab">
       <description>The storage location of the sample at the time of entry.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
         <term>{Site_depot}
-<description/></term>
+<description></description></term>
         <term>{Export__Liverpool_}
-<description/></term>
+<description></description></term>
         <term>{Export__Turkey_}
-<description/></term>
+<description></description></term>
         <term>{Museum}
-<description/></term>
+<description></description></term>
         <term>{Other__add_Annotation_}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Sample Comments" type="measure">
       <description>Additional comments about this sample or its collection.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Device Code" type="vocab">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{0}
-<description/></term>
+<description></description></term>
         <term>{1}
-<description/></term>
+<description></description></term>
         <term>{2}
-<description/></term>
+<description></description></term>
         <term>{3}
-<description/></term>
+<description></description></term>
         <term>{4}
-<description/></term>
+<description></description></term>
         <term>{5}
-<description/></term>
+<description></description></term>
         <term>{6}
-<description/></term>
+<description></description></term>
         <term>{7}
-<description/></term>
+<description></description></term>
         <term>{8}
-<description/></term>
+<description></description></term>
         <term>{9}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Special Find">
-    <description/>
-    <property name="Context ID" isIdentifier="true" type="measure">
+    <description></description>
+    <property name="Context ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Context.</description>
-      <formatString><![CDATA[Cxtx-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>Cxtx-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Special Find ID" isIdentifier="true" type="measure">
+    <property name="Special Find ID" type="measure" isIdentifier="true">
       <description>Unique number or code for the artefact applying either a Small Find or Groundstone number from the site register.</description>
-      <formatString><![CDATA[-Artefact-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>-Artefact-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Special Find Class" isIdentifier="true" type="vocab">
+    <property name="Special Find Class" type="vocab" isIdentifier="true">
       <description>Broad Artefact Class for each Artefact (eg Chipped stone, Clay object, Building Material).</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
         <term>{Chipped_Stone}
-<description/><term>{Blade}
-<description/></term><term>{Core}
-<description/></term><term>{Cache}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Blade}
+<description></description></term><term>{Core}
+<description></description></term><term>{Cache}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Ground_Stone}
-<description/><term>{Bead}
-<description/></term><term>{Grinder}
-<description/></term><term>{Pestle}
-<description/></term><term>{Shaft_Straightener}
-<description/></term><term>{Pendant}
-<description/></term><term>{Incised_Stone}
-<description/></term><term>{Polisher}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Bead}
+<description></description></term><term>{Grinder}
+<description></description></term><term>{Pestle}
+<description></description></term><term>{Shaft_Straightener}
+<description></description></term><term>{Pendant}
+<description></description></term><term>{Incised_Stone}
+<description></description></term><term>{Polisher}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Bone}
-<description/><term>{Point}
-<description/></term><term>{Bead}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Point}
+<description></description></term><term>{Bead}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Shell}
-<description/><term>{Bead}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Bead}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Plant}
-<description/><term>{Charcoal}
-<description/></term><term>{Hackberry}
-<description/></term><term>{Charred_Seed}
-<description/></term><term>{Siliceous_Material}
-<description/></term><term>{Phytolith}
-<description/></term><term>{Impression_Cast}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Charcoal}
+<description></description></term><term>{Hackberry}
+<description></description></term><term>{Charred_Seed}
+<description></description></term><term>{Siliceous_Material}
+<description></description></term><term>{Phytolith}
+<description></description></term><term>{Impression_Cast}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Ochre}
-<description/></term>
+<description></description></term>
         <term>{Clay_Object}
-<description/><term>{Figurine}
-<description/></term><term>{Geometric_object}
-<description/></term><term>{Token}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Figurine}
+<description></description></term><term>{Geometric_object}
+<description></description></term><term>{Token}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Ceramic}
-<description/><term>{Coarse}
-<description/></term><term>{Fine}
-<description/></term><term>{Terracotta}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Coarse}
+<description></description></term><term>{Fine}
+<description></description></term><term>{Terracotta}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Glass}
-<description/><term>{Black}
-<description/></term><term>{Colourless}
-<description/></term><term>{Coloured}
-<description/></term></term>
+<description></description><term>{Black}
+<description></description></term><term>{Colourless}
+<description></description></term><term>{Coloured}
+<description></description></term></term>
         <term>{Metal}
-<description/><term>{Ferrous}
-<description/></term><term>{Copper_alloy}
-<description/></term><term>{Other}
-<description/></term></term>
+<description></description><term>{Ferrous}
+<description></description></term><term>{Copper_alloy}
+<description></description></term><term>{Other}
+<description></description></term></term>
         <term>{Building_Materials}
-<description/></term>
+<description></description></term>
         <term>{Miscellaneous}
 <description>Add detail in the Annotation field</description></term>
       </lookup>
     </property>
     <property name="Source" type="vocab">
       <description>Record the source of the artefact and whether it was collected during the excavation at the trench or from a sample</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
-<description/></term>
+<description></description></term>
         <term>{Excavation}
-<description/></term>
+<description></description></term>
         <term>{Flotation}
-<description/></term>
+<description></description></term>
         <term>{Wet_Sieve}
-<description/></term>
+<description></description></term>
         <term>{Other}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Special Find Location" type="vocab">
       <description>The storage location of the artefact at the time of entry.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
         <term>{Site_depot}
-<description/></term>
+<description></description></term>
         <term>{Export__Liverpool_}
-<description/></term>
+<description></description></term>
         <term>{Export__Turkey_}
-<description/></term>
+<description></description></term>
         <term>{Museum}
-<description/></term>
+<description></description></term>
         <term>{Other__add_Annotation_}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Special Find Description" type="measure">
       <description>Description of the Artefact.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Special Find X" type="measure">
       <description>The reading from the x-axis (horizontal) of an arbitrary site grid corresponding to the location of the Small Find at the time of excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Special Find Y" type="measure">
       <description>The reading from the y-axis (vertical) of an arbitrary site grid corresponding to the location of the Small Find at the time of excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Special Find Z" type="measure">
       <description>The elevation or depth of the Small Find at the time of excavation.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Special Find Comment" type="measure">
       <description>Enter any additional observations concerning the artefact, its context and/or events surrounding it, for example damage or breakage suring excavation and storage.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the artefact etc using the camera on the tablet. Make sure the artefact is shown with a scale</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Device Code" type="vocab">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{0}
-<description/></term>
+<description></description></term>
         <term>{1}
-<description/></term>
+<description></description></term>
         <term>{2}
-<description/></term>
+<description></description></term>
         <term>{3}
-<description/></term>
+<description></description></term>
         <term>{4}
-<description/></term>
+<description></description></term>
         <term>{5}
-<description/></term>
+<description></description></term>
         <term>{6}
-<description/></term>
+<description></description></term>
         <term>{7}
-<description/></term>
+<description></description></term>
         <term>{8}
-<description/></term>
+<description></description></term>
         <term>{9}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Photograph Log">
     <description>A record of images created and stored on another device, eg by a professional site photographer.</description>
-    <property name="Photo Context ID" isIdentifier="true" type="measure">
+    <property name="Photo Context ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Context</description>
-      <formatString><![CDATA[{{if $2 then "Cxtx-$2-" else ""}}]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>{{if $2 then "Cxtx-$2-" else ""}}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Photo Context Group ID" isIdentifier="true" type="measure">
+    <property name="Photo Context Group ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Context Group</description>
-      <formatString><![CDATA[{{if $2 then "Feature-$2-" else ""}}]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>{{if $2 then "Feature-$2-" else ""}}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Photograph Reference ID" isIdentifier="true" type="measure">
+    <property name="Photograph Reference ID" type="measure" isIdentifier="true">
       <description>Unique number or code allocated by creator of the image. It could be a filename or a reference number</description>
-      <formatString><![CDATA[Photo-$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>Photo-$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Scene Type" type="vocab">
       <description>The type of scene captured, eg opening or closing view of the Context. (Vocab: Open, Close, Other)</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
 <description>data not collected</description></term>
@@ -1714,146 +1714,146 @@
       </lookup>
     </property>
     <property name="Photograph Description" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Device Code" type="vocab">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{0}
-<description/></term>
+<description></description></term>
         <term>{1}
-<description/></term>
+<description></description></term>
         <term>{2}
-<description/></term>
+<description></description></term>
         <term>{3}
-<description/></term>
+<description></description></term>
         <term>{4}
-<description/></term>
+<description></description></term>
         <term>{5}
-<description/></term>
+<description></description></term>
         <term>{6}
-<description/></term>
+<description></description></term>
         <term>{7}
-<description/></term>
+<description></description></term>
         <term>{8}
-<description/></term>
+<description></description></term>
         <term>{9}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
     <property name="Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Diary">
-    <description/>
-    <property name="Diary author" isIdentifier="true" type="measure">
+    <description></description>
+    <property name="Diary author" type="measure" isIdentifier="true">
       <description>Your name will be added here based on your login</description>
-      <formatString><![CDATA[By: $2 - Diary:]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>By: $2 - Diary:</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Diary Title" isIdentifier="true" type="measure">
+    <property name="Diary Title" type="measure" isIdentifier="true">
       <description>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</description>
-      <formatString><![CDATA[$2-]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>$2-</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
-    <property name="Diary timestamp" isIdentifier="true" type="measure">
+    <property name="Diary timestamp" type="measure" isIdentifier="true">
       <description>The date this entry is created will automatically appear here</description>
-      <formatString><![CDATA[ $2]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString> $2</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Text" type="measure">
       <description>Record your diary entry here in as much detail as necessary and append with photographs, video and/or audio</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo relevant to this entry using the camera on the tablet</description>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Legacy">
-    <description/>
-    <property name="AreaCode" isIdentifier="true" type="vocab">
+    <description></description>
+    <property name="AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString><![CDATA[$1-]]></formatString>
-      <appendCharacterString><![CDATA[-]]></appendCharacterString>
+      <formatString>$1-</formatString>
+      <appendCharacterString>-</appendCharacterString>
       <lookup>
         <term>{H}
-<description/></term>
+<description></description></term>
         <term>{K}
-<description/></term>
+<description></description></term>
         <term>{L}
-<description/></term>
+<description></description></term>
         <term>{M}
-<description/></term>
+<description></description></term>
         <term>{N}
-<description/></term>
+<description></description></term>
         <term>{P}
-<description/></term>
+<description></description></term>
         <term>{Q}
-<description/></term>
+<description></description></term>
         <term>{X}
-<description/></term>
+<description></description></term>
       </lookup>
     </property>
-    <property name="Legacy Context ID" isIdentifier="true" type="measure">
-      <description/>
-      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
-      <appendCharacterString><![CDATA[ - ]]></appendCharacterString>
+    <property name="Legacy Context ID" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>
 </dataSchema>
