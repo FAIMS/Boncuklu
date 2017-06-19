@@ -2,7 +2,7 @@
 onEvent("Context/Soil_Texture_Helper/Update_Soil_Texture", "click", "setTextureActual()");
 
 // Overrides the original function definition using @POSTPROC.
-onClickContextSoilTextureHelper () {
+onClickContextDepositSoilTextureHelper () {
   showTab("Context/Soil_Texture_Helper");
 }
 

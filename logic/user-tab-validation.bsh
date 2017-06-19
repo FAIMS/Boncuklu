@@ -1,9 +1,9 @@
 /**************************** USER TAB VALIDATION *****************************/
-/* The autogen defines its own `onClickUserLogin` function. This is           */
+/* The autogen defines its own `onClickUserUserListLogin` function. This is   */
 /* overridden using @POSTPROC.                                                */
 /******************************************************************************/
 
-onClickUserLogin () {
+void onClickUserUserListLogin () {
   String refUsers      = userMenuPath; // Defined by autogen
   String refAreaCode   = "User/User_List/AreaCode";
   String refDeviceCode = "User/User_List/Device_Code";
