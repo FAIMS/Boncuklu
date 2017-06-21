@@ -1,0 +1,89 @@
+/****************************** SEARCH EXTENSION ******************************/
+/* Implements an extension to the search page which allows users to           */
+/* constrain their searches by user.                                          */
+/*                                                                            */
+/* TODO: This code was copied from the harvard module and modified just       */
+/* enough to make it work. The variable and function names could be better.   */
+/******************************************************************************/
+delOnEvent("Control/Search", "show", "search()");
+addOnEvent("Control/Search", "show", "populateSelectUser()");
+addOnEvent("module",         "load", "populateSite()");
+
+addOnEvent("Control/Search/Select_User", "click", "search()");
+addOnEvent("Control/Search/Select_AreaCode", "click", "search()");
+
+void populateSelectUser(){
+  String refSearchUsers = "Control/Search/Select_User";
+  String getNonDeletedUsersQuery = "SELECT userid, fname || ' ' || lname "+
+                                   "  FROM user "+
+                                   " WHERE userdeleted is null "+
+                                   " UNION " +
+                                   "SELECT -1, '{All}'";
+
+  fetchAll(getNonDeletedUsersQuery, new FetchCallback() {
+    onFetch(result) {
+      populateDropDown(refSearchUsers, result, false);
+      search();
+    }
+  });
+}
+
+void populateSite() {
+  List all = new ArrayList();
+  all.add("");
+  all.add("{All}");
+
+  List menuEntries = new ArrayList(getMenuEntries("AreaCode"));
+  menuEntries.add(0, all);
+
+  populateDropDown("Control/Search/Select_AreaCode", menuEntries, false);
+}
+
+// Overrides auto-generated definition
+void search(){
+  String tabgroup = "Control";
+  String refEntityList  = tabgroup + "/Search/Entity_List";
+  String refSearchTerm  = tabgroup + "/Search/Search_Term";
+  String refEntityTypes = tabgroup + "/Search/Entity_Types";
+  String refSelectUser  = tabgroup + "/Search/Select_User";
+  String refSelectSite  = tabgroup + "/Search/Select_AreaCode";
+
+  String type = getFieldValue(refEntityTypes);
+  String term = getFieldValue(refSearchTerm);
+  String user = getFieldValue(refSelectUser);
+  String area = getFieldValue(refSelectSite);
+  if (isNull(user)) return;
+  String searchQuery = "SELECT uuid, response " +
+                       "  FROM latestNonDeletedArchEntFormattedIdentifiers  " +
+                       " WHERE uuid in (SELECT uuid " +
+                       "                  FROM latestNonDeletedArchEntIdentifiers " +
+                       "                 WHERE measure LIKE '{term}%'  " +
+                       "                   AND ( aenttypename LIKE '{type}' OR '' = '{type}' ) " +
+                       "                   AND ( userid = {user} OR -1 = {user}) " +
+                       "                ) " +
+                       "  AND  ( " +
+                       "           ('{area}' = '') OR" +
+                       "           uuid IN (" +
+                       "            SELECT uuid" +
+                       "              FROM latestnondeletedaentvalue" +
+                       "              JOIN attributekey USING (attributeid)" +
+                       "             WHERE attributename = 'AreaCode'" +
+                       "               AND vocabid = '{area}'" +
+                       "           )" +
+                       "       )" +
+                       " ORDER BY response " +
+                       " LIMIT ? " +
+                       "OFFSET ? ";
+  searchQuery = replaceFirst(searchQuery, "{term}", term);
+  searchQuery = replaceFirst(searchQuery, "{type}", type);
+  searchQuery = replaceFirst(searchQuery, "{type}", type);
+  searchQuery = replaceFirst(searchQuery, "{user}", user);
+  searchQuery = replaceFirst(searchQuery, "{user}", user);
+  searchQuery = replaceFirst(searchQuery, "{area}", area);
+  searchQuery = replaceFirst(searchQuery, "{area}", area);
+
+  populateCursorList(refEntityList, searchQuery, 25);
+  refreshTabgroupCSS(tabgroup);
+
+  Log.d("Module", "Search query: " + searchQuery);
+}
