@@ -809,7 +809,7 @@
   </Artefacts>
   <Samples f="noscroll">
     <Add_Sample t="button" lc="Sample"/>
-    <List_of_Sample ec="Sample" t="list"/>
+    <List_of_Samples ec="Sample" t="list"/>
   </Samples>
   <Add>
     <Photo t="camera">
