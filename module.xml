@@ -81,7 +81,13 @@
     <autonum/>
     <GPS_Diagnostics t="gpsdiag"/>
   </Contexts>
-  <search/>
+  <search>
+    <!--The semantics of this element has been changed with @POSTPROC. A
+         Select_User dropdown has been placed beside the Entity_List.
+        This entails changes to ui_schema.xml, ui_logic.bsh and
+        english.0.properties.
+         -->
+  </search>
 </Control>
 
 <Context>
@@ -1682,10 +1688,10 @@
 </Context_Group_Relationship>
 
 <logic><![CDATA[
-  <!--@SOURCE: logic/utils.bsh-->
   <!--@SOURCE: logic/shared.bsh-->
   <!--@SOURCE: logic/relationships-shared.bsh-->
 
+  <!--@SOURCE: logic/custom-search.bsh-->
   <!--@SOURCE: logic/vocab-population.bsh-->
   <!--@SOURCE: logic/user-tab-validation.bsh-->
   <!--@SOURCE: logic/field-inheritance.bsh-->
