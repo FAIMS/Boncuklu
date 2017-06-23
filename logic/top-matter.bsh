@@ -1,0 +1,7 @@
+/********************************* TOP MATTER *********************************/
+
+/* Disabling sync by default fixes a bug where the database is locked when it
+ * should not be.
+ */
+setFileSyncEnabled(true);
+setSyncEnabled(true);
