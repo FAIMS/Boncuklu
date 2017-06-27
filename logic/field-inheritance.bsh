@@ -1,4 +1,6 @@
 /***************************** FIELD INHERITANCE ******************************/
+/* TODO: Write these using the `i` attribute in the module.xml file.          */
+/******************************************************************************/
 String moduleYear     = new java.text.SimpleDateFormat("yy").format(new Date());
 String moduleSiteCode = "BK" + moduleYear;
 
@@ -13,10 +15,10 @@ inheritContextFields() {
     "Context/General/Excavators"
   );
 
-  copyFieldValue(
-    "User/User_List/AreaCode",
-    "Context/General/AreaCode"
-  );
+  //copyFieldValue(
+    //"User/User_List/AreaCode",
+    //"Context/General/AreaCode"
+  //);
 
   copyFieldValue(
     "User/User_List/Device_Code",

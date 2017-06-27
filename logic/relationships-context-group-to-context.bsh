@@ -105,11 +105,20 @@ CGsearchRelationship() {
   String refAreaCode  = "Context_Group_Relationship/Relationships/AreaCode";
   String refContextId = "Context_Group_Relationship/Relationships/Context_ID";
 
-  String areaCode   = getFieldValue(refAreaCode);
+  String areaCode   = getFieldValue(refAreaCode, true);
   String contextId  = getFieldValue(refContextId);
   String parentRole = "includes";
   String unrelatedQ = "";
   String relatedQ   = "";
+
+  String refContextAreaCode = "Context/General/AreaCode";
+  String refLegacyAreaCode  = "Legacy/Legacy/AreaCode";
+  String refContextContextId = "Context/General/Context_Context_ID";
+  String refLegacyContextId  = "Legacy/Legacy/Legacy_Context_ID";
+  String contextAreaCode = getAttributeName(refContextAreaCode);
+  String legacyAreaCode  = getAttributeName(refLegacyAreaCode);
+  String contextContextId = getAttributeName(refContextContextId);
+  String legacyContextId  = getAttributeName(refLegacyContextId);
 
   if (isNull(areaCode)) {
     msgHead  = "Trench required";
@@ -128,27 +137,33 @@ CGsearchRelationship() {
   unrelatedQ += "   FROM latestNonDeletedArchEntFormattedIdentifiers";
   unrelatedQ += "  WHERE uuid IN (";
   unrelatedQ += "         SELECT uuid";
-  unrelatedQ += "           FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid)";
-  unrelatedQ += "          WHERE attributename = 'AreaCode'";
-  unrelatedQ += "            AND vocabid = '{AreaCode}'";
+  unrelatedQ += "           FROM latestnondeletedaentvalue";
+  unrelatedQ += "           JOIN attributekey USING (attributeid)";
+  unrelatedQ += "           JOIN vocabulary USING (vocabid)";
+  unrelatedQ += "          WHERE attributename IN ({Context_AreaCode}, {Legacy_AreaCode})";
+  unrelatedQ += "            AND vocabname = {AreaCode}";
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
-  unrelatedQ += "                  WHERE attributename IN ('Context Context ID', 'Legacy Context ID')";
-  unrelatedQ += "                    AND measure = '{Context_ID}')";
+  unrelatedQ += "                  WHERE attributename IN ({Context_Context_ID}, {Legacy_Context_ID})";
+  unrelatedQ += "                    AND measure = {Context_ID})";
   unrelatedQ += "            AND uuid NOT IN (";
   unrelatedQ += "                 SELECT childuuid";
   unrelatedQ += "                   FROM parentchild";
-  unrelatedQ += "                  WHERE parentuuid = '{parentUuid}'";
-  unrelatedQ += "                    AND parentparticipatesverb = '{parentRole}')";
-  unrelatedQ += "            AND uuid != '{parentUuid}')";
+  unrelatedQ += "                  WHERE parentuuid = {parentUuid}";
+  unrelatedQ += "                    AND parentparticipatesverb = {parentRole})";
+  unrelatedQ += "            AND uuid != {parentUuid})";
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
-  unrelatedQ  = replaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Context_ID}", contextId );
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentRole}", parentRole);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_AreaCode}", contextAreaCode);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Legacy_AreaCode}", legacyAreaCode);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_Context_ID}", contextContextId);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Legacy_Context_ID}", legacyContextId);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_ID}", contextId );
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentRole}", parentRole);
 
   relatedQ += getCGChildQuery(parentUuid);
 

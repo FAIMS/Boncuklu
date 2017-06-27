@@ -1,5 +1,5 @@
 /*
- * GENERATED WITH FAIMS-TOOLS, SHA1: eb0c9812ad92059426de9ca185240d877689e512
+ * GENERATED WITH FAIMS-TOOLS, SHA1: 5db20e25d74a6a2e4dc8f7fa389bae5b5a93b22c
  */
 import android.util.Log;
 import android.os.Build.MODEL;
@@ -139,6 +139,13 @@ HashSet DATA_REFS                      = new HashSet();
 HashSet NO_UI_REFS                     = new HashSet();
 HashSet HIER_REFS                      = new HashSet();
 Map     VP_REF_TO_REF                  = new HashMap();
+HashSet REFS_AS_HASH_SET               = null;
+List    REFS_AS_LIST                   = null;
+List    TAB_GROUPS_AS_LIST             = new ArrayList();
+HashSet TAB_GROUPS_AS_HASH_SET         = null;
+List    TABS_AS_LIST                   = new ArrayList();
+HashSet TABS_AS_HASH_SET               = null;
+HashMap ATTRIB_NAMES_NON_STANDARD      = new HashMap();
 
 REF_TO_TYPE.put("User/User_List/Users", "dropdown");
 REF_TO_TYPE.put("User/User_List/AreaCode", "dropdown");
@@ -155,41 +162,31 @@ REF_TO_TYPE.put("Control/Contexts/Next_Context_Context_ID", "input");
 REF_TO_TYPE.put("Control/Contexts/Next_Context_Group_ID", "input");
 REF_TO_TYPE.put("Control/Contexts/Next_Sample_ID", "input");
 REF_TO_TYPE.put("Control/Contexts/GPS_Diagnostics", "gpsdiag");
-REF_TO_TYPE.put("Control/Search", "group");
 REF_TO_TYPE.put("Control/Search/Search_Term", "input");
 REF_TO_TYPE.put("Control/Search/Search_Button", "button");
 REF_TO_TYPE.put("Control/Search/Entity_Types", "dropdown");
 REF_TO_TYPE.put("Control/Search/Entity_List", "list");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/AreaCode", "dropdown");
 REF_TO_TYPE.put("Context/General/Context_Context_ID", "input");
 REF_TO_TYPE.put("Context/General/Context_Name", "input");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/Grid_X", "input");
 REF_TO_TYPE.put("Context/General/Grid_Y", "input");
 REF_TO_TYPE.put("Context/General/Location_Note", "input");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/Date_Opened", "input");
 REF_TO_TYPE.put("Context/General/Excavators", "input");
 REF_TO_TYPE.put("Context/General/Excavation_Method", "checkbox");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/Horizon_Boundary", "dropdown");
 REF_TO_TYPE.put("Context/General/Contamination", "dropdown");
 REF_TO_TYPE.put("Context/General/Context_Type", "picture");
 REF_TO_TYPE.put("Context/General/Fill_in_Context_Type_Details", "button");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/Plans", "input");
 REF_TO_TYPE.put("Context/General/Section_Numbers", "input");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/Date_Closed", "input");
 REF_TO_TYPE.put("Context/General/Add_Date_Closed", "button");
-REF_TO_TYPE.put("Context/General", "group");
 REF_TO_TYPE.put("Context/General/Context_author", "input");
 REF_TO_TYPE.put("Context/General/Context_timestamp", "input");
-REF_TO_TYPE.put("Context/Measure", "group");
 REF_TO_TYPE.put("Context/Measure/Highest_Level", "input");
 REF_TO_TYPE.put("Context/Measure/Lowest_Level", "input");
-REF_TO_TYPE.put("Context/Measure", "group");
 REF_TO_TYPE.put("Context/Measure/Length", "input");
 REF_TO_TYPE.put("Context/Measure/Width", "input");
 REF_TO_TYPE.put("Context/Measure/Depth", "input");
@@ -197,12 +194,10 @@ REF_TO_TYPE.put("Context/Measure/Volume", "input");
 REF_TO_TYPE.put("Context/Measure/Add_Height", "button");
 REF_TO_TYPE.put("Context/Measure/Height_List", "list");
 REF_TO_TYPE.put("Context/Cut/Cut_Your_Interpretation", "dropdown");
-REF_TO_TYPE.put("Context/Cut", "group");
 REF_TO_TYPE.put("Context/Cut/Shape_of_Cut", "dropdown");
 REF_TO_TYPE.put("Context/Cut/Shape_of_Cut_-_Note", "input");
 REF_TO_TYPE.put("Context/Cut/Shape_of_Corners", "radio");
 REF_TO_TYPE.put("Context/Cut/Break_of_Slope_-_Top", "radio");
-REF_TO_TYPE.put("Context/Cut", "group");
 REF_TO_TYPE.put("Context/Cut/Sides_of_Cut", "dropdown");
 REF_TO_TYPE.put("Context/Cut/Shape_of_Base", "dropdown");
 REF_TO_TYPE.put("Context/Cut/Cut_Function", "input");
@@ -224,51 +219,39 @@ REF_TO_TYPE.put("Context/Deposit/Deposit_Your_Interpretation", "dropdown");
 REF_TO_TYPE.put("Context/Deposit/Soil_Compaction_Type", "dropdown");
 REF_TO_TYPE.put("Context/Deposit/Soil_Compaction_Description", "input");
 REF_TO_TYPE.put("Context/Deposit/Soil_Particle_Sorting", "picture");
-REF_TO_TYPE.put("Context/Deposit", "group");
 REF_TO_TYPE.put("Context/Deposit/Soil_Texture", "dropdown");
 REF_TO_TYPE.put("Context/Deposit/Soil_Texture_Helper", "button");
 REF_TO_TYPE.put("Context/Deposit/Soil_Colour", "input");
-REF_TO_TYPE.put("Context/Deposit", "group");
 REF_TO_TYPE.put("Context/Deposit/Composition_Type", "dropdown");
 REF_TO_TYPE.put("Context/Deposit/Deposit_Bedding", "dropdown");
-REF_TO_TYPE.put("Context/Deposit", "group");
 REF_TO_TYPE.put("Context/Deposit/Sterile", "radio");
 REF_TO_TYPE.put("Context/Deposit/Deposit_Inclusions", "input");
 REF_TO_TYPE.put("Context/Deposit/Add_New_Matrix", "button");
 REF_TO_TYPE.put("Context/Deposit/Associated_Matrices", "dropdown");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Space", "input");
 REF_TO_TYPE.put("Context/Skeleton/Building", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Mid_X", "input");
 REF_TO_TYPE.put("Context/Skeleton/Mid_Y", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Dimensions", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Head", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Body", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Left_Arm", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Right_Arm", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Left_Leg", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Right_Leg", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Condition", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Surface_Modifications", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Environment", "input");
 REF_TO_TYPE.put("Context/Skeleton/Skeleton_Days_Exposed", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Target_A_X", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_A_Y", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_A_Z", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Target_B_X", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_B_Y", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_B_Z", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Target_C_X", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_C_Y", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_C_Z", "input");
-REF_TO_TYPE.put("Context/Skeleton", "group");
 REF_TO_TYPE.put("Context/Skeleton/Target_D_X", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_D_Y", "input");
 REF_TO_TYPE.put("Context/Skeleton/Target_D_Z", "input");
@@ -276,7 +259,6 @@ REF_TO_TYPE.put("Context/Skeleton/Skeleton_Notes", "input");
 REF_TO_TYPE.put("Context/Int/Your_description", "input");
 REF_TO_TYPE.put("Context/Int/Your_Discussion", "input");
 REF_TO_TYPE.put("Context/Relationships/Create_Relationships_to_This_Context", "button");
-REF_TO_TYPE.put("Context/Relationships", "group");
 REF_TO_TYPE.put("Context/Relationships/Existing_Relationships_to_This_Context", "list");
 REF_TO_TYPE.put("Context/Relationships/Selected_Relationship", "webview");
 REF_TO_TYPE.put("Context/Relationships/Load_Related_Context", "button");
@@ -284,7 +266,7 @@ REF_TO_TYPE.put("Context/Relationships/Delete_Relationship", "button");
 REF_TO_TYPE.put("Context/Artefacts/Add_Special_Find", "button");
 REF_TO_TYPE.put("Context/Artefacts/List_of_Related_Special_Finds", "list");
 REF_TO_TYPE.put("Context/Samples/Add_Sample", "button");
-REF_TO_TYPE.put("Context/Samples/List_of_Sample", "list");
+REF_TO_TYPE.put("Context/Samples/List_of_Samples", "list");
 REF_TO_TYPE.put("Context/Add/Photo", "camera");
 REF_TO_TYPE.put("Context/Add/Photo_Button_1", "button");
 REF_TO_TYPE.put("Context/Add/Guide_0", "webview");
@@ -295,11 +277,9 @@ REF_TO_TYPE.put("Context/Soil_Texture_Helper/Update_Soil_Texture", "button");
 REF_TO_TYPE.put("Context/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Context/Vars/Site_Code", "input");
 REF_TO_TYPE.put("Context/Vars/SearchHelp", "input");
-REF_TO_TYPE.put("Context_Group/Gen", "group");
 REF_TO_TYPE.put("Context_Group/Gen/AreaCode", "dropdown");
 REF_TO_TYPE.put("Context_Group/Gen/Context_Group_ID", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Title", "input");
-REF_TO_TYPE.put("Context_Group/Gen", "group");
 REF_TO_TYPE.put("Context_Group/Gen/Building", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Space", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Location_Note_CG", "input");
@@ -307,22 +287,17 @@ REF_TO_TYPE.put("Context_Group/Gen/CG_Context_Type", "dropdown");
 REF_TO_TYPE.put("Context_Group/Gen/CG_Your_description", "input");
 REF_TO_TYPE.put("Context_Group/Gen/CG_Your_Interpretation", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Your_Discussion", "input");
-REF_TO_TYPE.put("Context_Group/Gen", "group");
 REF_TO_TYPE.put("Context_Group/Gen/Length", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Width", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Depth", "input");
-REF_TO_TYPE.put("Context_Group/Gen", "group");
 REF_TO_TYPE.put("Context_Group/Gen/Mid_X", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Mid_Y", "input");
 REF_TO_TYPE.put("Context_Group/Gen/CG_Phase_Notes", "input");
-REF_TO_TYPE.put("Context_Group/Gen", "group");
 REF_TO_TYPE.put("Context_Group/Gen/CG_Plans", "input");
 REF_TO_TYPE.put("Context_Group/Gen/CG_Section_Numbers", "input");
-REF_TO_TYPE.put("Context_Group/Gen", "group");
 REF_TO_TYPE.put("Context_Group/Gen/Context_Group_author", "input");
 REF_TO_TYPE.put("Context_Group/Gen/Context_Group_timestamp", "input");
 REF_TO_TYPE.put("Context_Group/Context_Group_Contexts/Create_Relationships_to_This_Context_Group", "button");
-REF_TO_TYPE.put("Context_Group/Context_Group_Contexts", "group");
 REF_TO_TYPE.put("Context_Group/Context_Group_Contexts/Existing_Relationships_to_This_Context_Group", "list");
 REF_TO_TYPE.put("Context_Group/Context_Group_Contexts/Selected_Relationship", "webview");
 REF_TO_TYPE.put("Context_Group/Context_Group_Contexts/Load_Related_Context", "button");
@@ -334,7 +309,6 @@ REF_TO_TYPE.put("Context_Group/Add/Add_Photograph_Log", "button");
 REF_TO_TYPE.put("Context_Group/Add/Select_a_Photograph_Log", "dropdown");
 REF_TO_TYPE.put("Context_Group/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Context_Group/Vars/Site_Code", "input");
-REF_TO_TYPE.put("Matrix/Matrix", "group");
 REF_TO_TYPE.put("Matrix/Matrix/Component", "dropdown");
 REF_TO_TYPE.put("Matrix/Matrix/Percentage", "input");
 REF_TO_TYPE.put("Matrix/Matrix/Shape", "picture");
@@ -347,30 +321,25 @@ REF_TO_TYPE.put("Height/Height/Z", "input");
 REF_TO_TYPE.put("Height/Height/Notes", "input");
 REF_TO_TYPE.put("Height/Vars/Context_ID", "input");
 REF_TO_TYPE.put("Height/Vars/AreaCode", "dropdown");
-REF_TO_TYPE.put("Sample/Deposit_Samples", "group");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Context_ID", "input");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_ID", "input");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_Type", "dropdown");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_Volume", "input");
-REF_TO_TYPE.put("Sample/Deposit_Samples", "group");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_X", "input");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_Y", "input");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_Z", "input");
-REF_TO_TYPE.put("Sample/Deposit_Samples", "group");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_Location", "dropdown");
 REF_TO_TYPE.put("Sample/Deposit_Samples/Sample_Comments", "input");
 REF_TO_TYPE.put("Sample/Vars/AreaCode", "dropdown");
 REF_TO_TYPE.put("Sample/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Sample/Vars/Site_Code", "input");
 REF_TO_TYPE.put("Special_Find/Special_Find/Guide_0", "webview");
-REF_TO_TYPE.put("Special_Find/Special_Find", "group");
 REF_TO_TYPE.put("Special_Find/Special_Find/Context_ID", "input");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_ID", "input");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_Class", "dropdown");
 REF_TO_TYPE.put("Special_Find/Special_Find/Source", "dropdown");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_Location", "dropdown");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_Description", "input");
-REF_TO_TYPE.put("Special_Find/Special_Find", "group");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_X", "input");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_Y", "input");
 REF_TO_TYPE.put("Special_Find/Special_Find/Special_Find_Z", "input");
@@ -380,7 +349,6 @@ REF_TO_TYPE.put("Special_Find/Special_Find/Photo_Button_1", "button");
 REF_TO_TYPE.put("Special_Find/Vars/AreaCode", "dropdown");
 REF_TO_TYPE.put("Special_Find/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Special_Find/Vars/Site_Code", "input");
-REF_TO_TYPE.put("Photograph_Log/Photograph_Log", "group");
 REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Photo_Context_ID", "input");
 REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Photo_Context_Group_ID", "input");
 REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Photograph_Reference_ID", "input");
@@ -389,7 +357,6 @@ REF_TO_TYPE.put("Photograph_Log/Photograph_Log/Photograph_Description", "input")
 REF_TO_TYPE.put("Photograph_Log/Vars/AreaCode", "dropdown");
 REF_TO_TYPE.put("Photograph_Log/Vars/Device_Code", "dropdown");
 REF_TO_TYPE.put("Photograph_Log/Vars/Site_Code", "input");
-REF_TO_TYPE.put("Diary/Diary", "group");
 REF_TO_TYPE.put("Diary/Diary/Diary_timestamp", "input");
 REF_TO_TYPE.put("Diary/Diary/Diary_author", "input");
 REF_TO_TYPE.put("Diary/Diary/Diary_Title", "input");
@@ -397,36 +364,64 @@ REF_TO_TYPE.put("Diary/Diary/AreaCode", "dropdown");
 REF_TO_TYPE.put("Diary/Diary/Text", "input");
 REF_TO_TYPE.put("Diary/Diary/Photo", "camera");
 REF_TO_TYPE.put("Diary/Diary/Photo_Button_1", "button");
-REF_TO_TYPE.put("Legacy/Legacy", "group");
 REF_TO_TYPE.put("Legacy/Legacy/AreaCode", "dropdown");
 REF_TO_TYPE.put("Legacy/Legacy/Legacy_Context_ID", "input");
 REF_TO_TYPE.put("Relationship/Relationships/Parent_Identifier", "webview");
-REF_TO_TYPE.put("Relationship/Relationships", "group");
 REF_TO_TYPE.put("Relationship/Relationships/AreaCode", "dropdown");
 REF_TO_TYPE.put("Relationship/Relationships/Context_ID", "input");
 REF_TO_TYPE.put("Relationship/Relationships/Relationship_Type", "dropdown");
 REF_TO_TYPE.put("Relationship/Relationships/Search", "button");
-REF_TO_TYPE.put("Relationship/Relationships", "group");
 REF_TO_TYPE.put("Relationship/Relationships/Add_Relationship", "button");
 REF_TO_TYPE.put("Relationship/Relationships/Proposed_Relationship", "webview");
 REF_TO_TYPE.put("Relationship/Relationships/Delete_Relationship", "button");
 REF_TO_TYPE.put("Relationship/Relationships/Selected_Relationship", "webview");
-REF_TO_TYPE.put("Relationship/Relationships", "group");
 REF_TO_TYPE.put("Relationship/Relationships/Unrelated_Contexts", "list");
 REF_TO_TYPE.put("Relationship/Relationships/Existing_Relationships", "list");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Parent_Identifier", "webview");
-REF_TO_TYPE.put("Context_Group_Relationship/Relationships", "group");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/AreaCode", "dropdown");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Context_ID", "input");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Search", "button");
-REF_TO_TYPE.put("Context_Group_Relationship/Relationships", "group");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Add_Relationship", "button");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Proposed_Relationship", "webview");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Delete_Relationship", "button");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Selected_Relationship", "webview");
-REF_TO_TYPE.put("Context_Group_Relationship/Relationships", "group");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Unrelated_Contexts", "list");
 REF_TO_TYPE.put("Context_Group_Relationship/Relationships/Existing_Relationships", "list");
+REF_TO_TYPE.put("User/User_List", "tab");
+REF_TO_TYPE.put("User/Help", "tab");
+REF_TO_TYPE.put("Control/Contexts", "tab");
+REF_TO_TYPE.put("Control/Search", "tab");
+REF_TO_TYPE.put("Context/General", "tab");
+REF_TO_TYPE.put("Context/Measure", "tab");
+REF_TO_TYPE.put("Context/Cut", "tab");
+REF_TO_TYPE.put("Context/Structure", "tab");
+REF_TO_TYPE.put("Context/Deposit", "tab");
+REF_TO_TYPE.put("Context/Skeleton", "tab");
+REF_TO_TYPE.put("Context/Int", "tab");
+REF_TO_TYPE.put("Context/Relationships", "tab");
+REF_TO_TYPE.put("Context/Artefacts", "tab");
+REF_TO_TYPE.put("Context/Samples", "tab");
+REF_TO_TYPE.put("Context/Add", "tab");
+REF_TO_TYPE.put("Context/Soil_Texture_Helper", "tab");
+REF_TO_TYPE.put("Context/Vars", "tab");
+REF_TO_TYPE.put("Context_Group/Gen", "tab");
+REF_TO_TYPE.put("Context_Group/Context_Group_Contexts", "tab");
+REF_TO_TYPE.put("Context_Group/Add", "tab");
+REF_TO_TYPE.put("Context_Group/Vars", "tab");
+REF_TO_TYPE.put("Matrix/Matrix", "tab");
+REF_TO_TYPE.put("Matrix/Vars", "tab");
+REF_TO_TYPE.put("Height/Height", "tab");
+REF_TO_TYPE.put("Height/Vars", "tab");
+REF_TO_TYPE.put("Sample/Deposit_Samples", "tab");
+REF_TO_TYPE.put("Sample/Vars", "tab");
+REF_TO_TYPE.put("Special_Find/Special_Find", "tab");
+REF_TO_TYPE.put("Special_Find/Vars", "tab");
+REF_TO_TYPE.put("Photograph_Log/Photograph_Log", "tab");
+REF_TO_TYPE.put("Photograph_Log/Vars", "tab");
+REF_TO_TYPE.put("Diary/Diary", "tab");
+REF_TO_TYPE.put("Legacy/Legacy", "tab");
+REF_TO_TYPE.put("Relationship/Relationships", "tab");
+REF_TO_TYPE.put("Context_Group_Relationship/Relationships", "tab");
 
 DATA_REFS.add("Context/General/AreaCode");
 DATA_REFS.add("Context/General/Context_Context_ID");
@@ -597,7 +592,10 @@ DATA_REFS.add("Legacy/Legacy/Legacy_Context_ID");
 
 
 
-
+VP_REF_TO_REF.put("User/User_List/AreaCode", "Context/General/AreaCode");
+VP_REF_TO_REF.put("User/User_List/Device_Code", "Context/Vars/Device_Code");
+VP_REF_TO_REF.put("Relationship/Relationships/AreaCode", "Context/General/AreaCode");
+VP_REF_TO_REF.put("Context_Group_Relationship/Relationships/AreaCode", "Context/General/AreaCode");
 
 HIER_REFS.add("Context/Cut/Sides_of_Cut");
 HIER_REFS.add("Context/Cut/Shape_of_Base");
@@ -606,6 +604,89 @@ HIER_REFS.add("Context/Soil_Texture_Helper/Soil_Texture_Helper");
 HIER_REFS.add("Matrix/Matrix/Shape");
 HIER_REFS.add("Special_Find/Special_Find/Special_Find_Class");
 
+TAB_GROUPS_AS_LIST.add("User");
+TAB_GROUPS_AS_LIST.add("Control");
+TAB_GROUPS_AS_LIST.add("Context");
+TAB_GROUPS_AS_LIST.add("Context_Group");
+TAB_GROUPS_AS_LIST.add("Matrix");
+TAB_GROUPS_AS_LIST.add("Height");
+TAB_GROUPS_AS_LIST.add("Sample");
+TAB_GROUPS_AS_LIST.add("Special_Find");
+TAB_GROUPS_AS_LIST.add("Photograph_Log");
+TAB_GROUPS_AS_LIST.add("Diary");
+TAB_GROUPS_AS_LIST.add("Legacy");
+TAB_GROUPS_AS_LIST.add("Relationship");
+TAB_GROUPS_AS_LIST.add("Context_Group_Relationship");
+
+TABS_AS_LIST.add("User/User_List");
+TABS_AS_LIST.add("User/Help");
+TABS_AS_LIST.add("Control/Contexts");
+TABS_AS_LIST.add("Control/Search");
+TABS_AS_LIST.add("Context/General");
+TABS_AS_LIST.add("Context/Measure");
+TABS_AS_LIST.add("Context/Cut");
+TABS_AS_LIST.add("Context/Structure");
+TABS_AS_LIST.add("Context/Deposit");
+TABS_AS_LIST.add("Context/Skeleton");
+TABS_AS_LIST.add("Context/Int");
+TABS_AS_LIST.add("Context/Relationships");
+TABS_AS_LIST.add("Context/Artefacts");
+TABS_AS_LIST.add("Context/Samples");
+TABS_AS_LIST.add("Context/Add");
+TABS_AS_LIST.add("Context/Soil_Texture_Helper");
+TABS_AS_LIST.add("Context/Vars");
+TABS_AS_LIST.add("Context_Group/Gen");
+TABS_AS_LIST.add("Context_Group/Context_Group_Contexts");
+TABS_AS_LIST.add("Context_Group/Add");
+TABS_AS_LIST.add("Context_Group/Vars");
+TABS_AS_LIST.add("Matrix/Matrix");
+TABS_AS_LIST.add("Matrix/Vars");
+TABS_AS_LIST.add("Height/Height");
+TABS_AS_LIST.add("Height/Vars");
+TABS_AS_LIST.add("Sample/Deposit_Samples");
+TABS_AS_LIST.add("Sample/Vars");
+TABS_AS_LIST.add("Special_Find/Special_Find");
+TABS_AS_LIST.add("Special_Find/Vars");
+TABS_AS_LIST.add("Photograph_Log/Photograph_Log");
+TABS_AS_LIST.add("Photograph_Log/Vars");
+TABS_AS_LIST.add("Diary/Diary");
+TABS_AS_LIST.add("Legacy/Legacy");
+TABS_AS_LIST.add("Relationship/Relationships");
+TABS_AS_LIST.add("Context_Group_Relationship/Relationships");
+
+ATTRIB_NAMES_NON_STANDARD.put("Context/General/AreaCode", "Context AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Skeleton/Space", "Context Space");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Skeleton/Building", "Context Building");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Skeleton/Mid_X", "Context Mid X");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Skeleton/Mid_Y", "Context Mid Y");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Int/Your_Discussion", "Context Your Discussion");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Add/Photo", "Context Photo");
+ATTRIB_NAMES_NON_STANDARD.put("Context/Vars/Site_Code", "Context Site Code");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Gen/AreaCode", "Context Group AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Gen/Building", "Context Group Building");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Gen/Space", "Context Group Space");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Gen/Your_Discussion", "Context Group Your Discussion");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Gen/Mid_X", "Context Group Mid X");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Gen/Mid_Y", "Context Group Mid Y");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Add/Photo", "Context Group Photo");
+ATTRIB_NAMES_NON_STANDARD.put("Context_Group/Vars/Site_Code", "Context Group Site Code");
+ATTRIB_NAMES_NON_STANDARD.put("Matrix/Vars/Context_ID", "Matrix Context ID");
+ATTRIB_NAMES_NON_STANDARD.put("Matrix/Vars/AreaCode", "Matrix AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Height/Vars/Context_ID", "Height Context ID");
+ATTRIB_NAMES_NON_STANDARD.put("Height/Vars/AreaCode", "Height AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Sample/Deposit_Samples/Context_ID", "Sample Context ID");
+ATTRIB_NAMES_NON_STANDARD.put("Sample/Vars/AreaCode", "Sample AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Sample/Vars/Site_Code", "Sample Site Code");
+ATTRIB_NAMES_NON_STANDARD.put("Special_Find/Special_Find/Context_ID", "Special Find Context ID");
+ATTRIB_NAMES_NON_STANDARD.put("Special_Find/Special_Find/Photo", "Special Find Photo");
+ATTRIB_NAMES_NON_STANDARD.put("Special_Find/Vars/AreaCode", "Special Find AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Special_Find/Vars/Site_Code", "Special Find Site Code");
+ATTRIB_NAMES_NON_STANDARD.put("Photograph_Log/Vars/AreaCode", "Photograph Log AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Photograph_Log/Vars/Site_Code", "Photograph Log Site Code");
+ATTRIB_NAMES_NON_STANDARD.put("Diary/Diary/AreaCode", "Diary AreaCode");
+ATTRIB_NAMES_NON_STANDARD.put("Diary/Diary/Photo", "Diary Photo");
+ATTRIB_NAMES_NON_STANDARD.put("Legacy/Legacy/AreaCode", "Legacy AreaCode");
+
 String getType(String ref) {
   String type = REF_TO_TYPE.get(ref);
   if (type == null) return "";
@@ -613,7 +694,19 @@ String getType(String ref) {
 }
 
 List getRefs() {
-  return new ArrayList(REF_TO_TYPE.keySet());
+  return getRefsAsList();
+}
+
+List getRefsAsList() {
+  if (REFS_AS_LIST == null)
+    REFS_AS_LIST = new ArrayList(REF_TO_TYPE.keySet());
+  return REFS_AS_LIST;
+}
+
+HashSet getRefsAsHashSet() {
+  if (REFS_AS_HASH_SET == null)
+    REFS_AS_HASH_SET = new HashSet(REF_TO_TYPE.keySet());
+  return REFS_AS_HASH_SET;
 }
 
 List getRefsByType(String type) {
@@ -644,22 +737,22 @@ boolean isHier(String ref) {
   return HIER_REFS.contains(ref);
 }
 
-List getTabGroups() {
-  List tabGroups = new ArrayList();
-  tabGroups.add("User");
-  tabGroups.add("Control");
-  tabGroups.add("Context");
-  tabGroups.add("Context_Group");
-  tabGroups.add("Matrix");
-  tabGroups.add("Height");
-  tabGroups.add("Sample");
-  tabGroups.add("Special_Find");
-  tabGroups.add("Photograph_Log");
-  tabGroups.add("Diary");
-  tabGroups.add("Legacy");
-  tabGroups.add("Relationship");
-  tabGroups.add("Context_Group_Relationship");
-  return tabGroups;
+List getTabGroups() { return getTabGroupsAsList(); }
+List getTabGroupsAsList() { return TAB_GROUPS_AS_LIST; }
+
+HashSet getTabGroupsAsHashSet() {
+  if (TAB_GROUPS_AS_HASH_SET == null)
+    TAB_GROUPS_AS_HASH_SET = new HashSet(TAB_GROUPS_AS_LIST);
+  return TAB_GROUPS_AS_HASH_SET;
+}
+
+List getTabs() { return getTabGroupsAsList(); }
+List getTabsAsList() { return TABS_AS_LIST; }
+
+HashSet getTabsAsHashSet() {
+  if (TABS_AS_HASH_SET == null)
+    TABS_AS_HASH_SET = new HashSet(TABS_AS_LIST);
+  return TABS_AS_HASH_SET;
 }
 
 List getStartingIdRefs() {
@@ -815,12 +908,13 @@ String guessArch16nVal(String ref) {
 
 String getAttributeName(String ref) {
   String guiElementRef = getGuiElementRef(ref);
-  if (isNull(guiElementRef)) {
+  if (isNull(guiElementRef))
     return null;
-  }
 
-  String attributeName = guiElementRef.replaceAll("_", " ");
-  return attributeName;
+  if (ATTRIB_NAMES_NON_STANDARD.containsKey(ref))
+    return ATTRIB_NAMES_NON_STANDARD.get(ref);
+
+  return guiElementRef.replaceAll("_", " ");
 }
 
 String getArchEntType(String ref) {
@@ -870,9 +964,15 @@ String getArchEntTypePascalCased(String ref) {
 /*         first time the tab group is saved as well as subsequent            */
 /*         onSave(String, Boolean) calls.                                     */
 /*                                                                            */
-/* A single call to `bindOnEvents` must occur after all the `addOnEvent` and  */
-/* `delOnEvents` calls. Calling `bindOnEvents` is what actually establishes   */
-/* the bindings once they have been added to the accumulator.                 */
+/* Additionally, the binding accumulator augments the "load" event so that    */
+/* the `statement` in addOnEvent("module", "load", statement) gets executed   */
+/* after the module has finished loading. (That is, when this script has been */
+/* loaded, including the execution of any asynchronous functions.)            */
+/*                                                                            */
+/* Importantly, a single call to `bindOnEvents` must occur after all the      */
+/* `addOnEvent` and `delOnEvents` calls. Calling `bindOnEvents` is what       */
+/* actually establishes the bindings once they have been added to the         */
+/* accumulator.                                                               */
 /******************************************************************************/
 // This counts the number of _a_synchonrous jobs before the module is considered
 // to be loaded.
@@ -946,6 +1046,18 @@ void delOnEvent(String ref, String event, String statement) {
 }
 
 void addOnEvent(String ref, String event, String statement) {
+  if (
+      !getRefsAsHashSet()     .contains(ref) &&
+      !getTabsAsHashSet()     .contains(ref) &&
+      !getTabGroupsAsHashSet().contains(ref) &&
+      !"module".equals(ref)
+  ) {
+    Log.w(
+        this.namespace.getInvocationText(),
+        "Ref '" + ref + "' may not refer to a UI element"
+    );
+  }
+
   // Calling `delOnEvent()` first ensures statement occurs once in the list, at
   // the end.
   delOnEvent  (ref, event, statement);
@@ -1367,44 +1479,44 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
+  //  - Diary
+  //  - Matrix
+  //  - Context Group
+  //    - Photograph Log
+  //  - Legacy
   //  - Context
   //    - Height
   //    - Matrix
   //    - Special Find
   //    - Sample
   //    - Photograph Log
-  //  - Matrix
-  //  - Context Group
-  //    - Photograph Log
-  //  - Diary
-  //  - Legacy
 
   n0 = Tree("", 1);
-  n1 = Tree("Context", 1);
-  n2 = Tree("Height", 1);
-  n3 = Tree("Matrix", 1);
-  n4 = Tree("Special Find", 1);
-  n5 = Tree("Sample", 1);
-  n6 = Tree("Photograph Log", 1);
-  n7 = Tree("Matrix", 1);
-  n8 = Tree("Context Group", 1);
-  n9 = Tree("Photograph Log", 1);
-  n10 = Tree("Diary", 1);
-  n11 = Tree("Legacy", 1);
+  n1 = Tree("Diary", 1);
+  n2 = Tree("Matrix", 1);
+  n3 = Tree("Context Group", 1);
+  n4 = Tree("Photograph Log", 1);
+  n5 = Tree("Legacy", 1);
+  n6 = Tree("Context", 1);
+  n7 = Tree("Height", 1);
+  n8 = Tree("Matrix", 1);
+  n9 = Tree("Special Find", 1);
+  n10 = Tree("Sample", 1);
+  n11 = Tree("Photograph Log", 1);
 
   n0.addChild(n1);
-  n0.addChild(n7);
-  n0.addChild(n8);
-  n0.addChild(n10);
-  n0.addChild(n11);
+  n0.addChild(n2);
+  n0.addChild(n3);
+  n0.addChild(n5);
+  n0.addChild(n6);
 
-  n1.addChild(n2);
-  n1.addChild(n3);
-  n1.addChild(n4);
-  n1.addChild(n5);
-  n1.addChild(n6);
+  n3.addChild(n4);
 
-  n8.addChild(n9);
+  n6.addChild(n7);
+  n6.addChild(n8);
+  n6.addChild(n9);
+  n6.addChild(n10);
+  n6.addChild(n11);
 
 
   PERF_TYPE_TREE = n0;
@@ -1666,7 +1778,7 @@ PerfImageDownloader() {
     String filStr = "/sdcard/faims/modules/" + getModuleId() +
         "/files/app/test.jpg";
     String urlStr = "https://raw.githubusercontent.com/FAIMS/FAIMS-Tools/" +
-        "autogen-py/test-images/lenna-4096x4096.jpg";
+        "autogen-py/test-images/construction-2894x1924.jpg";
 
     if (detectFile(filStr))
       return;
@@ -1930,6 +2042,8 @@ void insertIntoLocalSettings(String ref) {
 }
 
 void insertIntoLocalSettings(String key, String val) {
+  if (val == null) val = "";
+
   String q = "REPLACE INTO localSettings(key, value) VALUES(%s, %s)";
   q = dbReplaceFirst(q, key);
   q = dbReplaceFirst(q, val);
@@ -2047,28 +2161,38 @@ void persistOverSessions(String ref) {
   persistOverSessions(ref, false, (String) null);
 }
 
-
+persistOverSessions("User/User_List/AreaCode", false);
+persistOverSessions("User/User_List/Device_Code", false);
+persistOverSessions("Control/Contexts/Team_Members", false);
 
 /******************************************************************************/
 /*                           FIELD COPYING HELPERS                            */
 /*                                                                            */
 /* Provides an easy way to copy field values, even between vocabs.            */
 /******************************************************************************/
+boolean isSelected(String ref, String vocabName) {
+  String vocabNameActual = getMenuValue(ref);
+
+  if (vocabNameActual == null)
+    return vocabNameActual == vocabName;
+  else
+    return vocabNameActual.equals(vocabName);
+}
+
 boolean setMenuValue(String ref, String vocabName) {
   String attrName = getAttributeName(ref);
   String vocabId = getVocabId(attrName, vocabName);
 
   if (isNull(vocabId))
     return false;
-  else {
-    setFieldValue(ref, vocabId);
-    return true;
-  }
+
+  setFieldValue(ref, vocabId);
+  return isSelected(ref, vocabName);
 }
 
-void copyFieldValue(String src, String dst) {
+boolean copyFieldValue(String src, String dst) {
   Boolean doFindVocabId = true;
-  copyFieldValue(src, dst, doFindVocabId);
+  return copyFieldValue(src, dst, doFindVocabId);
 }
 
 /* `src`           The ref of the source field.
@@ -2083,7 +2207,7 @@ void copyFieldValue(String src, String dst) {
  *                 If `doFindVocabId` is false, the value returned by
  *                 `getFieldValue` is copied, without any database accesses.
  */
-void copyFieldValue(String src, String dst, Boolean doFindVocabId) {
+boolean copyFieldValue(String src, String dst, Boolean doFindVocabId) {
   String vocabIdSrc   = getFieldValue(src);
   String vocabNameSrc = getFieldValue(src, true);
 
@@ -2092,22 +2216,15 @@ void copyFieldValue(String src, String dst, Boolean doFindVocabId) {
 
   if (attrNameSrc.equals(attrNameDst) || !doFindVocabId) {
     setFieldValue(dst, vocabIdSrc);
-    return;
+    return true;
   }
 
-  if (!setMenuValue(dst, vocabNameSrc)) {
-    // Fall back to dumb field copying
-    copyFieldValue(src, dst, false);
-  }
-}
+  if (setMenuValue(dst, vocabNameSrc))
+    return true;
 
-boolean isSelected(String ref, String vocabName) {
-  String vocabNameActual = getMenuValue(ref);
-
-  if (vocabNameActual == null)
-    return vocabNameActual == vocabName;
-  else
-    return vocabNameActual.equals(vocabName);
+  // Fall back to dumb field copying
+  copyFieldValue(src, dst, false);
+  return false;
 }
 
 void clearField(String ref) {
@@ -2118,6 +2235,16 @@ void clearField(String ref) {
   }
 }
 
+/* Copies the value from the field at `src` to the field at `dst` whenever the
+ * a new record containing `dst` is created.
+ *
+ * `doCheckParent` If this is true, the value is only copied when the parent tab
+ *                 group of the tab group referred to by `dst` is equal to the
+ *                 tab group referred to by `src`. This is a way of checking
+ *                 whether the field referred to by `src` has been loaded.
+ * `doFindVocabId` Same as the `doFindVocabId` argument for the `copyFieldValue`
+ *                 function.
+ */
 void inheritFieldValue(
     String src,
     String dst,
@@ -2144,14 +2271,14 @@ void inheritFieldValue(
  * if `getTabGroupRef(src)` was the previously displayed tab group.
  */
 void inheritFieldValue(String src, String dst, boolean doCheckParent) {
-  inheritFieldValue(src, dst, doCheckParent, false);
+  inheritFieldValue(src, dst, doCheckParent, true);
 }
 
 void inheritFieldValue(String src, String dst) {
   inheritFieldValue(src, dst, true);
 }
 
-
+inheritFieldValue("User/User_List/AreaCode", "Context/General/AreaCode", false);
 
 /******************************************************************************/
 /*                            NEW TAB REDIRECTION                             */
@@ -2217,6 +2344,9 @@ void makeVocabs() {
 }
 
 void makeVocab(String ref) {
+  if (!hasMenuType(ref))
+    return;
+
   if (hasVpRef(ref))
     makeVocab(getMakeVocabType(ref), ref, getAttributeName(getVpRef(ref)));
   else
@@ -2241,9 +2371,6 @@ void makeVocab(
     List   vocabExclusions,
     String callbackFunction
 ){
-  if (!hasMenuType(ref))
-    return;
-
   if (
       isNull(type) ||
       isNull(ref) ||
@@ -3694,7 +3821,7 @@ void duplicateContext(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      excludeAttributes.add("Photo");
+      excludeAttributes.add("Context Photo");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -3741,7 +3868,7 @@ void duplicateContextGroup(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      excludeAttributes.add("Photo");
+      excludeAttributes.add("Context Group Photo");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -3929,7 +4056,7 @@ void duplicateSpecialFind(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      excludeAttributes.add("Photo");
+      excludeAttributes.add("Special Find Photo");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4023,7 +4150,7 @@ void duplicateDiary(){
     onFetch(result) {
       excludeAttributes = new ArrayList();
 
-      excludeAttributes.add("Photo");
+      excludeAttributes.add("Diary Photo");
 
       duplicateTabGroup(tabgroup, null, getExtraAttributes(result), excludeAttributes, saveCallback);
     }
@@ -4640,7 +4767,7 @@ ENTITY_MENUS.add(new String[] {
     "Context - Special Find"
 });
 ENTITY_MENUS.add(new String[] {
-    "Context/Samples/List_of_Sample",
+    "Context/Samples/List_of_Samples",
     "getUuid(\"Context\")",
     "Sample",
     "Context - Sample"
@@ -4675,24 +4802,20 @@ for (m : ENTITY_MENUS) {
 addOnEvent("Context/Measure/Height_List", "click", "loadEntity()");
 addOnEvent("Context/Deposit/Associated_Matrices", "click", "loadEntity(true)");
 addOnEvent("Context/Artefacts/List_of_Related_Special_Finds", "click", "loadEntity()");
-addOnEvent("Context/Samples/List_of_Sample", "click", "loadEntity()");
+addOnEvent("Context/Samples/List_of_Samples", "click", "loadEntity()");
 addOnEvent("Context/Add/Select_a_Photograph_Log", "click", "loadEntity(true)");
 addOnEvent("Context_Group/Add/Select_a_Photograph_Log", "click", "loadEntity(true)");
 /******************************************************************************/
 /*                             HANDWRITTEN LOGIC                              */
 /******************************************************************************/
 
-/***************************** UTILITY FUNCTIONS ******************************/
+/********************************* TOP MATTER *********************************/
 
-// Regex-free string replacement function
-replaceFirst(haystack, needle, replacement) {
-  i = haystack.indexOf(needle);
-  if (i == -1)           return haystack;
-  if (needle.equals("")) return haystack;
-  pre  = haystack.substring(0, i                                   );
-  post = haystack.substring(   i+needle.length(), haystack.length());
-  return pre + replacement + post;
-}
+/* Disabling sync by default fixes a bug where the database is locked when it
+ * should not be.
+ */
+setFileSyncEnabled(false);
+setSyncEnabled(false);
 /*********************************** SHARED ***********************************/
 /* Shared functions which are not general enough to be placed in utils.bsh.   */
 /******************************************************************************/
@@ -4715,7 +4838,7 @@ populateSquare(ref) {
     }
   };
 
-  fetchAll(q, populate);
+  timedFetchAll(q, populate);
 }
 
 setFieldToIdentifier(String identiferType, String lotRef) {
@@ -4740,7 +4863,7 @@ setFieldToIdentifier(String identiferType, String lotRef) {
     }
   };
 
-  fetchOne(q, cb);
+  timedFetchOne(q, cb);
 }
 
 populateLotLabel(lotRef) {
@@ -4800,7 +4923,7 @@ deleteRelationship() {
     }
   };
 
-  fetchOne(q);
+  timedFetchOne(q);
   deleteRel(selectedRelId, cb);
 
   selectedRelId         = null;
@@ -4858,18 +4981,98 @@ loadRelatedEntity() {
   loadEntityFrom(selectedChildUuid);
 }
 
-/****************************** VOCAB POPULATION ******************************/
-populateVocabs() {
-  ArrayList vocabExclusionsNull = new ArrayList();
-  vocabExclusionsNull.add(null);
+/****************************** SEARCH EXTENSION ******************************/
+/* Implements an extension to the search page which allows users to           */
+/* constrain their searches by user.                                          */
+/*                                                                            */
+/* TODO: This code was copied from the harvard module and modified just       */
+/* enough to make it work. The variable and function names could be better.   */
+/******************************************************************************/
+delOnEvent("Control/Search", "show", "search()");
+addOnEvent("Control/Search", "show", "populateSelectUser()");
+addOnEvent("module",         "load", "populateSite()");
 
-  makeVocab("DropDown", "Context_Group_Relationship/Relationships/AreaCode", "AreaCode", vocabExclusionsNull);
-  makeVocab("DropDown", "Relationship/Relationships/AreaCode",               "AreaCode", vocabExclusionsNull);
-  makeVocab("DropDown", "User/User_List/AreaCode",    "AreaCode");
-  makeVocab("DropDown", "User/User_List/Device_Code", "Device Code");
+addOnEvent("Control/Search/Select_User", "click", "search()");
+addOnEvent("Control/Search/Select_AreaCode", "click", "search()");
+
+void populateSelectUser(){
+  String refSearchUsers = "Control/Search/Select_User";
+  String getNonDeletedUsersQuery = "SELECT userid, fname || ' ' || lname "+
+                                   "  FROM user "+
+                                   " WHERE userdeleted is null "+
+                                   " UNION " +
+                                   "SELECT -1, '{All}'";
+
+  timedFetchAll(getNonDeletedUsersQuery, new FetchCallback() {
+    onFetch(result) {
+      populateDropDown(refSearchUsers, result, false);
+      search();
+    }
+  });
 }
 
-addOnEvent("module", "load", "populateVocabs()");
+void populateSite() {
+  List all = new ArrayList();
+  all.add("");
+  all.add("{All}");
+
+  String attrName  = getAttributeName("Context/General/AreaCode");
+  List menuEntries = getMenuEntries(attrName);
+  menuEntries = new ArrayList(menuEntries);
+  menuEntries.add(0, all);
+
+  populateDropDown("Control/Search/Select_AreaCode", menuEntries, false);
+}
+
+// Overrides auto-generated definition
+void search(){
+  String tabgroup = "Control";
+  String refEntityList  = tabgroup + "/Search/Entity_List";
+  String refSearchTerm  = tabgroup + "/Search/Search_Term";
+  String refEntityTypes = tabgroup + "/Search/Entity_Types";
+  String refSelectUser  = tabgroup + "/Search/Select_User";
+  String refSelectSite  = tabgroup + "/Search/Select_AreaCode";
+
+  String type = getFieldValue(refEntityTypes);
+  String term = getFieldValue(refSearchTerm);
+  String user = getFieldValue(refSelectUser);
+  String area = getFieldValue(refSelectSite, true);
+  if (isNull(user)) return;
+  String searchQuery = "SELECT uuid, response " +
+                       "  FROM latestNonDeletedArchEntFormattedIdentifiers  " +
+                       " WHERE uuid in (SELECT uuid " +
+                       "                  FROM latestNonDeletedArchEntIdentifiers " +
+                       "                 WHERE measure LIKE {term}||'%'  " +
+                       "                   AND ( aenttypename LIKE {type} OR '' = {type} ) " +
+                       "                   AND ( userid = {user} OR '-1' = {user}) " +
+                       "                ) " +
+                       "  AND  ( " +
+                       "           ({area} = '') OR" +
+                       "           uuid IN (" +
+                       "            SELECT uuid" +
+                       "              FROM latestnondeletedaentvalue" +
+                       "              JOIN attributekey USING (attributeid)" +
+                       "              JOIN vocabulary USING (vocabid)" +
+                       "             WHERE attributename LIKE '% AreaCode'" +
+                       "               AND vocabname = {area}" +
+                       "           )" +
+                       "       )" +
+                       " ORDER BY response " +
+                       " LIMIT ? " +
+                       "OFFSET ? ";
+  searchQuery = dbReplaceFirst(searchQuery, "{term}", term);
+  searchQuery = dbReplaceFirst(searchQuery, "{type}", type);
+  searchQuery = dbReplaceFirst(searchQuery, "{type}", type);
+  searchQuery = dbReplaceFirst(searchQuery, "{user}", user);
+  searchQuery = dbReplaceFirst(searchQuery, "{user}", user);
+  searchQuery = dbReplaceFirst(searchQuery, "{area}", area);
+  searchQuery = dbReplaceFirst(searchQuery, "{area}", area);
+
+  timedPopulateCursorList(refEntityList, searchQuery, 25);
+  refreshTabgroupCSS(tabgroup);
+
+  Log.d("Module", "Search query: " + searchQuery);
+}
 /**************************** USER TAB VALIDATION *****************************/
 /* The autogen defines its own `onClickUserUserListLogin` function. This is   */
 /* overridden using @POSTPROC.                                                */
@@ -4913,6 +5116,8 @@ noDeviceCodeSelected() {
   showWarning(msgHead, msgBody);
 }
 /***************************** FIELD INHERITANCE ******************************/
+/* TODO: Write these using the `i` attribute in the module.xml file.          */
+/******************************************************************************/
 String moduleYear     = new java.text.SimpleDateFormat("yy").format(new Date());
 String moduleSiteCode = "BK" + moduleYear;
 
@@ -4927,10 +5132,10 @@ inheritContextFields() {
     "Context/General/Excavators"
   );
 
-  copyFieldValue(
-    "User/User_List/AreaCode",
-    "Context/General/AreaCode"
-  );
+  //copyFieldValue(
+    //"User/User_List/AreaCode",
+    //"Context/General/AreaCode"
+  //);
 
   copyFieldValue(
     "User/User_List/Device_Code",
@@ -5108,7 +5313,7 @@ populateExistingRelationships(){
 
   String q = getRelatedChildQuery(currentUuid);
 
-  populateCursorList(refExistingRelationships, q, 25);
+  timedPopulateCursorList(refExistingRelationships, q, 25);
   refreshTabgroupCSS(tabGroup);
 }
 
@@ -5183,7 +5388,7 @@ populateRelationshipType() {
     }
   };
 
-  fetchAll(q, populate);
+  timedFetchAll(q, populate);
 }
 
 populateProposedRelationship() {
@@ -5221,11 +5426,20 @@ searchRelationship() {
   String refAreaCode  = "Relationship/Relationships/AreaCode";
   String refContextId = "Relationship/Relationships/Context_ID";
 
-  String areaCode   = getFieldValue(refAreaCode);
+  String areaCode   = getFieldValue(refAreaCode, true);
   String contextId  = getFieldValue(refContextId);
   String parentRole = getSelectedRelationshipComponent(refRelType, "parent");
   String unrelatedQ = "";
   String relatedQ   = "";
+
+  String refContextAreaCode = "Context/General/AreaCode";
+  String refLegacyAreaCode  = "Legacy/Legacy/AreaCode";
+  String refContextContextId = "Context/General/Context_Context_ID";
+  String refLegacyContextId  = "Legacy/Legacy/Legacy_Context_ID";
+  String contextAreaCode = getAttributeName(refContextAreaCode);
+  String legacyAreaCode  = getAttributeName(refLegacyAreaCode);
+  String contextContextId = getAttributeName(refContextContextId);
+  String legacyContextId  = getAttributeName(refLegacyContextId);
 
   if (isNull(areaCode)) {
     msgHead  = "Trench required";
@@ -5244,33 +5458,39 @@ searchRelationship() {
   unrelatedQ += "   FROM latestNonDeletedArchEntFormattedIdentifiers";
   unrelatedQ += "  WHERE uuid IN (";
   unrelatedQ += "         SELECT uuid";
-  unrelatedQ += "           FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid)";
-  unrelatedQ += "          WHERE attributename = 'AreaCode'";
-  unrelatedQ += "            AND vocabid = '{AreaCode}'";
+  unrelatedQ += "           FROM latestnondeletedaentvalue";
+  unrelatedQ += "           JOIN attributekey USING (attributeid)";
+  unrelatedQ += "           JOIN vocabulary USING (vocabid)";
+  unrelatedQ += "          WHERE attributename IN ({Context_AreaCode}, {Legacy_AreaCode})";
+  unrelatedQ += "            AND vocabname = {AreaCode}";
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
-  unrelatedQ += "                  WHERE attributename IN ('Context Context ID', 'Legacy Context ID')";
-  unrelatedQ += "                    AND measure = '{Context_ID}')";
+  unrelatedQ += "                  WHERE attributename IN ({Context_Context_ID}, {Legacy_Context_ID})";
+  unrelatedQ += "                    AND measure = {Context_ID})";
   unrelatedQ += "            AND uuid NOT IN (";
   unrelatedQ += "                 SELECT childuuid";
   unrelatedQ += "                   FROM parentchild";
-  unrelatedQ += "                  WHERE parentuuid = '{parentUuid}'";
-  unrelatedQ += "                    AND parentparticipatesverb = '{parentRole}')";
-  unrelatedQ += "            AND uuid != '{parentUuid}')";
+  unrelatedQ += "                  WHERE parentuuid = {parentUuid}";
+  unrelatedQ += "                    AND parentparticipatesverb = {parentRole})";
+  unrelatedQ += "            AND uuid != {parentUuid})";
   unrelatedQ += "    AND aenttypename IN ('Context', 'Legacy')";
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
-  unrelatedQ  = replaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Context_ID}", contextId );
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentRole}", parentRole);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_AreaCode}", contextAreaCode);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Legacy_AreaCode}", legacyAreaCode);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_Context_ID}", contextContextId);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Legacy_Context_ID}", legacyContextId);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_ID}", contextId );
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentRole}", parentRole);
 
   relatedQ += getRelatedChildQuery(parentUuid);
 
-  populateCursorList(refUnrelated, unrelatedQ, 25);
-  populateCursorList(refRelated,   relatedQ,   25);
+  timedPopulateCursorList(refUnrelated, unrelatedQ, 25);
+  timedPopulateCursorList(refRelated,   relatedQ,   25);
 
   proposedChildUuid = null; proposedChildIdentifier = null;
   populateProposedRelationship();
@@ -5281,8 +5501,8 @@ clearSearch() {
   String refRelated   = "Relationship/Relationships/Existing_Relationships";
 
   String q = "SELECT '' WHERE 0 LIMIT ? OFFSET ?";
-  populateCursorList(refUnrelated, q, 25);
-  populateCursorList(refRelated,   q, 25);
+  timedPopulateCursorList(refUnrelated, q, 25);
+  timedPopulateCursorList(refRelated,   q, 25);
 }
 
 selectUnrelatedEntity() {
@@ -5409,7 +5629,7 @@ CGpopulateExistingRelationships(){
 
   String q = getCGChildQuery(currentUuid);
 
-  populateCursorList(refExistingRelationships, q, 25);
+  timedPopulateCursorList(refExistingRelationships, q, 25);
   refreshTabgroupCSS(tabGroup);
 }
 
@@ -5483,11 +5703,20 @@ CGsearchRelationship() {
   String refAreaCode  = "Context_Group_Relationship/Relationships/AreaCode";
   String refContextId = "Context_Group_Relationship/Relationships/Context_ID";
 
-  String areaCode   = getFieldValue(refAreaCode);
+  String areaCode   = getFieldValue(refAreaCode, true);
   String contextId  = getFieldValue(refContextId);
   String parentRole = "includes";
   String unrelatedQ = "";
   String relatedQ   = "";
+
+  String refContextAreaCode = "Context/General/AreaCode";
+  String refLegacyAreaCode  = "Legacy/Legacy/AreaCode";
+  String refContextContextId = "Context/General/Context_Context_ID";
+  String refLegacyContextId  = "Legacy/Legacy/Legacy_Context_ID";
+  String contextAreaCode = getAttributeName(refContextAreaCode);
+  String legacyAreaCode  = getAttributeName(refLegacyAreaCode);
+  String contextContextId = getAttributeName(refContextContextId);
+  String legacyContextId  = getAttributeName(refLegacyContextId);
 
   if (isNull(areaCode)) {
     msgHead  = "Trench required";
@@ -5506,32 +5735,38 @@ CGsearchRelationship() {
   unrelatedQ += "   FROM latestNonDeletedArchEntFormattedIdentifiers";
   unrelatedQ += "  WHERE uuid IN (";
   unrelatedQ += "         SELECT uuid";
-  unrelatedQ += "           FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid)";
-  unrelatedQ += "          WHERE attributename = 'AreaCode'";
-  unrelatedQ += "            AND vocabid = '{AreaCode}'";
+  unrelatedQ += "           FROM latestnondeletedaentvalue";
+  unrelatedQ += "           JOIN attributekey USING (attributeid)";
+  unrelatedQ += "           JOIN vocabulary USING (vocabid)";
+  unrelatedQ += "          WHERE attributename IN ({Context_AreaCode}, {Legacy_AreaCode})";
+  unrelatedQ += "            AND vocabname = {AreaCode}";
   unrelatedQ += "            AND uuid IN (";
   unrelatedQ += "                 SELECT uuid";
   unrelatedQ += "                   FROM latestnondeletedaentvalue JOIN attributekey USING (attributeid) ";
-  unrelatedQ += "                  WHERE attributename IN ('Context Context ID', 'Legacy Context ID')";
-  unrelatedQ += "                    AND measure = '{Context_ID}')";
+  unrelatedQ += "                  WHERE attributename IN ({Context_Context_ID}, {Legacy_Context_ID})";
+  unrelatedQ += "                    AND measure = {Context_ID})";
   unrelatedQ += "            AND uuid NOT IN (";
   unrelatedQ += "                 SELECT childuuid";
   unrelatedQ += "                   FROM parentchild";
-  unrelatedQ += "                  WHERE parentuuid = '{parentUuid}'";
-  unrelatedQ += "                    AND parentparticipatesverb = '{parentRole}')";
-  unrelatedQ += "            AND uuid != '{parentUuid}')";
+  unrelatedQ += "                  WHERE parentuuid = {parentUuid}";
+  unrelatedQ += "                    AND parentparticipatesverb = {parentRole})";
+  unrelatedQ += "            AND uuid != {parentUuid})";
   unrelatedQ += " ORDER BY response";
   unrelatedQ += " LIMIT ? OFFSET ?";
-  unrelatedQ  = replaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
-  unrelatedQ  = replaceFirst(unrelatedQ, "{Context_ID}", contextId );
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
-  unrelatedQ  = replaceFirst(unrelatedQ, "{parentRole}", parentRole);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_AreaCode}", contextAreaCode);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Legacy_AreaCode}", legacyAreaCode);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{AreaCode}",   areaCode  );
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_Context_ID}", contextContextId);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Legacy_Context_ID}", legacyContextId);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{Context_ID}", contextId );
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentUuid}", parentUuid);
+  unrelatedQ  = dbReplaceFirst(unrelatedQ, "{parentRole}", parentRole);
 
   relatedQ += getCGChildQuery(parentUuid);
 
-  populateCursorList(refUnrelated, unrelatedQ, 25);
-  populateCursorList(refRelated,   relatedQ,   25);
+  timedPopulateCursorList(refUnrelated, unrelatedQ, 25);
+  timedPopulateCursorList(refRelated,   relatedQ,   25);
 
   proposedChildUuid = null; proposedChildIdentifier = null;
   CGpopulateProposedRelationship();
@@ -5542,8 +5777,8 @@ CGclearSearch() {
   String refRelated   = "Context_Group_Relationship/Relationships/Existing_Relationships";
 
   String q = "SELECT '' WHERE 0 LIMIT ? OFFSET ?";
-  populateCursorList(refUnrelated, q, 25);
-  populateCursorList(refRelated,   q, 25);
+  timedPopulateCursorList(refUnrelated, q, 25);
+  timedPopulateCursorList(refRelated,   q, 25);
 }
 
 CGselectUnrelatedEntity() {
@@ -5637,50 +5872,6 @@ getCGChildQuery(String parentUuid) {
   relatedQ += " LIMIT ? OFFSET ? ";
   return relatedQ;
 }
-/*************************** LOCAL SETTINGS ACCESS ****************************/
-/* Loading and saving things in localSettings.                                */
-/******************************************************************************/
-addOnEvent("User/User_List/AreaCode",       "click", "saveAreaCode()");
-addOnEvent("User/User_List/AreaCode",       "show",  "loadAreaCode()");
-addOnEvent("User/User_List/Device_Code",    "click", "saveDeviceCode()");
-addOnEvent("User/User_List/Device_Code",    "show",  "loadDeviceCode()");
-onFocus   ("Control/Contexts/Team_Members", "",      "saveTeamMembers()");
-addOnEvent("Control/Contexts/Team_Members", "show",  "loadTeamMembers()");
-
-insertFieldValueIntoLocalSettings(String ref) {
-  String val = getFieldValue(ref);
-  insertIntoLocalSettings(ref, val);
-}
-
-saveAreaCode () {
-  String ref = "User/User_List/AreaCode";
-  insertFieldValueIntoLocalSettings(ref);
-}
-
-loadAreaCode () {
-  String ref ="User/User_List/AreaCode";
-  setFieldValueFromLocalSettings(ref, ref);
-}
-
-saveDeviceCode() {
-  String ref = "User/User_List/Device_Code";
-  insertFieldValueIntoLocalSettings(ref);
-}
-
-loadDeviceCode() {
-  String ref = "User/User_List/Device_Code";
-  setFieldValueFromLocalSettings(ref, ref);
-}
-
-saveTeamMembers() {
-  String ref = "Control/Contexts/Team_Members";
-  insertFieldValueIntoLocalSettings(ref);
-}
-
-loadTeamMembers() {
-  String ref = "Control/Contexts/Team_Members";
-  setFieldValueFromLocalSettings(ref, ref);
-}
 /************************ DYNAMIC UI - OPEN/CLOSE SITE ************************/
 /* There are two cases to handle:                                             */
 /*   (a) When a record is newly created.                                      */
@@ -5692,68 +5883,55 @@ loadTeamMembers() {
 /* by overwriting the auto-generated record loading function using @POSTPROC. */
 /******************************************************************************/
 addOnEvent("Context",                                      "show",  "openContextTabs()");
+addOnEvent("Context",                                      "fetch", "openContextTabs(true)");
 addOnEvent("Context/General/Fill_in_Context_Type_Details", "click", "openContextTabs()");
 
-openContextTabs() {
+void openContextTabs() {
   openContextTabs(false);
 }
 
-openContextTabs(Boolean showGeneralInformationTab){
-    fetchOne("SELECT vocabName FROM vocabulary WHERE vocabid = '"+getFieldValue("Context/General/Context_Type")+"';",
-        new FetchCallback() {
-          onFetch(name) {
-            if (!isNull(name)){
-                String vocab = name.get(0);
-                if ((vocab.equals("{Deposit}"))){
-                    cancelTab("Context/Cut", false);
-                    cancelTab("Context/Structure", false);
-                    cancelTab("Context/Skeleton", false);
-                    showTab("Context/Deposit");
-                } else if (vocab.equals("{Negative_Element}")){
-                    cancelTab("Context/Deposit", false);
-                    cancelTab("Context/Structure", false);
-                    cancelTab("Context/Skeleton", false);
-                    showTab("Context/Cut");
-                } else if (vocab.equals("{Structure}")){
-                    cancelTab("Context/Deposit", false);
-                    cancelTab("Context/Cut", false);
-                    cancelTab("Context/Skeleton", false);
-                    showTab("Context/Structure");
-                } else if (vocab.equals("{Skeleton}")){
-                    cancelTab("Context/Deposit", false);
-                    cancelTab("Context/Cut", false);
-                    cancelTab("Context/Structure", false);
-                    showTab("Context/Skeleton");
-                } else {
-                    cancelTab("Context/Cut", false);
-                    cancelTab("Context/Deposit", false);
-                    cancelTab("Context/Structure", false);
-                    cancelTab("Context/Skeleton", false);
-                }
-            } else {
-                cancelTab("Context/Cut", false);
-                cancelTab("Context/Deposit", false);
-                cancelTab("Context/Structure", false);
-                cancelTab("Context/Skeleton", false);
-            }
-            if(showGeneralInformationTab) {
-              showTab("Context/General");
-            }
-        }
-    });
-}
+void openContextTabs(Boolean showGeneralInformationTab){
+  String refCut = "Context/Cut";
+  String refDep = "Context/Deposit";
+  String refSke = "Context/Skeleton";
+  String refStr = "Context/Structure";
+  String refGen = "Context/General";
 
-loadContextFrom(String uuid) {
-  String tabgroup = "Context";
-  setUuid(tabgroup, uuid);
-  if (isNull(uuid)) return;
+  String refCtxtType = "Context/General/Context_Type";
+  String vocabName   = getMenuValue(refCtxtType);
 
-  FetchCallback cb = new FetchCallback() {
-    onFetch(result) {
-      openContextTabs(true);
-    }
-  };
-  showTabGroup(tabgroup, uuid, cb);
+  if (vocabName == null)
+    vocabName = "";
+
+  if (vocabName.equals("{Deposit}")){
+    cancelTab(refCut, false);
+    cancelTab(refStr, false);
+    cancelTab(refSke, false);
+    showTab  (refDep);
+  } else if (vocabName.equals("{Negative_Element}")){
+    cancelTab(refDep, false);
+    cancelTab(refStr, false);
+    cancelTab(refSke, false);
+    showTab  (refCut);
+  } else if (vocabName.equals("{Structure}")){
+    cancelTab(refDep, false);
+    cancelTab(refCut, false);
+    cancelTab(refSke, false);
+    showTab  (refStr);
+  } else if (vocabName.equals("{Skeleton}")){
+    cancelTab(refDep, false);
+    cancelTab(refCut, false);
+    cancelTab(refStr, false);
+    showTab  (refSke);
+  } else {
+    cancelTab(refCut, false);
+    cancelTab(refDep, false);
+    cancelTab(refStr, false);
+    cancelTab(refSke, false);
+  }
+
+  if(showGeneralInformationTab)
+    showTab(refGen);
 }
 /******************************* CONTEXT DATES ********************************/
 addOnEvent("Context/General/Add_Date_Closed", "click",  "setContextDateClosed()");
@@ -5775,34 +5953,17 @@ setContextDateClosed() {
 /******************************* TEXTURE HELPER *******************************/
 onEvent("Context/Soil_Texture_Helper/Update_Soil_Texture", "click", "setTextureActual()");
 
-// Overrides the original function definition using @POSTPROC.
-onClickContextDepositSoilTextureHelper () {
-  showTab("Context/Soil_Texture_Helper");
-}
+void setTextureActual(){
+  String refSrc = "Context/Soil_Texture_Helper/Soil_Texture_Helper";
+  String refDst = "Context/Deposit/Soil_Texture";
+  if (!copyFieldValue(refSrc, refDst))
+    showToast(
+        "Match not found. You shouldn't see this, " +
+        "but select the result manually."
+    );
 
-setTextureActual(){
-    String soilQuery= "SELECT vocabid " +
-                      "  FROM vocabulary JOIN attributekey USING (attributeid) "+
-                      " WHERE attributeName = 'Soil Texture' "+
-                      "   AND vocabname = (SELECT vocabname " +
-                                          "  FROM vocabulary JOIN attributekey USING (attributeid) " +
-                                          " WHERE vocabid = '"+ getFieldValue("Context/Soil_Texture_Helper/Soil_Texture_Helper") +"' "+
-                                          "   AND attributeName = 'Soil Texture Helper'); ";
-    //This function makes the hierarchical soil texture selector write to the texture dropdown. We should discuss.
-    Log.d("foo1", soilQuery);
-
-    fetchOne(soilQuery, new FetchCallback() {
-        onFetch(textureToSet) {
-            if(!isNull(textureToSet)){
-                Log.d("foo1", textureToSet.get(0));
-                setFieldValue("Context/Deposit/Soil_Texture", textureToSet.get(0));
-            } else {
-                showToast("Match not found. You shouldn't see this, but select the result manually.");
-            }
-            cancelTab("Context/Soil_Texture_Helper", false);
-            showTab("Context/Deposit");
-        }
-    });
+  cancelTab("Context/Soil_Texture_Helper", false);
+  showTab("Context/Deposit");
 }
 /***************************** WEBVIEW POPULATION *****************************/
 guideFile = getAttachedFilePath("files/data/guide/guidePureHtml.html");

@@ -47,7 +47,7 @@ else:
 # Determine module name
 moduleName = moduleLocation.split(os.sep)
 moduleName = moduleName[-1]
-moduleName = 'bon - 19 jun'
+moduleName = 'bon - 27 jun'
 
 # Check that all the given paths really exist
 if not os.path.exists(moduleLocation):

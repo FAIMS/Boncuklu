@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ValidationSchema>
   <ArchaeologicalElement name="Context">
-    <property name="AreaCode">
+    <property name="Context AreaCode">
       <validator type="blankchecker">
         <param type="field" value="vocab"/>
       </validator>
@@ -201,14 +201,14 @@
         <param type="field" value="measure"/>
       </validator>
     </property>
-    <property name="Your Discussion">
+    <property name="Context Your Discussion">
       <validator type="blankchecker">
         <param type="field" value="measure"/>
       </validator>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Context Group">
-    <property name="AreaCode">
+    <property name="Context Group AreaCode">
       <validator type="blankchecker">
         <param type="field" value="vocab"/>
       </validator>
@@ -267,7 +267,7 @@
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Sample">
-    <property name="Context ID">
+    <property name="Sample Context ID">
       <validator type="blankchecker">
         <param type="field" value="measure"/>
       </validator>
@@ -326,7 +326,7 @@
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Legacy">
-    <property name="AreaCode">
+    <property name="Legacy AreaCode">
       <validator type="blankchecker">
         <param type="field" value="vocab"/>
       </validator>

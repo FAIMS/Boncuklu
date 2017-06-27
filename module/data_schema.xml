@@ -74,10 +74,10 @@
   </RelationshipElement>
   <ArchaeologicalElement name="Context">
     <description>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</description>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
+    <property name="Context AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{H}
 <description></description></term>
@@ -102,12 +102,12 @@
         The contexts are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first context would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote contexts from a specific building.
         Burial context codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial context from trench H.
         Check with the trench supervisor who will assign the context code from the central register.</description>
-      <formatString>Cxtx-$2-</formatString>
+      <formatString>-Ctxt-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Context Name" type="measure" isIdentifier="true">
       <description>Enter a brief, clear name for the Context eg 'House A - west wall'</description>
-      <formatString>$2</formatString>
+      <formatString>-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Grid X" type="measure">
@@ -750,22 +750,22 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Space" type="measure">
+    <property name="Context Space" type="measure">
       <description>Enter the space number, which may define an internal or external area in which the skeleton is located.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Building" type="measure">
+    <property name="Context Building" type="measure">
       <description>A building can comprise one or more internal spaces so enter the building number in which the skeleton is located.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Mid X" type="measure">
+    <property name="Context Mid X" type="measure">
       <description>An appropriate mid-point on the skeleton under excavation should be recorded on the X / Y co-ordinates. This will locate the skeleton on the site grid system.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Mid Y" type="measure">
+    <property name="Context Mid Y" type="measure">
       <description>An appropriate mid-point on the skeleton under excavation should be recorded on the X / Y co-ordinates. This will locate the skeleton on the site grid system.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -895,12 +895,12 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Your Discussion" type="measure">
+    <property name="Context Your Discussion" type="measure">
       <description>Enter an interpretation of the function of the Context and its place in the stratigraphical sequence.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Photo" type="file" file="true" thumbnail="true">
+    <property name="Context Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the context using the camera on the tablet. Use a scale in the photo</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -980,7 +980,7 @@
 <description></description></term>
       </lookup>
     </property>
-    <property name="Site Code" type="measure">
+    <property name="Context Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -993,10 +993,10 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Context Group">
     <description>A group of contexts.</description>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
+    <property name="Context Group AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{H}
 <description></description></term>
@@ -1018,20 +1018,20 @@
     </property>
     <property name="Context Group ID" type="measure" isIdentifier="true">
       <description>Feature number taken from the central register.</description>
-      <formatString>Feat-$2-</formatString>
+      <formatString>-Feat-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Title" type="measure" isIdentifier="true">
       <description>Enter the Feature name e.g. Hearth in Building 2.</description>
-      <formatString>$2</formatString>
+      <formatString>-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Building" type="measure">
+    <property name="Context Group Building" type="measure">
       <description>Identify the building in which the feature is located.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Space" type="measure">
+    <property name="Context Group Space" type="measure">
       <description>Identify the space in which the feature is located if relevant.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1094,7 +1094,7 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Your Discussion" type="measure">
+    <property name="Context Group Your Discussion" type="measure">
       <description>Add here any elaborations on the interpretation and description.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1114,12 +1114,12 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Mid X" type="measure">
+    <property name="Context Group Mid X" type="measure">
       <description>An appropriate mid-point on the feature should be recorded on the X/Y coordinates. This will locate the feature on the site grid system.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Mid Y" type="measure">
+    <property name="Context Group Mid Y" type="measure">
       <description>An appropriate mid-point on the feature should be recorded on the X/Y coordinates. This will locate the feature on the site grid system.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1149,7 +1149,7 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Photo" type="file" file="true" thumbnail="true">
+    <property name="Context Group Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the feature using the camera on the tablet. Remember to include a scale in the photo.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1181,7 +1181,7 @@
 <description></description></term>
       </lookup>
     </property>
-    <property name="Site Code" type="measure">
+    <property name="Context Group Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1191,7 +1191,7 @@
     <description></description>
     <property name="Component" type="vocab" isIdentifier="true">
       <description>Describe the components which make up 10% or more of the deposit.</description>
-      <formatString>$1-</formatString>
+      <formatString>$1</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1218,7 +1218,7 @@
     </property>
     <property name="Percentage" type="measure" isIdentifier="true">
       <description>Enter the approximate % volume of this material in the Context.</description>
-      <formatString>$2%</formatString>
+      <formatString>-$2%</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Shape" type="vocab">
@@ -1246,15 +1246,15 @@
 <description>Stones that have been deliberately shaped smooth by grinding.</description></term>
       </lookup>
     </property>
-    <property name="Context ID" type="measure">
+    <property name="Matrix Context ID" type="measure">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" type="vocab">
+    <property name="Matrix AreaCode" type="vocab">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{H}
 <description></description></term>
@@ -1284,17 +1284,17 @@
     </property>
     <property name="X" type="measure" isIdentifier="true">
       <description>Add X coordinate using the site grid</description>
-      <formatString> $2,</formatString>
+      <formatString> $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Y" type="measure" isIdentifier="true">
       <description>Add Y coordinate using the site grid</description>
-      <formatString> $2,</formatString>
+      <formatString>, $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Z" type="measure" isIdentifier="true">
       <description>Add Z coordinate using the site grid</description>
-      <formatString> $2</formatString>
+      <formatString>, $2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Notes" type="measure">
@@ -1302,15 +1302,15 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Context ID" type="measure">
+    <property name="Height Context ID" type="measure">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" type="vocab">
+    <property name="Height AreaCode" type="vocab">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{H}
 <description></description></term>
@@ -1333,19 +1333,42 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Sample">
     <description>Deposit samples or samples of building elements recovered from this Context for the purpose of further analysis or ongoing reference.</description>
-    <property name="Context ID" type="measure" isIdentifier="true">
+    <property name="Sample AreaCode" type="vocab" isIdentifier="true">
+      <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{H}
+<description></description></term>
+        <term>{K}
+<description></description></term>
+        <term>{L}
+<description></description></term>
+        <term>{M}
+<description></description></term>
+        <term>{N}
+<description></description></term>
+        <term>{P}
+<description></description></term>
+        <term>{Q}
+<description></description></term>
+        <term>{X}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Sample Context ID" type="measure" isIdentifier="true">
       <description>Unique number or code for the Context from which this Artefact Cluster was collected.</description>
-      <formatString>Cxtx-$2-</formatString>
+      <formatString>-Ctxt-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Sample ID" type="measure" isIdentifier="true">
       <description>The unique code or reference for the Sample. This should be assigned with reference to the central register</description>
-      <formatString>-Sample-$2-</formatString>
+      <formatString>-Sample-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Sample Type" type="vocab" isIdentifier="true">
       <description>The type of Sample collected as detailed below.</description>
-      <formatString>$1-</formatString>
+      <formatString>-$1</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1420,29 +1443,6 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
-      <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
-      <lookup>
-        <term>{H}
-<description></description></term>
-        <term>{K}
-<description></description></term>
-        <term>{L}
-<description></description></term>
-        <term>{M}
-<description></description></term>
-        <term>{N}
-<description></description></term>
-        <term>{P}
-<description></description></term>
-        <term>{Q}
-<description></description></term>
-        <term>{X}
-<description></description></term>
-      </lookup>
-    </property>
     <property name="Device Code" type="vocab">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
@@ -1470,7 +1470,7 @@
 <description></description></term>
       </lookup>
     </property>
-    <property name="Site Code" type="measure">
+    <property name="Sample Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1478,19 +1478,42 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Special Find">
     <description></description>
-    <property name="Context ID" type="measure" isIdentifier="true">
+    <property name="Special Find AreaCode" type="vocab" isIdentifier="true">
+      <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{H}
+<description></description></term>
+        <term>{K}
+<description></description></term>
+        <term>{L}
+<description></description></term>
+        <term>{M}
+<description></description></term>
+        <term>{N}
+<description></description></term>
+        <term>{P}
+<description></description></term>
+        <term>{Q}
+<description></description></term>
+        <term>{X}
+<description></description></term>
+      </lookup>
+    </property>
+    <property name="Special Find Context ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Context.</description>
-      <formatString>Cxtx-$2-</formatString>
+      <formatString>-Ctxt-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Special Find ID" type="measure" isIdentifier="true">
       <description>Unique number or code for the artefact applying either a Small Find or Groundstone number from the site register.</description>
-      <formatString>-Artefact-$2-</formatString>
+      <formatString>-Artefact-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Special Find Class" type="vocab" isIdentifier="true">
       <description>Broad Artefact Class for each Artefact (eg Chipped stone, Clay object, Building Material).</description>
-      <formatString>$1-</formatString>
+      <formatString>-$1</formatString>
       <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{No_Observation}
@@ -1620,33 +1643,10 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Photo" type="file" file="true" thumbnail="true">
+    <property name="Special Find Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo of the artefact etc using the camera on the tablet. Make sure the artefact is shown with a scale</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
-      <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
-      <lookup>
-        <term>{H}
-<description></description></term>
-        <term>{K}
-<description></description></term>
-        <term>{L}
-<description></description></term>
-        <term>{M}
-<description></description></term>
-        <term>{N}
-<description></description></term>
-        <term>{P}
-<description></description></term>
-        <term>{Q}
-<description></description></term>
-        <term>{X}
-<description></description></term>
-      </lookup>
     </property>
     <property name="Device Code" type="vocab">
       <description></description>
@@ -1675,7 +1675,7 @@
 <description></description></term>
       </lookup>
     </property>
-    <property name="Site Code" type="measure">
+    <property name="Special Find Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation. Assigned automatically by the module.</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1683,19 +1683,42 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Photograph Log">
     <description>A record of images created and stored on another device, eg by a professional site photographer.</description>
+    <property name="Photograph Log AreaCode" type="vocab" isIdentifier="true">
+      <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
+      <lookup>
+        <term>{H}
+<description></description></term>
+        <term>{K}
+<description></description></term>
+        <term>{L}
+<description></description></term>
+        <term>{M}
+<description></description></term>
+        <term>{N}
+<description></description></term>
+        <term>{P}
+<description></description></term>
+        <term>{Q}
+<description></description></term>
+        <term>{X}
+<description></description></term>
+      </lookup>
+    </property>
     <property name="Photo Context ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Context</description>
-      <formatString>{{if $2 then "Cxtx-$2-" else ""}}</formatString>
+      <formatString>{{ if $2 then "-Ctxt-$2" else ""}}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photo Context Group ID" type="measure" isIdentifier="true">
       <description>Unique number or code for each Context Group</description>
-      <formatString>{{if $2 then "Feature-$2-" else ""}}</formatString>
+      <formatString>{{ if $2 then "-Feature-$2" else ""}}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Photograph Reference ID" type="measure" isIdentifier="true">
       <description>Unique number or code allocated by creator of the image. It could be a filename or a reference number</description>
-      <formatString>Photo-$2-</formatString>
+      <formatString>-Photo-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Scene Type" type="vocab">
@@ -1718,29 +1741,6 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
-      <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
-      <lookup>
-        <term>{H}
-<description></description></term>
-        <term>{K}
-<description></description></term>
-        <term>{L}
-<description></description></term>
-        <term>{M}
-<description></description></term>
-        <term>{N}
-<description></description></term>
-        <term>{P}
-<description></description></term>
-        <term>{Q}
-<description></description></term>
-        <term>{X}
-<description></description></term>
-      </lookup>
-    </property>
     <property name="Device Code" type="vocab">
       <description></description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
@@ -1768,7 +1768,7 @@
 <description></description></term>
       </lookup>
     </property>
-    <property name="Site Code" type="measure">
+    <property name="Photograph Log Site Code" type="measure">
       <description>Short code to signify the excavation site and often the year of excavation</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1776,20 +1776,10 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Diary">
     <description></description>
-    <property name="Diary author" type="measure" isIdentifier="true">
-      <description>Your name will be added here based on your login</description>
-      <formatString>By: $2 - Diary:</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="Diary Title" type="measure" isIdentifier="true">
-      <description>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</description>
-      <formatString>$2-</formatString>
-      <appendCharacterString> - </appendCharacterString>
-    </property>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
+    <property name="Diary AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{H}
 <description></description></term>
@@ -1811,7 +1801,17 @@
     </property>
     <property name="Diary timestamp" type="measure" isIdentifier="true">
       <description>The date this entry is created will automatically appear here</description>
-      <formatString> $2</formatString>
+      <formatString>-$2</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Diary author" type="measure">
+      <description>Your name will be added here based on your login</description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <appendCharacterString> - </appendCharacterString>
+    </property>
+    <property name="Diary Title" type="measure">
+      <description>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</description>
+      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
     <property name="Text" type="measure">
@@ -1819,7 +1819,7 @@
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
-    <property name="Photo" type="file" file="true" thumbnail="true">
+    <property name="Diary Photo" type="file" file="true" thumbnail="true">
       <description>Use this button to take a photo relevant to this entry using the camera on the tablet</description>
       <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
       <appendCharacterString> - </appendCharacterString>
@@ -1827,10 +1827,10 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Legacy">
     <description></description>
-    <property name="AreaCode" type="vocab" isIdentifier="true">
+    <property name="Legacy AreaCode" type="vocab" isIdentifier="true">
       <description>The excavation trench, designated by a letter code and assigned automatically by the module based on your selection when you log in.</description>
-      <formatString>$1-</formatString>
-      <appendCharacterString>-</appendCharacterString>
+      <formatString>$1</formatString>
+      <appendCharacterString> - </appendCharacterString>
       <lookup>
         <term>{H}
 <description></description></term>
@@ -1852,7 +1852,7 @@
     </property>
     <property name="Legacy Context ID" type="measure" isIdentifier="true">
       <description></description>
-      <formatString>{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}</formatString>
+      <formatString>-$2</formatString>
       <appendCharacterString> - </appendCharacterString>
     </property>
   </ArchaeologicalElement>

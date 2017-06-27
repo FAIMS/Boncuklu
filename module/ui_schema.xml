@@ -51,7 +51,18 @@
                   <Search_Button/>
                 </Col_1>
               </Colgroup_0>
-              <Entity_Types/>
+              <Colgroup_1>
+                <Col_0>
+                  <Entity_Types/>
+                </Col_0>
+                <Col_1>
+                  <Select_User/>
+                </Col_1>
+                <Col_2>
+                  <Select_AreaCode/>
+                </Col_2>
+              </Colgroup_1>
+              <Select_User/>
               <Entity_List/>
             </Search>
           </Control>
@@ -331,7 +342,7 @@
             </Artefacts>
             <Samples>
               <Add_Sample/>
-              <List_of_Sample/>
+              <List_of_Samples/>
             </Samples>
             <Add>
               <Photo/>
@@ -820,13 +831,39 @@
             </trigger>
           </group>
         </group>
-        <select1 ref="Entity_Types">
-          <label>{Entity_Types}</label>
-          <item>
-            <label>Options not loaded</label>
-            <value>Options not loaded</value>
-          </item>
-        </select1>
+        <group ref="Colgroup_1" faims_style="orientation">
+          <label/>
+          <group ref="Col_0" faims_style="even">
+            <label/>
+            <select1 ref="Entity_Types">
+              <label>{Entity_Types}</label>
+              <item>
+                <label>Options not loaded</label>
+                <value>Options not loaded</value>
+              </item>
+            </select1>
+          </group>
+          <group ref="Col_1" faims_style="even">
+            <label/>
+            <select1 ref="Select_User">
+              <label>{Select_User}</label>
+              <item>
+                <label>Options not loaded</label>
+                <value>Options not loaded</value>
+              </item>
+            </select1>
+          </group>
+          <group ref="Col_2" faims_style="even">
+            <label/>
+            <select1 ref="Select_AreaCode">
+              <label>{Select_AreaCode}</label>
+              <item>
+                <label>Options not loaded</label>
+                <value>Options not loaded</value>
+              </item>
+            </select1>
+          </group>
+        </group>
         <select1 appearance="compact" ref="Entity_List">
           <label>{Entity_List}</label>
           <item>
@@ -844,7 +881,7 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode" faims_style_class="required">
+            <select1 faims_attribute_name="Context AreaCode" faims_attribute_type="vocab" ref="AreaCode" faims_style_class="required">
               <label>{Trench}</label>
               <item>
                 <label>Options not loaded</label>
@@ -1285,13 +1322,13 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Space" faims_attribute_type="measure" ref="Space">
+            <input faims_attribute_name="Context Space" faims_attribute_type="measure" ref="Space">
               <label>{Space}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <input faims_attribute_name="Building" faims_attribute_type="measure" ref="Building">
+            <input faims_attribute_name="Context Building" faims_attribute_type="measure" ref="Building">
               <label>{Building}</label>
             </input>
           </group>
@@ -1300,13 +1337,13 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Mid X" faims_attribute_type="measure" ref="Mid_X">
+            <input faims_attribute_name="Context Mid X" faims_attribute_type="measure" ref="Mid_X">
               <label>{Mid_X}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <input faims_attribute_name="Mid Y" faims_attribute_type="measure" ref="Mid_Y">
+            <input faims_attribute_name="Context Mid Y" faims_attribute_type="measure" ref="Mid_Y">
               <label>{Mid_Y}</label>
             </input>
           </group>
@@ -1464,7 +1501,7 @@
         <input faims_attribute_name="Your description" faims_attribute_type="measure" ref="Your_description" faims_style_class="required">
           <label>{Your_Description}</label>
         </input>
-        <input faims_attribute_name="Your Discussion" faims_attribute_type="measure" ref="Your_Discussion" faims_style_class="required">
+        <input faims_attribute_name="Context Your Discussion" faims_attribute_type="measure" ref="Your_Discussion" faims_style_class="required">
           <label>{Your_Interpretation}</label>
         </input>
       </group>
@@ -1517,8 +1554,8 @@
         <trigger ref="Add_Sample">
           <label>{Add_Sample}</label>
         </trigger>
-        <select1 appearance="compact" ref="List_of_Sample">
-          <label>{List_of_Sample}</label>
+        <select1 appearance="compact" ref="List_of_Samples">
+          <label>{List_of_Samples}</label>
           <item>
             <label>Options not loaded</label>
             <value>Options not loaded</value>
@@ -1527,7 +1564,7 @@
       </group>
       <group ref="Add">
         <label>{Add}</label>
-        <select faims_sync="true" type="camera" faims_attribute_name="Photo" faims_attribute_type="measure" ref="Photo">
+        <select faims_sync="true" type="camera" faims_attribute_name="Context Photo" faims_attribute_type="measure" ref="Photo">
           <label>{Photo}</label>
           <item>
             <label>Options not loaded</label>
@@ -1573,7 +1610,7 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Site Code" faims_attribute_type="measure" ref="Site_Code">
+        <input faims_attribute_name="Context Site Code" faims_attribute_type="measure" ref="Site_Code">
           <label>{Site_Code}</label>
         </input>
         <input faims_attribute_name="SearchHelp" faims_attribute_type="measure" ref="SearchHelp">
@@ -1589,7 +1626,7 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode" faims_style_class="required">
+            <select1 faims_attribute_name="Context Group AreaCode" faims_attribute_type="vocab" ref="AreaCode" faims_style_class="required">
               <label>{Trench}</label>
               <item>
                 <label>Options not loaded</label>
@@ -1614,13 +1651,13 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Building" faims_attribute_type="measure" ref="Building">
+            <input faims_attribute_name="Context Group Building" faims_attribute_type="measure" ref="Building">
               <label>{Building}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <input faims_attribute_name="Space" faims_attribute_type="measure" ref="Space">
+            <input faims_attribute_name="Context Group Space" faims_attribute_type="measure" ref="Space">
               <label>{Space}</label>
             </input>
           </group>
@@ -1641,7 +1678,7 @@
         <input faims_attribute_name="CG Your Interpretation" faims_attribute_type="measure" ref="CG_Your_Interpretation" faims_style_class="required">
           <label>{Your_Interpretation}</label>
         </input>
-        <input faims_attribute_name="Your Discussion" faims_attribute_type="measure" ref="Your_Discussion">
+        <input faims_attribute_name="Context Group Your Discussion" faims_attribute_type="measure" ref="Your_Discussion">
           <label>{Your_Discussion}</label>
         </input>
         <group ref="Colgroup_3" faims_style="orientation">
@@ -1669,13 +1706,13 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Mid X" faims_attribute_type="measure" ref="Mid_X">
+            <input faims_attribute_name="Context Group Mid X" faims_attribute_type="measure" ref="Mid_X">
               <label>{Mid_X}</label>
             </input>
           </group>
           <group ref="Col_2" faims_style="even">
             <label/>
-            <input faims_attribute_name="Mid Y" faims_attribute_type="measure" ref="Mid_Y">
+            <input faims_attribute_name="Context Group Mid Y" faims_attribute_type="measure" ref="Mid_Y">
               <label>{Mid_Y}</label>
             </input>
           </group>
@@ -1747,7 +1784,7 @@
       </group>
       <group ref="Add">
         <label>{Add}</label>
-        <select faims_sync="true" type="camera" faims_attribute_name="Photo" faims_attribute_type="measure" ref="Photo">
+        <select faims_sync="true" type="camera" faims_attribute_name="Context Group Photo" faims_attribute_type="measure" ref="Photo">
           <label>{Photo}</label>
           <item>
             <label>Options not loaded</label>
@@ -1780,7 +1817,7 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Site Code" faims_attribute_type="measure" ref="Site_Code">
+        <input faims_attribute_name="Context Group Site Code" faims_attribute_type="measure" ref="Site_Code">
           <label>{Site_Code}</label>
         </input>
       </group>
@@ -1818,10 +1855,10 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Context ID" faims_attribute_type="measure" ref="Context_ID">
+        <input faims_attribute_name="Matrix Context ID" faims_attribute_type="measure" ref="Context_ID">
           <label>{Context_ID}</label>
         </input>
-        <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode">
+        <select1 faims_attribute_name="Matrix AreaCode" faims_attribute_type="vocab" ref="AreaCode">
           <label>{AreaCode}</label>
           <item>
             <label>Options not loaded</label>
@@ -1852,10 +1889,10 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <input faims_attribute_name="Context ID" faims_attribute_type="measure" ref="Context_ID">
+        <input faims_attribute_name="Height Context ID" faims_attribute_type="measure" ref="Context_ID">
           <label>{Context_ID}</label>
         </input>
-        <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode">
+        <select1 faims_attribute_name="Height AreaCode" faims_attribute_type="vocab" ref="AreaCode">
           <label>{AreaCode}</label>
           <item>
             <label>Options not loaded</label>
@@ -1872,7 +1909,7 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Context ID" faims_attribute_type="measure" ref="Context_ID" faims_style_class="required" faims_read_only="true">
+            <input faims_attribute_name="Sample Context ID" faims_attribute_type="measure" ref="Context_ID" faims_style_class="required" faims_read_only="true">
               <label>{Context_Feature_ID}</label>
             </input>
           </group>
@@ -1939,7 +1976,7 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode">
+        <select1 faims_attribute_name="Sample AreaCode" faims_attribute_type="vocab" ref="AreaCode">
           <label>{AreaCode}</label>
           <item>
             <label>Options not loaded</label>
@@ -1953,7 +1990,7 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Site Code" faims_attribute_type="measure" ref="Site_Code">
+        <input faims_attribute_name="Sample Site Code" faims_attribute_type="measure" ref="Site_Code">
           <label>{Site_Code}</label>
         </input>
       </group>
@@ -1969,7 +2006,7 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <input faims_attribute_name="Context ID" faims_attribute_type="measure" ref="Context_ID" faims_read_only="true">
+            <input faims_attribute_name="Special Find Context ID" faims_attribute_type="measure" ref="Context_ID" faims_read_only="true">
               <label>{Context_ID}</label>
             </input>
           </group>
@@ -2031,7 +2068,7 @@
         <input faims_attribute_name="Special Find Comment" faims_attribute_type="measure" ref="Special_Find_Comment">
           <label>{Artefact_Comment}</label>
         </input>
-        <select faims_sync="true" type="camera" faims_attribute_name="Photo" faims_attribute_type="measure" ref="Photo">
+        <select faims_sync="true" type="camera" faims_attribute_name="Special Find Photo" faims_attribute_type="measure" ref="Photo">
           <label>{Photo}</label>
           <item>
             <label>Options not loaded</label>
@@ -2044,7 +2081,7 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode">
+        <select1 faims_attribute_name="Special Find AreaCode" faims_attribute_type="vocab" ref="AreaCode">
           <label>{AreaCode}</label>
           <item>
             <label>Options not loaded</label>
@@ -2058,7 +2095,7 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Site Code" faims_attribute_type="measure" ref="Site_Code">
+        <input faims_attribute_name="Special Find Site Code" faims_attribute_type="measure" ref="Site_Code">
           <label>{Site_Code}</label>
         </input>
       </group>
@@ -2101,7 +2138,7 @@
       </group>
       <group ref="Vars" faims_hidden="true">
         <label>{Vars}</label>
-        <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode">
+        <select1 faims_attribute_name="Photograph Log AreaCode" faims_attribute_type="vocab" ref="AreaCode">
           <label>{AreaCode}</label>
           <item>
             <label>Options not loaded</label>
@@ -2115,7 +2152,7 @@
             <value>Options not loaded</value>
           </item>
         </select1>
-        <input faims_attribute_name="Site Code" faims_attribute_type="measure" ref="Site_Code">
+        <input faims_attribute_name="Photograph Log Site Code" faims_attribute_type="measure" ref="Site_Code">
           <label>{Site_Code}</label>
         </input>
       </group>
@@ -2142,7 +2179,7 @@
         <input faims_attribute_name="Diary Title" faims_attribute_type="measure" ref="Diary_Title">
           <label>{Title}</label>
         </input>
-        <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode">
+        <select1 faims_attribute_name="Diary AreaCode" faims_attribute_type="vocab" ref="AreaCode">
           <label>{Trench}</label>
           <item>
             <label>Options not loaded</label>
@@ -2152,7 +2189,7 @@
         <input faims_attribute_name="Text" faims_attribute_type="measure" ref="Text">
           <label>{Text}</label>
         </input>
-        <select faims_sync="true" type="camera" faims_attribute_name="Photo" faims_attribute_type="measure" ref="Photo">
+        <select faims_sync="true" type="camera" faims_attribute_name="Diary Photo" faims_attribute_type="measure" ref="Photo">
           <label>{Photo}</label>
           <item>
             <label>Options not loaded</label>
@@ -2172,7 +2209,7 @@
           <label/>
           <group ref="Col_1" faims_style="even">
             <label/>
-            <select1 faims_attribute_name="AreaCode" faims_attribute_type="vocab" ref="AreaCode" faims_style_class="required">
+            <select1 faims_attribute_name="Legacy AreaCode" faims_attribute_type="vocab" ref="AreaCode" faims_style_class="required">
               <label>{Trench}</label>
               <item>
                 <label>Options not loaded</label>

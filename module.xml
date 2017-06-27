@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Check relationships tab groups-->
+
 <!--@POSTPROC: ./proc/post.sh-->
 <module suppressWarnings="true" test_mode="true">
 
@@ -54,12 +56,10 @@
 <User f="nodata nolabel">
   <User_List>
     <Users t="dropdown" f="user"/>
-    <AreaCode t="dropdown">
+    <AreaCode t="dropdown" f="persist" vp="Context/General/AreaCode">
       Trench
-      <!--Populated manually using @POSTPROC-->
     </AreaCode>
-    <Device_Code t="dropdown">
-      <!--Populated manually using @POSTPROC-->
+    <Device_Code t="dropdown" f="persist" vp="Context/Vars/Device_Code">
     </Device_Code>
     <Login t="button" l="Control"/>
     <Module_Guide t="button" l="User/Help"/>
@@ -77,7 +77,7 @@
     </Create_New_Context_Group>
     <Create_New_Diary         t="button" l="Diary"/>
     <Create_New_Legacy        t="button" l="Legacy"/>
-    <Team_Members/>
+    <Team_Members f="persist"/>
     <autonum/>
     <GPS_Diagnostics t="gpsdiag"/>
   </Contexts>
@@ -91,29 +91,24 @@
 </Control>
 
 <Context>
+  <fmt>{{AreaCode}}-Ctxt-{{Context_Context_ID}}-{{Context_Name}}</fmt>
   <desc>The physical result of any single action whether it leaves a positive or negative record within the stratigraphic sequence. (MoLAS 1994)</desc>
   <General>
     <cols>
-      <AreaCode f="id notnull">
+      <AreaCode f="notnull" i="User/User_List/AreaCode!">
         Trench
         <!--@SOURCE: vocabs/area-code.xml-->
       </AreaCode>
-      <Context_Context_ID f="id notnull autonum">
+      <Context_Context_ID f="notnull autonum">
         Context Code
         <desc>Every archaeological context (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter context code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a context belongs. For example context HAA belongs to Trench H, context MQP to Trench M etc.
         The contexts are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first context would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote contexts from a specific building.
         Burial context codes begin with the letter Z, followed by the trench letter. Hence burial ZHA is the first burial context from trench H.
         Check with the trench supervisor who will assign the context code from the central register.</desc>
-        <str>
-          <fmt><![CDATA[Cxtx-$2-]]></fmt>
-        </str>
       </Context_Context_ID>
-      <Context_Name f="id">
+      <Context_Name>
         Brief Description
         <desc>Enter a brief, clear name for the Context eg 'House A - west wall'</desc>
-        <str>
-          <fmt><![CDATA[$2]]></fmt>
-        </str>
       </Context_Name>
     </cols>
     <cols>
@@ -931,26 +926,21 @@
 
 <Context_Group>
   Feature
+  <fmt>{{AreaCode}}-Feat-{{Context_Group_ID}}-{{Title}}</fmt>
   <desc>A group of contexts.</desc>
   <Gen>
     <cols>
-      <AreaCode f="id notnull">
+      <AreaCode f="notnull">
         Trench
         <!--@SOURCE: vocabs/area-code.xml-->
       </AreaCode>
-      <Context_Group_ID f="id notnull autonum">
+      <Context_Group_ID f="notnull autonum">
         Feature ID
         <desc>Feature number taken from the central register.</desc>
-        <str>
-          <fmt><![CDATA[Feat-$2-]]></fmt>
-        </str>
       </Context_Group_ID>
-      <Title f="id notnull">
+      <Title f="notnull">
         Feature Title
         <desc>Enter the Feature name e.g. Hearth in Building 2.</desc>
-        <str>
-          <fmt><![CDATA[$2]]></fmt>
-        </str>
       </Title>
     </cols>
     <cols>
@@ -1100,14 +1090,12 @@
 
 <Matrix>
   Sediment/Aggregate
+  <fmt>{{Component}}-{{Percentage}}%</fmt>
   <Matrix>
     Sediment/Aggregate
     <cols>
-      <Component f="id">
+      <Component>
         <desc>Describe the components which make up 10% or more of the deposit.</desc>
-        <str>
-          <fmt>$1-</fmt>
-        </str>
         <opts>
           <opt>No Observation
           <desc>data not collected</desc></opt>
@@ -1131,11 +1119,8 @@
           <desc>Human manufactured materials including lithics, beads, ground stone etc.</desc></opt>
         </opts>
       </Component>
-      <Percentage f="id" b="decimal">
+      <Percentage b="decimal">
         <desc>Enter the approximate % volume of this material in the Context.</desc>
-        <str>
-          <fmt>$2%</fmt>
-        </str>
       </Percentage>
     </cols>
     <Shape>
@@ -1178,31 +1163,22 @@
 </Matrix>
 
 <Height>
+  <fmt>
+    {{Number}} {{X}}, {{Y}}, {{Z}}
+  </fmt>
   <Height>
-    <Number f="id notnull">
+    <Number f="notnull">
       Reference
       <desc>Add a short description of the point being recorded, for example, 1. North edge of floor, 2. South edge of floor. Mark your points on the sketch for each context.</desc>
-      <str>
-        <fmt><![CDATA[$2]]></fmt>
-      </str>
     </Number>
-    <X f="id notnull" b="decimal">
+    <X f="notnull" b="decimal">
       <desc>Add X coordinate using the site grid</desc>
-      <str>
-        <fmt><![CDATA[ $2,]]></fmt>
-      </str>
     </X>
-    <Y f="id notnull" b="decimal">
+    <Y f="notnull" b="decimal">
       <desc>Add Y coordinate using the site grid</desc>
-      <str>
-        <fmt><![CDATA[ $2,]]></fmt>
-      </str>
     </Y>
-    <Z f="id notnull" b="decimal">
+    <Z f="notnull" b="decimal">
       <desc>Add Z coordinate using the site grid</desc>
-      <str>
-        <fmt><![CDATA[ $2]]></fmt>
-      </str>
     </Z>
     <Notes f="notnull">
       <desc>Add a description here concerning the entity whose position you have recorded</desc>
@@ -1217,27 +1193,21 @@
 </Height>
 
 <Sample>
+  <fmt>
+    {{AreaCode}}-Ctxt-{{Context_ID}}-Sample-{{Sample_ID}}-{{Sample_Type}}
+  </fmt>
   <desc>Deposit samples or samples of building elements recovered from this Context for the purpose of further analysis or ongoing reference.</desc>
   <Deposit_Samples>
     <cols>
-      <Context_ID f="id notnull readonly">
+      <Context_ID f="notnull readonly">
         Context/Feature ID
         <desc>Unique number or code for the Context from which this Artefact Cluster was collected.</desc>
-        <str>
-          <fmt><![CDATA[Cxtx-$2-]]></fmt>
-        </str>
       </Context_ID>
-      <Sample_ID f="id notnull autonum">
+      <Sample_ID f="notnull autonum">
         <desc>The unique code or reference for the Sample. This should be assigned with reference to the central register</desc>
-        <str>
-          <fmt><![CDATA[-Sample-$2-]]></fmt>
-        </str>
       </Sample_ID>
-      <Sample_Type f="id notnull">
+      <Sample_Type f="notnull">
         <desc>The type of Sample collected as detailed below.</desc>
-        <str>
-          <fmt><![CDATA[$1-]]></fmt>
-        </str>
         <opts>
           <opt>No Observation
           <desc>data not collected</desc></opt>
@@ -1302,7 +1272,7 @@
     </cols>
   </Deposit_Samples>
   <Vars f="hidden">
-    <AreaCode f="id">
+    <AreaCode>
       <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Device_Code>
@@ -1316,29 +1286,23 @@
 
 <Special_Find>
   Artefact
+  <fmt>
+    {{AreaCode}}-Ctxt-{{Context_ID}}-Artefact-{{Special_Find_ID}}-{{Special_Find_Class}}
+  </fmt>
   <Special_Find>
     Artefact
     <Guide_0 t="webview" f="nolabel"/>
     <cols>
-      <Context_ID f="id readonly">
+      <Context_ID f="readonly">
         <desc>Unique number or code for each Context.</desc>
-        <str>
-          <fmt><![CDATA[Cxtx-$2-]]></fmt>
-        </str>
       </Context_ID>
-      <Special_Find_ID f="id notnull">
+      <Special_Find_ID f="notnull">
         Artefact ID
         <desc>Unique number or code for the artefact applying either a Small Find or Groundstone number from the site register.</desc>
-        <str>
-          <fmt><![CDATA[-Artefact-$2-]]></fmt>
-        </str>
       </Special_Find_ID>
-      <Special_Find_Class f="id">
+      <Special_Find_Class>
         Artefact Class
         <desc>Broad Artefact Class for each Artefact (eg Chipped stone, Clay object, Building Material).</desc>
-        <str>
-          <fmt>$1-</fmt>
-        </str>
         <opts>
           <opt>No Observation
           <desc>data not collected</desc></opt>
@@ -1494,7 +1458,7 @@
     </Photo>
   </Special_Find>
   <Vars f="hidden">
-    <AreaCode f="id">
+    <AreaCode>
       <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Device_Code>
@@ -1508,32 +1472,24 @@
 
 <Photograph_Log>
   Photograph Register
+  <fmt>
+    {{AreaCode}}{{Photo_Context_ID if $0 then "-Ctxt-$0" else ""}}{{Photo_Context_Group_ID if $0 then "-Feature-$0" else ""}}-Photo-{{Photograph_Reference_ID}}
+  </fmt>
   <desc>A record of images created and stored on another device, eg by a professional site photographer.</desc>
   <Photograph_Log>
     Photograph Register
     <cols>
-      <Photo_Context_ID f="id readonly">
+      <Photo_Context_ID f="readonly">
         Context ID
         <desc>Unique number or code for each Context</desc>
-        <str>
-          <fmt><![CDATA[{{if $2 then "Cxtx-$2-" else ""}}]]></fmt>
-        </str>
-        <app><![CDATA[-]]></app>
       </Photo_Context_ID>
-      <Photo_Context_Group_ID f="id readonly">
+      <Photo_Context_Group_ID f="readonly">
         Feature ID
         <desc>Unique number or code for each Context Group</desc>
-        <str>
-          <fmt><![CDATA[{{if $2 then "Feature-$2-" else ""}}]]></fmt>
-        </str>
-        <app><![CDATA[-]]></app>
       </Photo_Context_Group_ID>
-      <Photograph_Reference_ID f="id">
+      <Photograph_Reference_ID>
         Photograph Register ID
         <desc>Unique number or code allocated by creator of the image. It could be a filename or a reference number</desc>
-        <str>
-          <fmt><![CDATA[Photo-$2-]]></fmt>
-        </str>
       </Photograph_Reference_ID>
     </cols>
     <Scene_Type>
@@ -1557,7 +1513,7 @@
     </Photograph_Description>
   </Photograph_Log>
   <Vars f="hidden">
-    <AreaCode f="id">
+    <AreaCode>
       <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Device_Code>
@@ -1570,38 +1526,25 @@
 </Photograph_Log>
 
 <Diary>
+  <fmt>
+    {{AreaCode}}-{{timestamp}}
+  </fmt>
   <Diary>
     <cols>
-      <timestamp f="id readonly">
+      <timestamp>
         <desc>The date this entry is created will automatically appear here</desc>
-        <str>
-          <pos>4</pos>
-          <fmt><![CDATA[ $2]]></fmt>
-        </str>
       </timestamp>
-      <author f="id readonly">
+      <author f="readonly">
         Created by
         <desc>Your name will be added here based on your login</desc>
-        <str>
-          <pos>1</pos>
-          <fmt><![CDATA[By: $2 - Diary:]]></fmt>
-        </str>
-        <app><![CDATA[-]]></app>
       </author>
     </cols>
-    <Diary_Title f="id">
+    <Diary_Title>
       Title
       <desc>Give your entry a simple, short title, such as Daily Trench Update, Burial 34, Storm Damage. Note that diary entries allow you to add information in addition to the context, feature and artefact records elsewhere in the module and should not be the primary description point for those entities</desc>
-      <str>
-        <pos>2</pos>
-        <fmt><![CDATA[$2-]]></fmt>
-      </str>
     </Diary_Title>
-    <AreaCode f="id">
+    <AreaCode>
       Trench
-      <str>
-        <pos>3</pos>
-      </str>
       <!--@SOURCE: vocabs/area-code.xml-->
     </AreaCode>
     <Text>
@@ -1614,13 +1557,14 @@
 </Diary>
 
 <Legacy>
+  <fmt>{{AreaCode}}-{{Legacy_Context_ID}}</fmt>
   <Legacy>
     <cols>
-      <AreaCode f="id notnull">
+      <AreaCode f="notnull">
         Trench
         <!--@SOURCE: vocabs/area-code.xml-->
       </AreaCode>
-      <Legacy_Context_ID f="id notnull">
+      <Legacy_Context_ID f="notnull">
         Context Code
       </Legacy_Context_ID>
     </cols>
@@ -1632,9 +1576,8 @@
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <AreaCode   f="notnull" t="dropdown">
+      <AreaCode   f="notnull" t="dropdown" vp="Context/General/AreaCode">
         Trench
-        <!--Populated manually using @POSTPROC-->
       </AreaCode>
       <Context_ID f="notnull"/>
     </cols>
@@ -1663,9 +1606,8 @@
   <Relationships f="noscroll">
     <Parent_Identifier t="webview"/>
     <cols>
-      <AreaCode   f="notnull" t="dropdown">
+      <AreaCode   f="notnull" t="dropdown" vp="Context/General/AreaCode">
         Trench
-        <!--Populated manually using @POSTPROC-->
       </AreaCode>
       <Context_ID f="notnull"/>
     </cols>
@@ -1688,16 +1630,15 @@
 </Context_Group_Relationship>
 
 <logic><![CDATA[
+  <!--@SOURCE: logic/top-matter.bsh-->
   <!--@SOURCE: logic/shared.bsh-->
   <!--@SOURCE: logic/relationships-shared.bsh-->
 
   <!--@SOURCE: logic/custom-search.bsh-->
-  <!--@SOURCE: logic/vocab-population.bsh-->
   <!--@SOURCE: logic/user-tab-validation.bsh-->
   <!--@SOURCE: logic/field-inheritance.bsh-->
   <!--@SOURCE: logic/relationships-context-to-context.bsh-->
   <!--@SOURCE: logic/relationships-context-group-to-context.bsh-->
-  <!--@SOURCE: logic/local-settings-access.bsh-->
   <!--@SOURCE: logic/dynamic-ui-context.bsh-->
   <!--@SOURCE: logic/context-dates.bsh-->
   <!--@SOURCE: logic/soil-texture-helper.bsh-->
