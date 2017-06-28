@@ -2,9 +2,6 @@
 /* Context Group to Context relationships.                                    */
 /*                                                                            */
 /* Uses functions and globals from logic/relationships-shared.bsh             */
-/*                                                                            */
-/* Modifies onClickContextGroupCreateRelationshipstoThisContextGroup using    */
-/* @POSTPROC.                                                                 */
 /******************************************************************************/
 //////////////// FUNCTIONS AFFECTING "CONTEXT GROUP" TAB GROUP /////////////////
 addOnEvent("Context_Group",                                    "show",  "CGinitParentRelationshipGlobals()");

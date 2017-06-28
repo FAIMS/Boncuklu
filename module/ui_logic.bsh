@@ -1,5 +1,5 @@
 /*
- * GENERATED WITH FAIMS-TOOLS, SHA1: 5db20e25d74a6a2e4dc8f7fa389bae5b5a93b22c
+ * GENERATED WITH FAIMS-TOOLS, SHA1: ede772000c2e9d8de95a03ec36ee2977ca906dfc
  */
 import android.util.Log;
 import android.os.Build.MODEL;
@@ -1480,9 +1480,9 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 void setUpTypeHierarchy() {
   //- 
   //  - Diary
-  //  - Matrix
   //  - Context Group
   //    - Photograph Log
+  //  - Matrix
   //  - Legacy
   //  - Context
   //    - Height
@@ -1493,9 +1493,9 @@ void setUpTypeHierarchy() {
 
   n0 = Tree("", 1);
   n1 = Tree("Diary", 1);
-  n2 = Tree("Matrix", 1);
-  n3 = Tree("Context Group", 1);
-  n4 = Tree("Photograph Log", 1);
+  n2 = Tree("Context Group", 1);
+  n3 = Tree("Photograph Log", 1);
+  n4 = Tree("Matrix", 1);
   n5 = Tree("Legacy", 1);
   n6 = Tree("Context", 1);
   n7 = Tree("Height", 1);
@@ -1506,11 +1506,11 @@ void setUpTypeHierarchy() {
 
   n0.addChild(n1);
   n0.addChild(n2);
-  n0.addChild(n3);
+  n0.addChild(n4);
   n0.addChild(n5);
   n0.addChild(n6);
 
-  n3.addChild(n4);
+  n2.addChild(n3);
 
   n6.addChild(n7);
   n6.addChild(n8);
@@ -1860,7 +1860,7 @@ void enableRecordCreation() {
 }
 
 boolean isInPerfTestTime() {
-  return true;
+  return false;
 }
 
 // Produce entity number specification
@@ -1974,8 +1974,10 @@ void setUpPerfActionBarItems() {
   removeActionBarItem("enable_record_creation");
 
   String userMenuTabGroup = getTabGroupRef(USER_MENU_PATH);
-  if (!isDisplayed(userMenuTabGroup))
+  if (!isDisplayed(userMenuTabGroup)) {
+    PERF_ALLOW_CREATION = false;
     return;
+  }
   if (!isInPerfTestTime())
     return;
 
@@ -2047,7 +2049,7 @@ void insertIntoLocalSettings(String key, String val) {
   String q = "REPLACE INTO localSettings(key, value) VALUES(%s, %s)";
   q = dbReplaceFirst(q, key);
   q = dbReplaceFirst(q, val);
-  timedFetchOne(q);
+  fetchOne(q);
 }
 
 void insertIntoLocalSettings(String key, Integer val) {
@@ -2087,7 +2089,7 @@ void setFieldValueFromLocalSettings(
     }
   };
 
-  timedFetchOne(q, set);
+  fetchOne(q, set);
 }
 
 void setFieldValueFromLocalSettings(
@@ -2553,7 +2555,7 @@ void fetchMenuValues() {
   };
 
   incJobsTillLoaded();
-  timedFetchAll(q, populateHashMap);
+  fetchAll(q, populateHashMap);
 }
 
 addOnEvent("module", "load", "makeVocabs()");
@@ -2757,7 +2759,7 @@ void populateListForUsers(){
   q += "   FROM user ";
   q += "  WHERE userdeleted is null";
 
-  timedFetchAll(q, new FetchCallback() {
+  fetchAll(q, new FetchCallback() {
     onFetch(result) {
       populateDropDown(USER_MENU_PATH, result, true);
     }
@@ -2776,7 +2778,7 @@ String getUserMenuValue(int i) {
 }
 
 void resetUser() {
-  userId   = "0";
+  userId   = "";
   username = "";
   User user = new User(userId, "", "", "", "");
   setUser(user);
@@ -3169,23 +3171,23 @@ addOnEvent("Photograph_Log", "show", "onShowPhotographLog()");
 addOnEvent("Diary", "show", "onShowDiary()");
 addOnEvent("Legacy", "show", "onShowLegacy()");
 
-void onClickUserUserListLogin () {
+void onClickUserLogin () {
   newTab("Control", true);
 }
 
-void onClickUserUserListModuleGuide () {
+void onClickUserModuleGuide () {
   newTab("User/Help", true);
 }
 
-void onClickContextStructureEnterSedimentDescription () {
+void onClickContextEnterSedimentDescription () {
   newTab("Context/Deposit", true);
 }
 
-void onClickContextDepositSoilTextureHelper () {
+void onClickContextSoilTextureHelper () {
   newTab("Context/Soil_Texture_Helper", true);
 }
 
-void onClickContextRelationshipsCreateRelationshipstoThisContext () {
+void onClickContextCreateRelationshipstoThisContext () {
   String tabgroup = "Context";
   if (isNull(getUuid(tabgroup))){
     showToast("{You_must_save_this_tabgroup_first}");
@@ -3195,7 +3197,7 @@ void onClickContextRelationshipsCreateRelationshipstoThisContext () {
   newTab("Relationship", true);
 }
 
-void onClickContextGroupContextGroupContextsCreateRelationshipstoThisContextGroup () {
+void onClickContextGroupCreateRelationshipstoThisContextGroup () {
   String tabgroup = "Context_Group";
   if (isNull(getUuid(tabgroup))){
     showToast("{You_must_save_this_tabgroup_first}");
@@ -3205,22 +3207,22 @@ void onClickContextGroupContextGroupContextsCreateRelationshipstoThisContextGrou
   newTab("Context_Group_Relationship", true);
 }
 
-void onClickControlContextsCreateNewContext () {
+void onClickControlCreateNewContext () {
   parentTabgroup__ = "Control";
   newContext();
 }
 
-void onClickControlContextsCreateNewContextGroup () {
+void onClickControlCreateNewContextGroup () {
   parentTabgroup__ = "Control";
   newContextGroup();
 }
 
-void onClickControlContextsCreateNewDiary () {
+void onClickControlCreateNewDiary () {
   parentTabgroup__ = "Control";
   newDiary();
 }
 
-void onClickControlContextsCreateNewLegacy () {
+void onClickControlCreateNewLegacy () {
   parentTabgroup__ = "Control";
   newLegacy();
 }
@@ -3231,45 +3233,45 @@ void onClickControlContextsCreateNewLegacy () {
 
 
 
-void onClickContextMeasureAddHeight () {
+void onClickContextAddHeight () {
   newHeight("Context");
 }
 
-void onClickContextDepositAddNewMatrix () {
+void onClickContextAddNewMatrix () {
   newMatrix("Context");
 }
 
-void onClickContextArtefactsAddSpecialFind () {
+void onClickContextAddSpecialFind () {
   newSpecialFind("Context");
 }
 
-void onClickContextSamplesAddSample () {
+void onClickContextAddSample () {
   newSample("Context");
 }
 
-void onClickContextAddAddPhotographLog () {
+void onClickContextAddPhotographLog () {
   newPhotographLog("Context");
 }
 
-void onClickContextGroupAddAddPhotographLog () {
+void onClickContextGroupAddPhotographLog () {
   newPhotographLog("Context_Group");
 }
-addOnEvent("User/User_List/Login", "click", "onClickUserUserListLogin()");
-addOnEvent("User/User_List/Module_Guide", "click", "onClickUserUserListModuleGuide()");
-addOnEvent("Control/Contexts/Create_New_Context", "click", "onClickControlContextsCreateNewContext()");
-addOnEvent("Control/Contexts/Create_New_Context_Group", "click", "onClickControlContextsCreateNewContextGroup()");
-addOnEvent("Control/Contexts/Create_New_Diary", "click", "onClickControlContextsCreateNewDiary()");
-addOnEvent("Control/Contexts/Create_New_Legacy", "click", "onClickControlContextsCreateNewLegacy()");
-addOnEvent("Context/Structure/Enter_Sediment_Description", "click", "onClickContextStructureEnterSedimentDescription()");
-addOnEvent("Context/Deposit/Soil_Texture_Helper", "click", "onClickContextDepositSoilTextureHelper()");
-addOnEvent("Context/Relationships/Create_Relationships_to_This_Context", "click", "onClickContextRelationshipsCreateRelationshipstoThisContext()");
-addOnEvent("Context_Group/Context_Group_Contexts/Create_Relationships_to_This_Context_Group", "click", "onClickContextGroupContextGroupContextsCreateRelationshipstoThisContextGroup()");
-addOnEvent("Context/Measure/Add_Height", "click", "onClickContextMeasureAddHeight()");
-addOnEvent("Context/Deposit/Add_New_Matrix", "click", "onClickContextDepositAddNewMatrix()");
-addOnEvent("Context/Artefacts/Add_Special_Find", "click", "onClickContextArtefactsAddSpecialFind()");
-addOnEvent("Context/Samples/Add_Sample", "click", "onClickContextSamplesAddSample()");
-addOnEvent("Context/Add/Add_Photograph_Log", "click", "onClickContextAddAddPhotographLog()");
-addOnEvent("Context_Group/Add/Add_Photograph_Log", "click", "onClickContextGroupAddAddPhotographLog()");
+addOnEvent("User/User_List/Login", "click", "onClickUserLogin()");
+addOnEvent("User/User_List/Module_Guide", "click", "onClickUserModuleGuide()");
+addOnEvent("Control/Contexts/Create_New_Context", "click", "onClickControlCreateNewContext()");
+addOnEvent("Control/Contexts/Create_New_Context_Group", "click", "onClickControlCreateNewContextGroup()");
+addOnEvent("Control/Contexts/Create_New_Diary", "click", "onClickControlCreateNewDiary()");
+addOnEvent("Control/Contexts/Create_New_Legacy", "click", "onClickControlCreateNewLegacy()");
+addOnEvent("Context/Structure/Enter_Sediment_Description", "click", "onClickContextEnterSedimentDescription()");
+addOnEvent("Context/Deposit/Soil_Texture_Helper", "click", "onClickContextSoilTextureHelper()");
+addOnEvent("Context/Relationships/Create_Relationships_to_This_Context", "click", "onClickContextCreateRelationshipstoThisContext()");
+addOnEvent("Context_Group/Context_Group_Contexts/Create_Relationships_to_This_Context_Group", "click", "onClickContextGroupCreateRelationshipstoThisContextGroup()");
+addOnEvent("Context/Measure/Add_Height", "click", "onClickContextAddHeight()");
+addOnEvent("Context/Deposit/Add_New_Matrix", "click", "onClickContextAddNewMatrix()");
+addOnEvent("Context/Artefacts/Add_Special_Find", "click", "onClickContextAddSpecialFind()");
+addOnEvent("Context/Samples/Add_Sample", "click", "onClickContextAddSample()");
+addOnEvent("Context/Add/Add_Photograph_Log", "click", "onClickContextAddPhotographLog()");
+addOnEvent("Context_Group/Add/Add_Photograph_Log", "click", "onClickContextGroupAddPhotographLog()");
 
 /******************************************************************************/
 /*                   AUDIO, CAMERA, FILE AND VIDEO BINDINGS                   */
@@ -3423,7 +3425,7 @@ void newRecord(String tabgroup, boolean doUpdateRelVars) {
         newRecord(tabgroup, false);
       }
     };
-    timedFetchAll(q, updateRelVars);
+    fetchAll(q, updateRelVars);
     return;
   }
 
@@ -3552,7 +3554,7 @@ void loadEntityFrom(String entityID, String onFail) {
                            "  JOIN aenttype " +
                            " USING (aenttypeid) " +
                            " WHERE uuid = '" + entityID + "'";
-  timedFetchAll(getEntTypeNameQ, new FetchCallback() {
+  fetchAll(getEntTypeNameQ, new FetchCallback() {
     onFetch(result) {
       if (
           result               == null ||
@@ -4287,7 +4289,7 @@ void search(){
   searchQuery = dbReplaceFirst(searchQuery, "{type}", type);
   searchQuery = dbReplaceFirst(searchQuery, "{type}", type);
 
-  timedPopulateCursorList(refEntityList, searchQuery, 25);
+  populateCursorList(refEntityList, searchQuery, 25);
   refreshTabgroupCSS("Control");
 
   Log.d("Module", "Search query: " + searchQuery);
@@ -4495,7 +4497,7 @@ void fillInGPS(String tabgroup) {
                  "  FROM latestnondeletedarchent, vocabulary " +
                  " WHERE uuid = '" + currentUuid + "';";
 
-  timedFetchOne(query, new FetchCallback() {
+  fetchOne(query, new FetchCallback() {
     onFetch(result) {
       print("[fillInGPS()] Fetched DB transformed geometry: " + result);
       setFieldValue(tabgroupToTabRef.get(tabgroup) + "/Longitude" , result.get(0));
@@ -4688,8 +4690,8 @@ void populateMenuWithEntities (
   else                    q = getChildEntitiesQ;
 
   switch (viewType) {
-    case "dropdown": timedFetchAll(q, cbPopulateDropDown); break;
-    case "list":     timedPopulateCursorList(ref, q, 25); break;
+    case "dropdown": fetchAll(q, cbPopulateDropDown); break;
+    case "list":     populateCursorList(ref, q, 25); break;
   }
 }
 
@@ -4838,7 +4840,7 @@ populateSquare(ref) {
     }
   };
 
-  timedFetchAll(q, populate);
+  fetchAll(q, populate);
 }
 
 setFieldToIdentifier(String identiferType, String lotRef) {
@@ -4863,7 +4865,7 @@ setFieldToIdentifier(String identiferType, String lotRef) {
     }
   };
 
-  timedFetchOne(q, cb);
+  fetchOne(q, cb);
 }
 
 populateLotLabel(lotRef) {
@@ -4923,7 +4925,7 @@ deleteRelationship() {
     }
   };
 
-  timedFetchOne(q);
+  fetchOne(q);
   deleteRel(selectedRelId, cb);
 
   selectedRelId         = null;
@@ -5003,7 +5005,7 @@ void populateSelectUser(){
                                    " UNION " +
                                    "SELECT -1, '{All}'";
 
-  timedFetchAll(getNonDeletedUsersQuery, new FetchCallback() {
+  fetchAll(getNonDeletedUsersQuery, new FetchCallback() {
     onFetch(result) {
       populateDropDown(refSearchUsers, result, false);
       search();
@@ -5068,17 +5070,15 @@ void search(){
   searchQuery = dbReplaceFirst(searchQuery, "{area}", area);
   searchQuery = dbReplaceFirst(searchQuery, "{area}", area);
 
-  timedPopulateCursorList(refEntityList, searchQuery, 25);
+  populateCursorList(refEntityList, searchQuery, 25);
   refreshTabgroupCSS(tabgroup);
 
   Log.d("Module", "Search query: " + searchQuery);
 }
 /**************************** USER TAB VALIDATION *****************************/
-/* The autogen defines its own `onClickUserUserListLogin` function. This is   */
-/* overridden using @POSTPROC.                                                */
-/******************************************************************************/
 
-void onClickUserUserListLogin () {
+// Overrides autogenerated definition
+void onClickUserLogin () {
   String refUsers      = userMenuPath; // Defined by autogen
   String refAreaCode   = "User/User_List/AreaCode";
   String refDeviceCode = "User/User_List/Device_Code";
@@ -5283,8 +5283,6 @@ addOnEvent("Diary", "create", "inheritDiaryFields()");
 /* Context-to-Context relationships.                                          */
 /*                                                                            */
 /* Uses functions from logic/relationships-shared.bsh                         */
-/*                                                                            */
-/* Modifies onClickContextCreateRelationshipstoThisContext using @POSTPROC.   */
 /******************************************************************************/
 //////////////////// FUNCTIONS AFFECTING CONTEXT TAB GROUP /////////////////////
 addOnEvent("Context",                                    "show",  "initParentRelationshipGlobals()");
@@ -5313,7 +5311,7 @@ populateExistingRelationships(){
 
   String q = getRelatedChildQuery(currentUuid);
 
-  timedPopulateCursorList(refExistingRelationships, q, 25);
+  populateCursorList(refExistingRelationships, q, 25);
   refreshTabgroupCSS(tabGroup);
 }
 
@@ -5388,7 +5386,7 @@ populateRelationshipType() {
     }
   };
 
-  timedFetchAll(q, populate);
+  fetchAll(q, populate);
 }
 
 populateProposedRelationship() {
@@ -5489,8 +5487,8 @@ searchRelationship() {
 
   relatedQ += getRelatedChildQuery(parentUuid);
 
-  timedPopulateCursorList(refUnrelated, unrelatedQ, 25);
-  timedPopulateCursorList(refRelated,   relatedQ,   25);
+  populateCursorList(refUnrelated, unrelatedQ, 25);
+  populateCursorList(refRelated,   relatedQ,   25);
 
   proposedChildUuid = null; proposedChildIdentifier = null;
   populateProposedRelationship();
@@ -5501,8 +5499,8 @@ clearSearch() {
   String refRelated   = "Relationship/Relationships/Existing_Relationships";
 
   String q = "SELECT '' WHERE 0 LIMIT ? OFFSET ?";
-  timedPopulateCursorList(refUnrelated, q, 25);
-  timedPopulateCursorList(refRelated,   q, 25);
+  populateCursorList(refUnrelated, q, 25);
+  populateCursorList(refRelated,   q, 25);
 }
 
 selectUnrelatedEntity() {
@@ -5600,9 +5598,6 @@ getRelatedChildQuery(String parentUuid) {
 /* Context Group to Context relationships.                                    */
 /*                                                                            */
 /* Uses functions and globals from logic/relationships-shared.bsh             */
-/*                                                                            */
-/* Modifies onClickContextGroupCreateRelationshipstoThisContextGroup using    */
-/* @POSTPROC.                                                                 */
 /******************************************************************************/
 //////////////// FUNCTIONS AFFECTING "CONTEXT GROUP" TAB GROUP /////////////////
 addOnEvent("Context_Group",                                    "show",  "CGinitParentRelationshipGlobals()");
@@ -5629,7 +5624,7 @@ CGpopulateExistingRelationships(){
 
   String q = getCGChildQuery(currentUuid);
 
-  timedPopulateCursorList(refExistingRelationships, q, 25);
+  populateCursorList(refExistingRelationships, q, 25);
   refreshTabgroupCSS(tabGroup);
 }
 
@@ -5765,8 +5760,8 @@ CGsearchRelationship() {
 
   relatedQ += getCGChildQuery(parentUuid);
 
-  timedPopulateCursorList(refUnrelated, unrelatedQ, 25);
-  timedPopulateCursorList(refRelated,   relatedQ,   25);
+  populateCursorList(refUnrelated, unrelatedQ, 25);
+  populateCursorList(refRelated,   relatedQ,   25);
 
   proposedChildUuid = null; proposedChildIdentifier = null;
   CGpopulateProposedRelationship();
@@ -5777,8 +5772,8 @@ CGclearSearch() {
   String refRelated   = "Context_Group_Relationship/Relationships/Existing_Relationships";
 
   String q = "SELECT '' WHERE 0 LIMIT ? OFFSET ?";
-  timedPopulateCursorList(refUnrelated, q, 25);
-  timedPopulateCursorList(refRelated,   q, 25);
+  populateCursorList(refUnrelated, q, 25);
+  populateCursorList(refRelated,   q, 25);
 }
 
 CGselectUnrelatedEntity() {

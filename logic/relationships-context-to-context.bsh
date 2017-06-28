@@ -2,8 +2,6 @@
 /* Context-to-Context relationships.                                          */
 /*                                                                            */
 /* Uses functions from logic/relationships-shared.bsh                         */
-/*                                                                            */
-/* Modifies onClickContextCreateRelationshipstoThisContext using @POSTPROC.   */
 /******************************************************************************/
 //////////////////// FUNCTIONS AFFECTING CONTEXT TAB GROUP /////////////////////
 addOnEvent("Context",                                    "show",  "initParentRelationshipGlobals()");

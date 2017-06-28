@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Check relationships tab groups-->
-
 <!--@POSTPROC: ./proc/post.sh-->
-<module suppressWarnings="true" test_mode="true">
+<module suppressWarnings="true">
 
 <rels>
   <!--Context group-to-Context relationship(s)-->
