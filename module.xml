@@ -97,7 +97,7 @@
         Trench
         <!--@SOURCE: vocabs/area-code.xml-->
       </AreaCode>
-      <Context_Context_ID f="notnull autonum">
+      <Context_Context_ID f="notnull">
         Context Code
         <desc>Every archaeological context (negative element (cut), deposit, structure, skeleton, artefact cluster) is given a unique 3 or 4 letter context code. Each trench is designated with a separate letter which starts the code, so it is immediately obvious to which trench a context belongs. For example context HAA belongs to Trench H, context MQP to Trench M etc.
         The contexts are labelled consecutively in alphabetical order using the letters following the trench letter. For Trench H the first context would be HAA, the second HAB, the third HAB and so on. In addition sets of letters can denote parts of trenches, buildings etc. E.g. HFs might denote contexts from a specific building.

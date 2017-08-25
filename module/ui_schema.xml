@@ -37,7 +37,6 @@
               <Create_New_Diary/>
               <Create_New_Legacy/>
               <Team_Members/>
-              <Next_Context_Context_ID/>
               <Next_Context_Group_ID/>
               <Next_Sample_ID/>
               <GPS_Diagnostics/>
@@ -675,7 +674,6 @@
           </Context_Group_Relationship>
         </faims>
       </instance>
-      <bind nodeset="/faims/Control/Contexts/Next_Context_Context_ID" type="decimal"/>
       <bind nodeset="/faims/Control/Contexts/Next_Context_Group_ID" type="decimal"/>
       <bind nodeset="/faims/Control/Contexts/Next_Sample_ID" type="decimal"/>
       <bind nodeset="/faims/Context/General/Colgroup_2/Col_1/Grid_X" type="decimal"/>
@@ -800,9 +798,6 @@
         </trigger>
         <input ref="Team_Members">
           <label>{Team_Members}</label>
-        </input>
-        <input ref="Next_Context_Context_ID" faims_style_class="required">
-          <label>{Context_Code}</label>
         </input>
         <input ref="Next_Context_Group_ID" faims_style_class="required">
           <label>{Feature_ID}</label>

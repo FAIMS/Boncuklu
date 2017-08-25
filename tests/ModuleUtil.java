@@ -1941,15 +1941,6 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: input
-        Ref:  Control/Contexts/Next_Context_Context_ID
-     */
-    public static EditText get_Control_Contexts_NextContextContextID(Solo solo) {
-        String ref = "Control/Contexts/Next_Context_Context_ID";
-        return (android.widget.EditText) solo.getView((Object) ref);
-    }
-
-    /*
-        Type: input
         Ref:  Control/Contexts/Next_Context_Group_ID
      */
     public static EditText get_Control_Contexts_NextContextGroupID(Solo solo) {
@@ -2310,10 +2301,10 @@ public class ModuleUtil extends ModuleHelper {
 
     /*
         Type: list
-        Ref:  Context/Samples/List_of_Sample
+        Ref:  Context/Samples/List_of_Samples
      */
-    public static View get_Context_Samples_ListofSample(Solo solo) {
-        String ref = "Context/Samples/List_of_Sample";
+    public static View get_Context_Samples_ListofSamples(Solo solo) {
+        String ref = "Context/Samples/List_of_Samples";
         return (android.view.View) solo.getView((Object) ref);
     }
 

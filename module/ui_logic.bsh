@@ -158,7 +158,6 @@ REF_TO_TYPE.put("Control/Contexts/Create_New_Context_Group", "button");
 REF_TO_TYPE.put("Control/Contexts/Create_New_Diary", "button");
 REF_TO_TYPE.put("Control/Contexts/Create_New_Legacy", "button");
 REF_TO_TYPE.put("Control/Contexts/Team_Members", "input");
-REF_TO_TYPE.put("Control/Contexts/Next_Context_Context_ID", "input");
 REF_TO_TYPE.put("Control/Contexts/Next_Context_Group_ID", "input");
 REF_TO_TYPE.put("Control/Contexts/Next_Sample_ID", "input");
 REF_TO_TYPE.put("Control/Contexts/GPS_Diagnostics", "gpsdiag");
@@ -757,7 +756,6 @@ HashSet getTabsAsHashSet() {
 
 List getStartingIdRefs() {
   List l = new ArrayList();
-  l.add("Control/Contexts/Next_Context_Context_ID");
   l.add("Control/Contexts/Next_Context_Group_ID");
   l.add("Control/Contexts/Next_Sample_ID");
   return l;
@@ -1479,44 +1477,44 @@ void timedPopulateCursorList(String ref, String q, int limit) {
 
 void setUpTypeHierarchy() {
   //- 
-  //  - Diary
-  //  - Context Group
-  //    - Photograph Log
-  //  - Matrix
-  //  - Legacy
   //  - Context
   //    - Height
   //    - Matrix
   //    - Special Find
   //    - Sample
   //    - Photograph Log
+  //  - Diary
+  //  - Matrix
+  //  - Legacy
+  //  - Context Group
+  //    - Photograph Log
 
   n0 = Tree("", 1);
-  n1 = Tree("Diary", 1);
-  n2 = Tree("Context Group", 1);
-  n3 = Tree("Photograph Log", 1);
-  n4 = Tree("Matrix", 1);
-  n5 = Tree("Legacy", 1);
-  n6 = Tree("Context", 1);
-  n7 = Tree("Height", 1);
+  n1 = Tree("Context", 1);
+  n2 = Tree("Height", 1);
+  n3 = Tree("Matrix", 1);
+  n4 = Tree("Special Find", 1);
+  n5 = Tree("Sample", 1);
+  n6 = Tree("Photograph Log", 1);
+  n7 = Tree("Diary", 1);
   n8 = Tree("Matrix", 1);
-  n9 = Tree("Special Find", 1);
-  n10 = Tree("Sample", 1);
+  n9 = Tree("Legacy", 1);
+  n10 = Tree("Context Group", 1);
   n11 = Tree("Photograph Log", 1);
 
   n0.addChild(n1);
-  n0.addChild(n2);
-  n0.addChild(n4);
-  n0.addChild(n5);
-  n0.addChild(n6);
+  n0.addChild(n7);
+  n0.addChild(n8);
+  n0.addChild(n9);
+  n0.addChild(n10);
 
-  n2.addChild(n3);
+  n1.addChild(n2);
+  n1.addChild(n3);
+  n1.addChild(n4);
+  n1.addChild(n5);
+  n1.addChild(n6);
 
-  n6.addChild(n7);
-  n6.addChild(n8);
-  n6.addChild(n9);
-  n6.addChild(n10);
-  n6.addChild(n11);
+  n10.addChild(n11);
 
 
   PERF_TYPE_TREE = n0;
@@ -2883,7 +2881,6 @@ String validateFields(List fields, String format) {
 
 void validateControl() {
   List f = new ArrayList(); // Fields to be validated
-  f.add(fieldPair("Control/Contexts/Next_Context_Context_ID", "{Context_Code}"));
   f.add(fieldPair("Control/Contexts/Next_Context_Group_ID", "{Feature_ID}"));
   f.add(fieldPair("Control/Contexts/Next_Sample_ID", "{Next_Sample_ID}"));
 
@@ -3583,16 +3580,13 @@ void newContext(String parent){
     parentTabgroup   = parent;
     parentTabgroup__ = parent;
   }
-  if (isNull("Control/Contexts/Next_Context_Context_ID")) {
-    showWarning("{Alert}", "{A_next_ID_has_not_been_entered_please_provide_one}");
-    return;
-  }
+  
 
   setUuid(tabgroup, null);
   newTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
-  incAutoNum("Context/General/Context_Context_ID");
+  
 
   executeOnEvent(tabgroup, "create");
 }
@@ -3787,7 +3781,7 @@ void duplicateContext(){
   String uuidOld = getUuid(tabgroup);
   setUuid(tabgroup, "");
   disableAutoSave(tabgroup);
-  incAutoNum("Context/General/Context_Context_ID");
+  
   clearGpsInTabGroup(tabgroup);
   populateAuthorAndTimestamp(tabgroup);
   populateEntityListsInTabGroup(tabgroup);
@@ -4613,7 +4607,6 @@ for (String ref : getStartingIdRefs())
 
 void incAutoNum(String destPath) {
   Map destToSource = new HashMap();
-  destToSource.put("Context/General/Context_Context_ID", "Control/Contexts/Next_Context_Context_ID");
   destToSource.put("Context_Group/Gen/Context_Group_ID", "Control/Contexts/Next_Context_Group_ID");
   destToSource.put("Sample/Deposit_Samples/Sample_ID", "Control/Contexts/Next_Sample_ID");
 
