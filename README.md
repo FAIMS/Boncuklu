@@ -35,3 +35,35 @@ This module is part of the **FAIMS Demo library** on our publicly accessible Dem
 For more details about the **Boncuklu Project** please visit www.boncuklu.org, Twitter:@BoncukluProject, Facebook: Boncuklu Project. If you have any questions about the Boncuklu Project, contact co-director a.fairbairn@uq.edu.au.
 
 If you have any questions about the module, please contact the FAIMS team at **enquiries@fedarch.org** and we will get back to you within one business day.
+
+## Screenshots:
+
+<p align="left">
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-125913.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-125941.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-125946.png" width="250"/>
+</p>
+
+<p align="left">
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-125956.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130018.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130030.png" width="250"/>
+</p>
+
+<p align="left">
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130154.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130200.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130214.png" width="250"/>
+</p>
+
+<p align="left">
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130227.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130300.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130310.png" width="250"/>
+</p>
+
+<p align="left">
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130606.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130721.png" width="250"/>
+  <img src="https://github.com/FAIMS/Boncuklu/blob/master/screenshots/Screenshot_20170912-130742.png" width="250"/>
+</p>
