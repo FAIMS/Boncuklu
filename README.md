@@ -24,7 +24,7 @@ This module is part of the **FAIMS Demo library** on our publicly accessible Dem
 * picture galleries
 * hierarchic dropdowns
 * attribute-level timestamps
-* attaching multimedia (photographs, sketches, audio etc.)
+* multimedia capture (photographs, sketches, audio etc.)
 * defining relationships between individual contexts / features
 
 ## This module can be used with no or minor modification for:
